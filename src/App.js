@@ -1,11 +1,24 @@
+import { ThemeProvider } from '@mui/material/styles';
 import logo from './logo.svg';
 import './App.css';
 
+import {
+  CardMedia,
+  Box,
+
+} from '@mui/material';
+
+import {
+  theme,
+  sxApp,
+} from './sxStyles';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <ThemeProvider theme={theme}>
+      <Box sx={sxApp} className="App">
+        <header className="App-header">
+          {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -16,9 +29,11 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
-      </header>
-    </div>
+        </a> */}
+        </header>
+
+      </Box>
+    </ThemeProvider>
   );
 }
 
