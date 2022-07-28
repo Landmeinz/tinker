@@ -1,4 +1,5 @@
-import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+// responsiveFontSizes
+import { createTheme } from '@mui/material/styles';
 
 export const theme = createTheme({
     palette: {
@@ -49,8 +50,7 @@ export const sxApp = {
 export const sxAppContainer = {
     height: '100vh',
     overflowY: 'scroll',
-
-
+    pb: 25,
 }
 
 export const sxSectionOne = {
@@ -107,20 +107,20 @@ export const sxHeroImageContent = {
     justifyContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 25,
+    gap: 20,
 
 }
 export const sxHeroImage = {
     // border: '1px solid red',
-    height: '10rem',
-    width: '10rem',
+    height: '12rem',
+    width: '12rem',
     borderRadius: '50%',
 
 }
 
 export const sxSectionTwo = {
     // border: '1px solid blue',
-    mt: '20rem',
+    mt: '10rem',
     display: 'flex',
     justifyContent: 'center',
     
@@ -133,19 +133,18 @@ export const sxSectionTwoContent = {
     display: 'flex',
     flexDirection: 'column',
     gap: 5,
-
-
 }
 
 
 export const sxSectionThree = {
-    mt: '20rem',
+    mt: '10rem',
     display: 'flex',
     justifyContent: 'center',
     
 }
 
 export const sxSectionThreeContent = {
+    // border: '1px solid red',
     textAlign: 'center',
     mx: 25,
     display: 'flex',
@@ -156,7 +155,7 @@ export const sxSectionThreeContent = {
 
 
 export const sxSectionFour = {
-    mt: '20rem',
+    mt: '10rem',
     display: 'flex',
     justifyContent: 'center',
     
@@ -171,3 +170,26 @@ export const sxSectionFourContent = {
 
 }
 
+
+
+export const newClass = {
+
+}
+
+// ***** ExpandableDiv ***** //
+// ***** ExpandableDiv ***** //
+// ***** ExpandableDiv ***** //
+// ***** ExpandableDiv ***** //
+// ***** ExpandableDiv ***** //
+export const sxExpandContainer = {
+    // border: '1px solid red',
+    margin: 0,
+
+}
+
+export const sxAccordionCenterText = {
+    textAlign: 'center',
+    mx: 'auto',
+    p: 2,
+    lineHeight: '1',
+}
