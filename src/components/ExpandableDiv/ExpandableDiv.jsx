@@ -15,6 +15,7 @@ import {
 import {
     sxExpandContainer,
     sxAccordionCenterText,
+    sxAccordion,
 
 
 } from '../sxStyles';
@@ -27,8 +28,8 @@ function ExpandableDiv({ title, details, detailsTwo }) {
 
     return (
         <Box sx={sxExpandContainer} onClick={() => handleClick()}>
-            <Accordion>
-                <AccordionSummary
+            <Accordion sx={sxAccordion}>
+                <AccordionSummary sx={sxAccordion}
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                 >
