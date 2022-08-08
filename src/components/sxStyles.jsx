@@ -102,7 +102,7 @@ export const sxMenuItem = {
 export const sxSectionOne = {
     // border: '1px solid red',
     width: '100%',
-    height: '100vh',
+    // height: '100vh',
     display: 'flex',
     flexDirection: 'column',
     // alignItems: 'center',`
@@ -143,6 +143,15 @@ export const sxHeroText = {
     [theme.breakpoints.down('sm')]: {
         fontSize: '2.5rem'
     }
+
+}
+
+export const sxTinkerDefined = {
+    border: '1px solid red',
+    p: 5,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 3,
 
 }
 
