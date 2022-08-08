@@ -50,7 +50,7 @@ import {
     sxSectionFourContent,
 
     sxNavContainer,
-    sxNavContent,
+    // sxNavContent,
     sxMenuIcon,
     sxMenuList,
     sxMenuItem,
@@ -71,38 +71,34 @@ function Nav() {
         setOpenStatus(false);
     }; // handleNav
 
-    function openOrCloseMenu() {
-        setOpenStatus(!openStatus);
-    }; // handleClick
+    // function openOrCloseMenu() {
+    //     setOpenStatus(!openStatus);
+    // }; // openOrCloseMenu
 
     return (
 
         <Box sx={sxNavContainer}>
             <Typography sx={sxTinker} variant='h4' onClick={() => handleNav('/about')}>Tinker</Typography>
-            <Box sx={sxNavContent}>
-
             <Typography sx={sxTinker} variant='h5' onClick={() => handleNav('/work')}>Our Work</Typography>
-                {/* {openStatus &&
-                    <MenuList sx={sxMenuList}>
-                        <MenuItem sx={sxMenuItem} onClick={() => handleNav('/about')}>About</MenuItem>
-                        <MenuItem sx={sxMenuItem} onClick={() => handleNav('/work')}>Work</MenuItem>
-                    </MenuList>
-                }
-
-                <Button
-                    id="basic-button"
-                    aria-controls={openStatus ? 'basic-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={openStatus ? 'true' : undefined}
-                    onClick={() => openOrCloseMenu()}
-                >
-                    <MenuIcon sx={sxMenuIcon} />
-                </Button> */}
-
-            </Box>
-
         </Box>
 
     )
 }
 export default Nav;
+
+// {openStatus &&
+//                     <MenuList sx={sxMenuList}>
+//                         <MenuItem sx={sxMenuItem} onClick={() => handleNav('/about')}>About</MenuItem>
+//                         <MenuItem sx={sxMenuItem} onClick={() => handleNav('/work')}>Work</MenuItem>
+//                     </MenuList>
+//                 }
+
+//                 <Button
+//                     id="basic-button"
+//                     aria-controls={openStatus ? 'basic-menu' : undefined}
+//                     aria-haspopup="true"
+//                     aria-expanded={openStatus ? 'true' : undefined}
+//                     onClick={() => openOrCloseMenu()}
+//                 >
+//                     <MenuIcon sx={sxMenuIcon} />
+//                 </Button>

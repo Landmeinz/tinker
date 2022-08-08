@@ -71,11 +71,11 @@ export const sxTinker = {
 
 }
 
-export const sxNavContent = {
+// export const sxNavContent = {
     // border: '1px solid red',
     // display: 'flex',
 
-}
+// }
 
 export const sxMenuIcon = {
     // border: '1px solid blue',
@@ -108,6 +108,7 @@ export const sxSectionOne = {
     // alignItems: 'center',`
     justifyContent: 'center',
     gap: 15,
+    mt: 15,
 
 }
 
