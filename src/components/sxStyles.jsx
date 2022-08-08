@@ -1,4 +1,5 @@
-import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+// responsiveFontSizes
+import { createTheme } from '@mui/material/styles';
 
 export const theme = createTheme({
     palette: {
@@ -35,7 +36,8 @@ export const theme = createTheme({
 // export const theme = responsiveFontSizes(themeStyle);
 
 export const sxApp = {
-    bgcolor: 'info.light',
+    bgcolor: 'white',
+    height: '100%',
     m: 0,
     p: 0,
 
@@ -47,10 +49,54 @@ export const sxApp = {
 }
 
 export const sxAppContainer = {
-    height: '100vh',
-    overflowY: 'scroll',
+    height: '100%',
+    // overflowY: 'scroll',
+    pb: 25,
+}
 
+export const sxNavContainer = {
+    // border: '1px solid red',
+    p: 2,
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    position: 'sticky',
+    top: 0,
+    bgcolor: 'white',
 
+}
+
+export const sxTinker = {
+    cursor: 'pointer',
+
+}
+
+export const sxNavContent = {
+    // border: '1px solid red',
+    // display: 'flex',
+
+}
+
+export const sxMenuIcon = {
+    // border: '1px solid blue',
+    cursor: 'pointer',
+}
+
+export const sxMenuList = {
+    // border: '1px solid blue',
+    display: 'flex',
+    m: 0,
+    p: 0,
+    gap: 2,
+}
+
+export const sxMenuItem = {
+    // border: '1px solid green',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    m: 0,
+    p: 0,
 }
 
 export const sxSectionOne = {
@@ -59,7 +105,7 @@ export const sxSectionOne = {
     height: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    // alignItems: 'center',
+    // alignItems: 'center',`
     justifyContent: 'center',
     gap: 15,
 
@@ -107,20 +153,20 @@ export const sxHeroImageContent = {
     justifyContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 25,
+    gap: 20,
 
 }
 export const sxHeroImage = {
     // border: '1px solid red',
-    height: '10rem',
-    width: '10rem',
+    height: '12rem',
+    width: '12rem',
     borderRadius: '50%',
 
 }
 
 export const sxSectionTwo = {
     // border: '1px solid blue',
-    mt: '20rem',
+    mt: '10rem',
     display: 'flex',
     justifyContent: 'center',
     
@@ -133,19 +179,18 @@ export const sxSectionTwoContent = {
     display: 'flex',
     flexDirection: 'column',
     gap: 5,
-
-
 }
 
 
 export const sxSectionThree = {
-    mt: '20rem',
+    mt: '10rem',
     display: 'flex',
     justifyContent: 'center',
     
 }
 
 export const sxSectionThreeContent = {
+    // border: '1px solid red',
     textAlign: 'center',
     mx: 25,
     display: 'flex',
@@ -156,7 +201,7 @@ export const sxSectionThreeContent = {
 
 
 export const sxSectionFour = {
-    mt: '20rem',
+    mt: '10rem',
     display: 'flex',
     justifyContent: 'center',
     
@@ -169,5 +214,39 @@ export const sxSectionFourContent = {
     flexDirection: 'column',
     gap: 5,
 
+}
+
+
+
+export const newClass = {
+
+}
+
+// ***** ExpandableDiv ***** //
+// ***** ExpandableDiv ***** //
+// ***** ExpandableDiv ***** //
+// ***** ExpandableDiv ***** //
+// ***** ExpandableDiv ***** //
+export const sxExpandContainer = {
+    border: '1px solid blue',
+    m: 0,
+    p: 0,
+}
+
+export const sxAccordion = {
+    bgcolor: 'primary.main',
+}
+
+export const sxAccordionCenterText = {
+    border: '1px solid red',
+    textAlign: 'center',
+    mx: 'auto',
+    p: 2,
+    lineHeight: '1',
+}
+
+export const sxWorkContainer = {
+    height: '100%',
+    minHeight: '100vh',
 }
 
