@@ -3,9 +3,8 @@ import React, { useState } from 'react';
 
 import ExpandableDiv from '../ExpandableDiv/ExpandableDiv';
 
-import {
-    useNavigate,
-} from 'react-router-dom';
+import { useLocation } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 // --- MUI --- // 
 import {
@@ -55,6 +54,8 @@ import {
     sxMenuList,
     sxMenuItem,
     sxTinker,
+    sxBreaksH4,
+    sxBreaksH5,
 
 
 } from '../sxStyles';
@@ -62,13 +63,15 @@ import {
 function Nav() {
 
     const navigate = useNavigate();
+    const location = useLocation();
 
-    let anchorEl = false;
-    const [openStatus, setOpenStatus] = useState(false);
+    // let anchorEl = false;
+    // const [openStatus, setOpenStatus] = useState(false);
 
     function handleNav(path) {
         navigate(path);
-        setOpenStatus(false);
+        window.scrollTo(0, 0);
+        // setOpenStatus(false); 
     }; // handleNav
 
     // function openOrCloseMenu() {
@@ -78,8 +81,13 @@ function Nav() {
     return (
 
         <Box sx={sxNavContainer}>
-            <Typography sx={sxTinker} variant='h4' onClick={() => handleNav('/about')}>Tinker</Typography>
-            <Typography sx={sxTinker} variant='h5' onClick={() => handleNav('/work')}>Our Work</Typography>
+            <Box sx={sxTinker}>
+                <Typography sx={sxBreaksH4} variant='h4' onClick={() => handleNav('/about')}>Tinker</Typography>
+            </Box>
+
+            <Box sx={sxTinker}>
+                <Typography sx={sxBreaksH5} variant='h5' onClick={() => handleNav('/work')}>Our Work</Typography>
+            </Box>
         </Box>
 
     )

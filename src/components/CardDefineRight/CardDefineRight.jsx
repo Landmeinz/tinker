@@ -46,10 +46,18 @@ import {
     sxMenuItem,
     sxTinker,
     sxTinkerDefined,
+    sxCardDefineBody,
+    sxCardDefineContainer,
+    sxBoxColor,
+    sxCenterCircle,
+    sxCircleFrame,
+    sxBreaksH4,
+    sxBreaksH5,
+
 
 } from '../sxStyles';
 
-function CardDefine({title, body, tag}) {
+function CardDefineRight({ title, body, tag }) {
 
     // function handleClick() {
     //     console.log('clicked');
@@ -57,17 +65,24 @@ function CardDefine({title, body, tag}) {
 
     return (
 
-        <Box>
-            <Box sx={sxTinkerDefined}>
-                <Typography variant='h4'>{title}</Typography>
-                <Box>
-                    <Typography variant='h4'>{body}</Typography>
-                    <br />
-                    <Typography variant='h5'>{tag}</Typography>
+        <Box sx={sxCardDefineContainer}>
+
+            <Box sx={sxBoxColor}>
+                <Box sx={sxCenterCircle}>
+                    <img style={sxCircleFrame} src="https://i.giphy.com/media/mYqaRkXyoGbcY/giphy.webp" />
                 </Box>
             </Box>
+
+            <Box sx={sxTinkerDefined}>
+                <Typography sx={sxBreaksH4} variant='h4'>{title}</Typography>
+                <Box sx={sxCardDefineBody}>
+                    <Typography sx={sxBreaksH4} variant='h4'>{body}</Typography>
+                    <Typography sx={sxBreaksH5} variant='h5'>{tag}</Typography>
+                </Box>
+            </Box>
+
         </Box>
 
     )
 }
-export default CardDefine;
+export default CardDefineRight;

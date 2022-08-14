@@ -2,6 +2,8 @@
 import React from 'react';
 
 import ExpandableDiv from '../ExpandableDiv/ExpandableDiv';
+import CardProject from '../CardProject/CardProject';
+import ProjectDescription from '../ProjectDescription/ProjectDescription';
 
 import {
     useNavigate,
@@ -21,13 +23,16 @@ import {
 
 
 import {
-  sxWorkContainer,
-  sxHeroText,
+    sxWorkContainer,
+    sxHeroText,
 
-  sxSectionOne,
-  sxHeroTextContent,
-  sxHeroImageContent,
-  sxHeroImage,
+    sxWorkSectionOne,
+    sxHeroTextContent,
+    sxHeroImageContent,
+    sxHeroImage,
+    sxBreaksH4,
+    sxProjectContainer,
+    sxCardProjectGallery,
 
 } from '../sxStyles';
 
@@ -35,43 +40,50 @@ function Work() {
 
     const navigate = useNavigate();
 
-        function handleClick(path) {
-      navigate(path);
-    }; 
+    function handleClick(path) {
+        navigate(path);
+    };
+
+    let swing = {
+        title: 'Old tree, new swings',
+        body: 'This is a longer description about this project',
+        // details: 'noDetails',
+        imageCaption1: 'optional image caption',
+        imageCaption2: 'imageCaption2',
+        imageCaption3: 'imageCaption3',
+        imageCaption4: 'imageCaption4',
+        imageCaption5: 'imageCaption5',
+        imageCaption6: 'imageCaption6',
+
+    }
 
     return (
 
-        <Box sx={sxWorkContainer}>
-            <Typography sx={sxHeroText} variant='h1'>We've Been Tinkering</Typography>
 
-            <Box sx={sxSectionOne}>
+
+        <Box>
+            <Box sx={sxWorkSectionOne}>
                 <Box sx={sxHeroTextContent}>
-                    <Typography sx={sxHeroText} variant='h1'>Work</Typography>
-                    <Typography sx={sxHeroText} variant='h1'>Work</Typography>
+                    <Typography sx={sxHeroText} variant='h1'>We've</Typography>
+                    <Typography sx={sxHeroText} variant='h1'>Been Tinkering</Typography>
                 </Box>
 
-                <Box sx={sxHeroImageContent} onClick={() => handleClick('/home')}>
-                    <CardMedia sx={sxHeroImage}
-                        component="img"
-                        // height="194"
-                        image="/images/tools1.jpg"
-                    // alt="Some Image"
+                <Box sx={sxProjectContainer}>
+                    <ProjectDescription
+                        title={swing.title}
+                        body={swing.body}
+                        details={swing.details}
                     />
-                    <CardMedia sx={sxHeroImage}
-                        component="img"
-                        // height="194"
-                        image="/images/tools2.jpg"
-                    // alt="Some Image"
-                    />
-                    <CardMedia sx={sxHeroImage}
-                        component="img"
-                        // height="194"
-                        image="/images/notes.jpg"
-                    // alt="Some Image"
-                    />
+                    <Box sx={sxCardProjectGallery}>
+                        <CardProject imageCaption={swing.imageCaption1} />
+                        <CardProject imageCaption={swing.imageCaption2} />
+                        <CardProject imageCaption={swing.imageCaption3} />
+                        <CardProject imageCaption={swing.imageCaption4} />
+                        <CardProject imageCaption={swing.imageCaption5} />
+                        <CardProject imageCaption={swing.imageCaption6} />
+                    </Box>
                 </Box>
             </Box>
-
         </Box>
 
     )

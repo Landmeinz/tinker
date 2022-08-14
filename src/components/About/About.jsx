@@ -2,11 +2,12 @@
 import React from 'react';
 
 import ExpandableDiv from '../ExpandableDiv/ExpandableDiv';
-import CardDefine from '../CardDefine/CardDefine';
+import CardDefineRight from '../CardDefineRight/CardDefineRight';
+import CardDefineLeft from '../CardDefineLeft/CardDefineLeft';
+import CardAdditionalDetails from '../CardAdditionalDetails/CardAdditionalDetails';
 
-import {
-    useNavigate,
-} from 'react-router-dom';
+import { useLocation } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 // --- MUI --- // 
 import {
@@ -27,7 +28,7 @@ import {
     theme,
     sxApp,
     sxAppContainer,
-    sxSectionOne,
+    sxAboutSectionOne,
     sxLeftColumn,
     sxRightColumn,
     sxHeroTextContent,
@@ -44,87 +45,46 @@ import {
     sxSectionFour,
     sxSectionFourContent,
     sxTinkerDefined,
+    sxCardDefineContainer,
+    sxBoxColor,
+
 
 } from '../sxStyles';
 
 function About() {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    let titleN = `Tinker (n.)`;
-    let bodyN = `"Mender of kettles, pots, pans, etc.," mid-13c. (as a surname), of uncertain origin. Some connect the word with the sound made by light hammering on metal.  A person who travels from place to place mending metal utensils as a way of making a living.`;
-    let tagN = `Tinkers' had a reputation for free and casual use of profanity`;
+    let titleOne = `Tinker (noun)`;
+    let bodyOne = `"Mender of kettles, pots, pans, etc.," mid-13c. (as a surname), of uncertain origin. Some connect the word with the sound made by light hammering on metal.  A person who travels from place to place mending metal utensils as a way of making a living.`;
+    let tagOne = `Tinkerers had a reputation for free and casual use of profanity.`;
 
-    let titleV = `Tinker (v.)`;
-    let bodyV = `1590s, "to work as a tinker," from tinker (n.)  Meaning "work imperfectly, keep busy in a useless way," is first found 1650s. Attempt to repair or improve something in a casual or desultory way, often to no useful effect.`;
-    let tagV = `Related: tinkered, tinkering`;
+    let titleTwo = `Tinker (verb)`;
+    let bodyTwo = `1590s, "to work as a tinker," from tinker (n.)  Meaning "work imperfectly, keep busy in a useless way," is first found 1650s. Attempt to repair or improve something in a casual or desultory way, often to no useful effect.`;
+    let tagTwo = `Related: tinkered, tinkering`;
 
+    let titleThree = `Tinkering requires dreaming up some wild ideas, taking the time to prototype and test, and being willing to fail early and often.`;
+    let titleFour = `To tinker properly the designer's perspective embraces empathy, optimism, iteration, creativity, and ambiguity.`;
+    let titleFive = `All the while using design thinking and first principle to keep people at the center of every design decision during the process.`;
 
-    function handleClick(path) {
-        navigate(path);
-    };
+    // function handleClick(path) {
+    //     navigate(path);
+    // };
 
     return (
 
         <Box>
-            <Box sx={sxSectionOne}>
+            <Box sx={sxAboutSectionOne}>
                 <Box sx={sxHeroTextContent}>
-                    <Typography sx={sxHeroText} variant='h1'>TOGETHER</Typography>
-                    <Typography sx={sxHeroText} variant='h1'>WE TINKER</Typography>
+                    <Typography sx={sxHeroText} variant='h1'>Together</Typography>
+                    <Typography sx={sxHeroText} variant='h1'>We Tinker</Typography>
                 </Box>
+                <CardDefineRight title={titleOne} body={bodyOne} tag={tagOne} />
+                <CardDefineLeft title={titleTwo} body={bodyTwo} tag={tagTwo} />
 
-                <CardDefine title={titleN} body={bodyN} tag={tagN}/>
-
-                <CardDefine title={titleV} body={bodyV} tag={tagV}/>
-
-                {/* <Box sx={sxTinkerDefined}>
-                    <Typography variant='h4'>Tinker (n.)</Typography>
-                    <Box>
-                        <Typography variant='h4'>
-                        "Mender of kettles, pots, pans, etc.," mid-13c. (as a surname), of uncertain origin. Some connect the word with the sound made by light hammering on metal.
-                        </Typography>
-                        <br/>
-                        <Typography variant='h5'>
-                        Tinkers' had a reputation for free and casual use of profanity
-                        </Typography>
-                    </Box>
-
-                    <br/>
-
-                    <Typography variant='h4'>Tinker (v.)</Typography>
-                    <Box>
-                        <Typography variant='h4'>
-                            1590s, "to work as a tinker," from tinker (n.)  Meaning "work imperfectly, keep busy in a useless way," is first found 1650s. 
-                        </Typography>
-                        <br/>
-                        <Typography variant='h5'>
-                        Related: tinkered, tinkering
-                        </Typography>
-                    </Box>
-
-
-                </Box> */}
-                {/* 
-                <Box sx={sxHeroImageContent} onClick={() => handleClick('/work')}>
-                    <CardMedia sx={sxHeroImage}
-                        component="img"
-                        // height="194"
-                        image="/images/tools1.jpg"
-                    // alt="Some Image"
-                    />
-                    <CardMedia sx={sxHeroImage}
-                        component="img"
-                        // height="194"
-                        image="/images/tools2.jpg"
-                    // alt="Some Image"
-                    />
-                    <CardMedia sx={sxHeroImage}
-                        component="img"
-                        // height="194"
-                        image="/images/notes.jpg"
-                    // alt="Some Image"
-                    />
-                </Box> */}
+                <CardAdditionalDetails title={titleThree} />
+                <CardAdditionalDetails title={titleFour} />
+                <CardAdditionalDetails title={titleFive} />
             </Box>
         </Box>
 

@@ -27,7 +27,7 @@ import {
     theme,
     sxApp,
     sxAppContainer,
-    sxSectionOne,
+    sxWorkSectionOne,
     sxLeftColumn,
     sxRightColumn,
     sxHeroTextContent,
@@ -57,7 +57,7 @@ function Home() {
     return (
 
         <Box>
-            <Box sx={sxSectionOne}>
+            <Box sx={sxWorkSectionOne}>
                 <Box sx={sxHeroTextContent}>
                     <Typography sx={sxHeroText} variant='h1'>TOGETHER</Typography>
                     <Typography sx={sxHeroText} variant='h1'>WE TINKER</Typography>
