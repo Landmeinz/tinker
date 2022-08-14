@@ -46,7 +46,7 @@ import {
 
 } from '../sxStyles';
 
-function CardProject({imageCaption}) {
+function CardProject({image, imageCaption}) {
 
     // function handleClick() {
     //     console.log('clicked');
@@ -58,7 +58,7 @@ function CardProject({imageCaption}) {
                 <CardMedia
                     sx={sxCardProject}
                     component="img"
-                    image="/images/notes.jpg" />
+                    image={image} />
                 <Typography sx={sxImageCaption} variant='body1'>{imageCaption}</Typography>
             </Box>            
 

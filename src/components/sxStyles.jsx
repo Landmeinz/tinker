@@ -9,7 +9,7 @@ export const theme = createTheme({
             light: 'hsla(14, 77%, 56%, 1)',
         },
         secondary: {
-            main: 'hsla(220, 20%, 25%, 1)',
+            main: 'hsla(220, 20%, 20%, 1)',
             dark: 'hsla(312, 14%, 36%, 1)',
             light: 'hsla(180, 78%, 48%, 1)',
         },
@@ -63,13 +63,17 @@ export const sxNavContainer = {
     position: 'sticky',
     top: 0,
     bgcolor: 'info.light',
-    boxShadow: 2,
+    boxShadow: 3,
 
 }
 
-export const sxTinker = {
+export const sxTinkerNavText = {
+    color: 'secondary.main',
     cursor: 'pointer',
-
+    "&:hover": {
+        color: 'primary.light',
+        transform: 'scale(1.05)',
+    },
 }
 
 // export const sxNavContent = {
@@ -127,12 +131,12 @@ export const sxWorkSectionOne = {
 }
 
 export const sxProjectContainer = {
-    border: '1px solid blue',
+    // border: '1px solid blue',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 3,
+    gap: 2,
 
 }
 
@@ -180,7 +184,7 @@ export const sxHeroTextContent = {
 
 }
 export const sxHeroText = {
-    color: 'info.light',
+    color: 'primary.light',
     fontWeight: 'bold', // normal, bold, light
     textAlign: 'center',
 
@@ -197,6 +201,25 @@ export const sxHeroText = {
         fontSize: '2.5rem'
     }
 
+}
+
+export const sxWorkHeroText = {
+    color: 'primary.light',
+    fontWeight: 'bold', // normal, bold, light
+    textAlign: 'center',
+
+    [theme.breakpoints.down('xl')]: {
+        fontSize: '7.4rem'
+    },
+    [theme.breakpoints.down('lg')]: {
+        fontSize: '6rem'
+    },
+    [theme.breakpoints.down('md')]: {
+        fontSize: '4rem'
+    },
+    [theme.breakpoints.down('sm')]: {
+        fontSize: '2.5rem'
+    }
 }
 
 export const sxBreaksH4 = {
@@ -276,6 +299,7 @@ export const sxTinkerDefined = {
     width: '60%',
     height: 'inherit',
     bgcolor: 'info.light',
+    
 
 }
 
@@ -397,7 +421,8 @@ export const sxAccordionCenterText = {
     textAlign: 'center',
     mx: 12,
     lineHeight: '1',
-    color: 'info.light'
+    color: 'info.light',
+    mb: 2,
 }
 
 export const sxWorkContainer = {

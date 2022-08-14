@@ -53,7 +53,7 @@ import {
     sxMenuIcon,
     sxMenuList,
     sxMenuItem,
-    sxTinker,
+    sxTinkerNavText,
     sxBreaksH4,
     sxBreaksH5,
 
@@ -81,11 +81,11 @@ function Nav() {
     return (
 
         <Box sx={sxNavContainer}>
-            <Box sx={sxTinker}>
+            <Box sx={sxTinkerNavText}>
                 <Typography sx={sxBreaksH4} variant='h4' onClick={() => handleNav('/about')}>Tinker</Typography>
             </Box>
 
-            <Box sx={sxTinker}>
+            <Box sx={sxTinkerNavText}>
                 <Typography sx={sxBreaksH5} variant='h5' onClick={() => handleNav('/work')}>Our Work</Typography>
             </Box>
         </Box>

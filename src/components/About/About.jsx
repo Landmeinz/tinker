@@ -65,11 +65,7 @@ function About() {
 
     let titleThree = `Tinkering requires dreaming up some wild ideas, taking the time to prototype and test, and being willing to fail early and often.`;
     let titleFour = `To tinker properly the designer's perspective embraces empathy, optimism, iteration, creativity, and ambiguity.`;
-    let titleFive = `All the while using design thinking and first principle to keep people at the center of every design decision during the process.`;
-
-    // function handleClick(path) {
-    //     navigate(path);
-    // };
+    let titleFive = "We're a creative group of entrepreneurs, designers, architects, engineers, developers, and researchers";
 
     return (
 
@@ -82,9 +78,9 @@ function About() {
                 <CardDefineRight title={titleOne} body={bodyOne} tag={tagOne} />
                 <CardDefineLeft title={titleTwo} body={bodyTwo} tag={tagTwo} />
 
+                <CardAdditionalDetails title={titleFive} />
                 <CardAdditionalDetails title={titleThree} />
                 <CardAdditionalDetails title={titleFour} />
-                <CardAdditionalDetails title={titleFive} />
             </Box>
         </Box>
 
