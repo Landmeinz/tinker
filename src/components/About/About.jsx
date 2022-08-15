@@ -5,6 +5,7 @@ import ExpandableDiv from '../ExpandableDiv/ExpandableDiv';
 import CardDefineRight from '../CardDefineRight/CardDefineRight';
 import CardDefineLeft from '../CardDefineLeft/CardDefineLeft';
 import CardAdditionalDetails from '../CardAdditionalDetails/CardAdditionalDetails';
+import ContactButton from '../ContactButton/ContactButton';
 
 import { useLocation } from 'react-router';
 import { useNavigate } from 'react-router-dom';
@@ -75,12 +76,15 @@ function About() {
                     <Typography sx={sxHeroText} variant='h1'>Together</Typography>
                     <Typography sx={sxHeroText} variant='h1'>We Tinker</Typography>
                 </Box>
+
                 <CardDefineRight title={titleOne} body={bodyOne} tag={tagOne} />
                 <CardDefineLeft title={titleTwo} body={bodyTwo} tag={tagTwo} />
 
                 <CardAdditionalDetails title={titleFive} />
                 <CardAdditionalDetails title={titleThree} />
                 <CardAdditionalDetails title={titleFour} />
+
+                <ContactButton />
             </Box>
         </Box>
 

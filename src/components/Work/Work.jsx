@@ -45,9 +45,10 @@ function Work() {
     };
 
     let swing = {
-        title: 'New Marriage, Old Tree, Two Swings',
-        body: 'Owners of a new house were gifted with two handmade wooden teak swings hung and supported with twisted 1" manilla rope. Swings were designed in two collaboration sessions and were completely finished in three wood shop visits. ',
+        title: 'New House, Old Tree, Two Swings For Newlyweds',
+        body: 'Owners of a new house were gifted with two handmade wooden teak swings hung and supported with 1" twisted manilla rope. Swings were designed in two collaboration sessions and were completely finished in three wood shop visits. ',
         // details: 'noDetails',
+
         imagePath1: '/images/swing/process1.jpg',
         imageCaption1: 'sketches and tinkering',
 

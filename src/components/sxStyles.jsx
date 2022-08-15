@@ -56,7 +56,8 @@ export const sxAppContainer = {
 
 export const sxNavContainer = {
     // border: '1px solid red',
-    p: 2,
+    py: 1,
+    px: 2,
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -436,4 +437,106 @@ export const sxDetailsContainer = {
     gap: 1,
     color: 'info.light',
     px: 10,
+}
+
+
+
+
+// button //
+// button //
+// button //
+// button //
+export const sxContactButtonContainer = {
+    display: 'flex',
+    justifyContent: 'center',
+
+}
+
+export const sxContactButton = {
+    bgcolor: 'secondary.main',
+    color: 'primary.main',
+    width: '15rem',
+    border: 1,
+    borderColor: 'info.light',
+    fontWeight: 'bold',
+
+    "&:hover": {
+        bgcolor: 'primary.light',
+        color: 'secondary.main',
+        transform: 'scale(1.05)',
+    },
+}
+
+export const sxFooterContainer = {
+    // border: '1px solid red',
+    position: 'fixed',
+    bottom: 0,
+    height: '1.25rem',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    bgcolor: 'info.light',
+    color: 'secondary.main',
+    // borderRadius: '2rem',
+}
+
+export const sxContactSectionOne = {
+    display: 'flex',
+    flexDirection: 'column',
+    // alignItems: 'center',`
+    justifyContent: 'center',
+    gap: 17,
+    mt: 12,
+}
+
+export const sxContactText = {
+    color: 'primary.light',
+    fontWeight: 'bold', // normal, bold, light
+    textAlign: 'center',
+
+    [theme.breakpoints.down('xl')]: {
+        fontSize: '7.4rem'
+    },
+    [theme.breakpoints.down('lg')]: {
+        fontSize: '6rem'
+    },
+    [theme.breakpoints.down('md')]: {
+        fontSize: '4rem'
+    },
+    [theme.breakpoints.down('sm')]: {
+        fontSize: '2.5rem'
+    }
+}
+
+
+export const sxInputContainer = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 3,
+}
+
+export const sxInputText = {
+    bgcolor: 'info.light',
+    color: 'secondary.main',
+    width: '50rem',
+    borderRadius: 3,
+
+}
+
+export const sxPostButton = {
+    bgcolor: 'secondary.main',
+    color: 'primary.main',
+    width: '15rem',
+    border: 1,
+    borderColor: 'info.light',
+    fontWeight: 'bold',
+
+    "&:hover": {
+        bgcolor: 'primary.light',
+        color: 'secondary.main',
+        transform: 'scale(1.05)',
+    },
 }

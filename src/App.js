@@ -6,6 +6,8 @@ import Home from './components/Home/Home';
 import Work from './components/Work/Work';
 import About from './components/About/About';
 import Nav from './components/Nav/Nav';
+import Footer from './components/Footer/Footer';
+import Contact from './components/Contact/Contact';
 
 import {
   BrowserRouter,
@@ -64,7 +66,9 @@ function App() {
               {/* <Route path="/home" element={<Home />} /> */}
               <Route path="/about" element={<About />} />
               <Route path="/work" element={<Work />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
+            <Footer />
           </BrowserRouter>
 
         </Box>
