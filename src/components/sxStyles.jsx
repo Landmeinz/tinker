@@ -65,6 +65,7 @@ export const sxNavContainer = {
     top: 0,
     bgcolor: 'info.light',
     boxShadow: 3,
+    zIndex: 1000,
 
 }
 
@@ -486,6 +487,7 @@ export const sxContactSectionOne = {
     flexDirection: 'column',
     // alignItems: 'center',`
     justifyContent: 'center',
+    alignItems: 'center',
     gap: 17,
     mt: 12,
 }
@@ -539,4 +541,20 @@ export const sxPostButton = {
         color: 'secondary.main',
         transform: 'scale(1.05)',
     },
+}
+
+export const sxMessageBoardContainer = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 3,
+
+}
+
+export const sxMessageBoardContent = {
+    bgcolor: 'info.light',
+    color: 'secondary.main',
+    width: '50rem',
+    borderRadius: 3,
 }

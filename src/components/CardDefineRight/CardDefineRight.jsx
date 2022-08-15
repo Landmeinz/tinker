@@ -69,7 +69,7 @@ function CardDefineRight({ title, body, tag }) {
 
             <Box sx={sxBoxColor}>
                 <Box sx={sxCenterCircle}>
-                    <img style={sxCircleFrame} src="https://i.giphy.com/media/mYqaRkXyoGbcY/giphy.webp" />
+                    <img style={sxCircleFrame} src="https://i.giphy.com/media/RxVpypN9Ri2Yg/giphy.webp" />
                 </Box>
             </Box>
 

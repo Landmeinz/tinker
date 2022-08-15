@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 
 import ExpandableDiv from '../ExpandableDiv/ExpandableDiv';
+import MessageBoard from '../MessageBoard/MessageBoard';
 
 // --- MUI --- // 
 import {
@@ -46,16 +47,31 @@ import {
     sxInputText,
     sxInputContainer,
     sxPostButton,
+    sxMessageBoardContainer,
+
 
 
 } from '../sxStyles';
 
 function Contact() {
 
-    let value = ''
-    function handleClick() {
-        console.log('clicked');
-    }; // handleClick
+    const [message, setMessage] = useState('');
+
+    const postMessage = (event) => {
+        console.log("post message clicked");
+        event.preventDefault();
+    
+        // dispatch({
+        //   type: 'REGISTER',
+        //   payload: {
+        //     username: username,
+        //     password: password,
+        //   },
+        // });
+        // dispatch({ type: 'FETCH_PLANTS' });
+        // dispatch({ type: 'FETCH_PHOTOS' });
+        // window.location.reload(false);
+      }; // postMessage
 
     return (
 
@@ -66,18 +82,27 @@ function Contact() {
                 <Typography sx={sxContactText} variant='h1'>Drop A Message</Typography>
             </Box>
 
-            <Box sx={sxInputContainer}>
-                <TextField sx={sxInputText}
-                    id="filled-multiline-static"
-                    label="What's Up Buttercup?"
-                    multiline
-                    rows={5}
-                    // placeholder="Hey, this is my feedback"
-                    variant="filled"
-                />
-                <Button sx={sxPostButton}>Post Message</Button>
+            <form className="formPanel" onSubmit={postMessage}>
+                <Box sx={sxInputContainer}>
+                    <TextField sx={sxInputText}
+                        id="filled-multiline-static"
+                        label="What's Up Buttercup?"
+                        multiline
+                        required
+                        rows={5}
+                        variant="filled"
+                        value={message}
+                        onChange={(event) => setMessage(event.target.value)}
+                    />
+                    <Button sx={sxPostButton} type="submit" size="large">Post My Message</Button>
+                </Box>
+            </form>
+
+            <Box sx={sxMessageBoardContainer}>
+                <Typography variant="h4">Message Board</Typography>
+                <MessageBoard />
             </Box>
-            
+
         </Box>
     )
 }
