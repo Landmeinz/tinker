@@ -55,11 +55,21 @@ import {
 
 function Contact() {
 
-    const [message, setMessage] = useState('');
+    let [name, setName] = useState('');
+    let [message, setMessage] = useState('');
+
+    const messageObject = {
+        name,
+        message,
+    };
 
     const postMessage = (event) => {
         console.log("post message clicked");
+        console.log(`${name}, ${message}`);
         event.preventDefault();
+        setName = '';
+        setMessage = '';
+        console.log(`${name}, ${message}`);
     
         // dispatch({
         //   type: 'REGISTER',
@@ -70,7 +80,7 @@ function Contact() {
         // });
         // dispatch({ type: 'FETCH_PLANTS' });
         // dispatch({ type: 'FETCH_PHOTOS' });
-        // window.location.reload(false);
+
       }; // postMessage
 
     return (
@@ -84,6 +94,14 @@ function Contact() {
 
             <form className="formPanel" onSubmit={postMessage}>
                 <Box sx={sxInputContainer}>
+                <TextField sx={sxInputText}
+                        id="filled-static"
+                        label="Name"
+                        required
+                        variant="filled"
+                        value={name}
+                        onChange={(event) => setName(event.target.value)}
+                    />
                     <TextField sx={sxInputText}
                         id="filled-multiline-static"
                         label="What's Up Buttercup?"
