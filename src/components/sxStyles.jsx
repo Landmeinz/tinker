@@ -555,6 +555,7 @@ export const sxMessageBoardContainer = {
 export const sxMessageBoardContent = {
     bgcolor: 'info.light',
     color: 'secondary.main',
-    width: '50rem',
+    width: '48rem',
     borderRadius: 3,
+    p: '1rem',
 }

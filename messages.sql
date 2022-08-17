@@ -1,16 +1,22 @@
 
 CREATE TABLE messages (
-	id SERIAL PRIMARY KEY,
+	id          SERIAL PRIMARY KEY,
 	"name"      varchar(255),
     "message"   text,
-    "date"      DATE NOT NULL,
+    "date"      DATE,
     "likes"     SMALLINT DEFAULT 0 
 );
 
 INSERT INTO messages (name, message, date)
 VALUES 
-    ('Jimmy', 'This is cool', 'today'),
-    ('Sean', 'Call me maybe', 'today'),
-    ('Eric', 'Love this other thing', 'today'),
-    ('Toby', 'I dont know about this man', 'today'),
-    ('Kevin', 'Bro, my name is Kevin', 'today');
+    ('Wanda J.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'today'),
+    ('Richard A.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id interdum velit laoreet id.', 'today'),
+    ('Buchanon', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet consectetur adipiscing elit. Vehicula ipsum a arcu cursus vitae congue.', 'today'),
+    ('Susan K.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet aliquam id diam maecenas ultricies. Laoreet suspendisse interdum consectetur libero id faucibus. Vel pretium lectus quam id leo in vitae.', 'today'),
+    ('Larry Edwards', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus in hac habitasse platea dictumst quisque sagittis purus. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Nunc aliquet bibendum enim facilisis gravida neque convallis. Amet venenatis urna cursus eget nunc scelerisque viverra.', 'today'),
+    ('Amanda', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id porta nibh venenatis cras sed felis. Varius sit amet mattis vulputate enim nulla aliquet. Platea dictumst quisque sagittis purus sit. Nunc aliquet bibendum enim facilisis gravida neque convallis a. Viverra justo nec ultrices dui sapien eget mi proin sed.', 'today'),
+    ('Alvin Smith', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Posuere urna nec tincidunt praesent semper feugiat nibh. Dictum at tempor commodo ullamcorper a lacus vestibulum. Urna neque viverra justo nec ultrices dui. Aliquet eget sit amet tellus cras adipiscing enim eu. Vel pretium lectus quam id leo. Est sit amet facilisis magna etiam tempor orci.', 'today'),
+    ('Andreas Lang', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat diam ut venenatis tellus in metus vulputate eu scelerisque. Et sollicitudin ac orci phasellus egestas tellus rutrum tellus. Ultricies integer quis auctor elit sed vulputate mi sit. Egestas egestas fringilla phasellus faucibus scelerisque. Egestas congue quisque egestas diam in arcu cursus euismod quis. Tellus in hac habitasse platea dictumst vestibulum rhoncus. Orci porta non pulvinar neque laoreet.', 'today'),
+    ('Johanna', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum enim facilisis gravida neque convallis a cras semper. Dolor sit amet consectetur adipiscing elit duis tristique. Egestas erat imperdiet sed euismod nisi porta. Velit aliquet sagittis id consectetur purus ut. Metus aliquam eleifend mi in nulla posuere sollicitudin. A condimentum vitae sapien pellentesque habitant. Volutpat ac tincidunt vitae semper quis. Magnis dis parturient montes nascetur ridiculus.', 'today'),
+    ('Mario Schiffer', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum enim facilisis gravida neque convallis a cras semper. Dolor sit amet consectetur adipiscing elit duis tristique. Egestas erat imperdiet sed euismod nisi porta. Velit aliquet sagittis id consectetur purus ut. Metus aliquam eleifend mi in nulla posuere sollicitudin. A condimentum vitae sapien pellentesque habitant. Volutpat ac tincidunt vitae semper quis. Magnis dis parturient montes nascetur ridiculus.', 'today'),
+    ('Barbara Bohm', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id leo in vitae turpis. Aenean et tortor at risus viverra adipiscing at in tellus. Sed pulvinar proin gravida hendrerit lectus a. Mattis enim ut tellus elementum sagittis vitae et leo. A diam maecenas sed enim ut sem viverra aliquet. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Nisi lacus sed viverra tellus in hac habitasse platea. Pretium lectus quam id leo in vitae turpis massa. Tristique magna sit amet purus gravida quis blandit. Sed elementum tempus egestas sed sed. Cursus turpis massa tincidunt dui ut ornare lectus sit amet. Purus sit amet volutpat consequat mauris nunc congue nisi. Gravida dictum fusce ut placerat orci. Nibh venenatis cras sed felis eget. Morbi enim nunc faucibus a pellentesque sit. Proin fermentum leo vel orci porta.', 'today');

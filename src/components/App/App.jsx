@@ -58,11 +58,11 @@ function App() {
   }, []);
 
   const fetchCurrentDate = () => {
-    console.log("--- in fetchCurrentDate ---");
+    // console.log("--- in fetchCurrentDate ---");
 
     axios.get('http://localhost:5050/api/date')
         .then((response) => {
-            console.log('GET /api/date RESPONSE', response);
+            // console.log('GET /api/date RESPONSE', response);
             setCurrentDate(response.data);
 
         }).catch((error) => {

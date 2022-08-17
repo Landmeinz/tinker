@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
-import ExpandableDiv from '../ExpandableDiv/ExpandableDiv';
 import MessageBoard from '../MessageBoard/MessageBoard';
 
 // --- MUI --- // 
@@ -10,9 +9,6 @@ import {
     Typography,
     CardMedia,
     Box,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
     TextField,
     Button,
 
@@ -20,29 +16,7 @@ import {
 
 
 import {
-    sxExpandContainer,
-    sxAccordionCenterText,
-
-    theme,
-    sxApp,
-    sxAppContainer,
-    sxSectionOne,
-    sxLeftColumn,
-    sxRightColumn,
     sxHeroTextContent,
-    sxHeroText,
-    sxHeroImageContent,
-    sxHeroImage,
-
-    sxSectionTwo,
-    sxSectionTwoContent,
-
-    sxSectionThree,
-    sxSectionThreeContent,
-
-    sxSectionFour,
-    sxSectionFourContent,
-
     sxContactSectionOne,
     sxContactText,
     sxInputText,
@@ -51,59 +25,82 @@ import {
     sxMessageBoardContainer,
 
 
-
 } from '../sxStyles';
 
-function Contact({currentDate}) {
+function Contact({ currentDate }) {
 
-    const [name, setName] = useState('');
-    const [message, setMessage] = useState('');
+    let messageTemplate = {
+        name: '',
+        message: '',
+        date: 'today'
+    };
+
+    const [newMessage, setNewMessage] = useState(messageTemplate);
     const [messageList, setMessageList] = useState([]);
 
     useEffect(() => {
         fetchMesageList();
     }, []);
 
-    const messageObject = {
-        name,
-        message,
+
+
+    const handleNameChange = (event, property) => {
+        console.log(`--- handleNameChange: ${event.target.value}`);
+        setNewMessage({
+            ...newMessage,
+            [property]: event.target.value
+        })
+    } // handleNameChange
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        console.log('--- CLICKED --- hit handleSubmit ');
+
+        console.log('-- the newMessage:', newMessage);
+
+        postMessage(newMessage);
+        console.log('-- called postMessage() --');
+
+        setNewMessage(messageTemplate);
+        console.log('-- setNewMessage back to empty --');
+    } // handleSubmit
+
+
+
+    const postMessage = (newMessage) => {
+        console.log(`--- newMessage in postMessage: ${newMessage.name}, ${newMessage.message}, ${newMessage.date} ---`);
+        axios({
+            method: "POST",
+            url: "http://localhost:5050/api/message",
+            data: newMessage,
+        })
+            .then((response) => {
+                console.log("--- postMessage Response is", response);
+                fetchMesageList();
+                console.log(`--- refresh message list after POST`);
+            })
+            .catch((error) => {
+                console.log("Error on POST", error);
+            });
     };
 
-    const postMessage = (event) => {
-        console.log("post message clicked");
-        console.log(`${name}, ${message}`);
-        event.preventDefault();
-        setName = '';
-        setMessage = '';
-        console.log(`${name}, ${message}`);
-
-        // dispatch({
-        //   type: 'REGISTER',
-        //   payload: {
-        //     username: username,
-        //     password: password,
-        //   },
-        // });
-        // dispatch({ type: 'FETCH_PLANTS' });
-        // dispatch({ type: 'FETCH_PHOTOS' });
-
-    }; // postMessage
-
     const fetchMesageList = () => {
-        console.log("in fetchMesageList");
+        // console.log("--- in fetchMesageList ---");
         axios
-          .get("http://localhost:5050/api/message")
-          .then((response) => {
-            console.log("GET /api/message RESPONSE': ", response);
-            setMessageList(response.data);
+            .get("http://localhost:5050/api/message")
+            .then((response) => {
+                // console.log("GET /api/message RESPONSE': ", response);
+                setMessageList(response.data);
 
-          })
-          .catch((err) => {
-            console.log("Error on axios GET: ", err);
-          });
-      };
+            })
+            .catch((err) => {
+                console.log("Error on axios GET: ", err);
+            });
+    };
 
-  
+
 
     return (
 
@@ -114,15 +111,15 @@ function Contact({currentDate}) {
                 <Typography sx={sxContactText} variant='h1'>Drop A Message</Typography>
             </Box>
 
-            <form className="formPanel" onSubmit={postMessage}>
+            <form className="formPanel" onSubmit={handleSubmit}>
                 <Box sx={sxInputContainer}>
                     <TextField sx={sxInputText}
                         id="filled-static"
                         label="Name"
                         required
                         variant="filled"
-                        value={name}
-                        onChange={(event) => setName(event.target.value)}
+                        value={newMessage.name}
+                        onChange={(event) => handleNameChange(event, 'name')}
                     />
                     <TextField sx={sxInputText}
                         id="filled-multiline-static"
@@ -131,8 +128,8 @@ function Contact({currentDate}) {
                         required
                         rows={5}
                         variant="filled"
-                        value={message}
-                        onChange={(event) => setMessage(event.target.value)}
+                        value={newMessage.message}
+                        onChange={(event) => handleNameChange(event, 'message')}
                     />
                     <Button sx={sxPostButton} type="submit" size="large">Post My Message</Button>
                 </Box>

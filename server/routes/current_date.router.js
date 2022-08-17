@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     // GET route code here
-    console.log('--- in router.GET /api/date');
+    // console.log('--- in router.GET /api/date');
 
     let queryText = `
         SELECT CURRENT_DATE, CURRENT_DATE + INTERVAL '1d day' AS "tomorrow",

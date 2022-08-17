@@ -29,10 +29,7 @@ function MessageBoard({messageList}) {
     return (
 
         <Box sx={sxMessageBoardContent}>
-            <Typography variant='h5'>title</Typography>
-            <Typography variant='body1'>their message will show here</Typography>
-            <br />
-
+           
             {messageList.map(message => (
                 <Box key={message.id}>
                     <Typography variant='body1'><span>{message.date.split('T', [1])}</span></Typography>
