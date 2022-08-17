@@ -31,11 +31,14 @@ function MessageBoard({messageList}) {
         <Box sx={sxMessageBoardContent}>
             <Typography variant='h5'>title</Typography>
             <Typography variant='body1'>their message will show here</Typography>
+            <br />
 
             {messageList.map(message => (
                 <Box key={message.id}>
-                    <Typography><span>{message.name}</span></Typography>
-                    <Typography><span>{message.message}</span></Typography>
+                    <Typography variant='body1'><span>{message.date.split('T', [1])}</span></Typography>
+                    <Typography variant='h5'><span>{message.name}</span></Typography>
+                    <Typography variant='h6'><span>{message.message}</span></Typography>
+                    <Typography variant='body1'><span>{message.likes}</span></Typography>
                     <br />
                 </Box>
             ))}
