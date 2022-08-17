@@ -1,5 +1,6 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 
 import ExpandableDiv from '../ExpandableDiv/ExpandableDiv';
 import MessageBoard from '../MessageBoard/MessageBoard';
@@ -53,10 +54,15 @@ import {
 
 } from '../sxStyles';
 
-function Contact() {
+function Contact({currentDate}) {
 
-    let [name, setName] = useState('');
-    let [message, setMessage] = useState('');
+    const [name, setName] = useState('');
+    const [message, setMessage] = useState('');
+    const [messageList, setMessageList] = useState([]);
+
+    useEffect(() => {
+        fetchMesageList();
+    }, []);
 
     const messageObject = {
         name,
@@ -70,7 +76,7 @@ function Contact() {
         setName = '';
         setMessage = '';
         console.log(`${name}, ${message}`);
-    
+
         // dispatch({
         //   type: 'REGISTER',
         //   payload: {
@@ -81,7 +87,23 @@ function Contact() {
         // dispatch({ type: 'FETCH_PLANTS' });
         // dispatch({ type: 'FETCH_PHOTOS' });
 
-      }; // postMessage
+    }; // postMessage
+
+    const fetchMesageList = () => {
+        console.log("in fetchMesageList");
+        axios
+          .get("http://localhost:5050/api/message")
+          .then((response) => {
+            console.log("GET /api/message RESPONSE': ", response);
+            setMessageList(response.data);
+
+          })
+          .catch((err) => {
+            console.log("Error on axios GET: ", err);
+          });
+      };
+
+  
 
     return (
 
@@ -94,7 +116,7 @@ function Contact() {
 
             <form className="formPanel" onSubmit={postMessage}>
                 <Box sx={sxInputContainer}>
-                <TextField sx={sxInputText}
+                    <TextField sx={sxInputText}
                         id="filled-static"
                         label="Name"
                         required
@@ -117,8 +139,8 @@ function Contact() {
             </form>
 
             <Box sx={sxMessageBoardContainer}>
-                <Typography variant="h4">Message Board</Typography>
-                <MessageBoard />
+                <Typography variant="h4">Message Board {currentDate[0]?.current_date.split('T', [1])}</Typography>
+                <MessageBoard messageList={messageList} />
             </Box>
 
         </Box>

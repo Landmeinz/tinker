@@ -52,7 +52,7 @@ import {
 
 } from '../sxStyles';
 
-function About() {
+function About({currentDate}) {
 
     // const navigate = useNavigate();
 

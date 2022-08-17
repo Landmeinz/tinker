@@ -36,7 +36,7 @@ import {
 
 } from '../sxStyles';
 
-function Work() {
+function Work({currentDate}) {
 
     const navigate = useNavigate();
 

@@ -1,39 +1,22 @@
 const express = require('express');
+const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors');
 require('dotenv').config();
 
-const app = express();
-
-const sessionMiddleware = require('./modules/session-middleware');
-const passport = require('./strategies/user.strategy');
-
-// Route includes
-const userRouter = require('./routes/user.router.js');
-const plantRouter = require('./routes/plant.router.js');
-const photoRouter = require('./routes/photo.router.js');
-const current_dateRouter = require('./routes/current_date.router.js');
-const userListRouter = require('./routes/userList.router.js');
-
-// Body parser middleware
+// Body parser middleware //
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
-// Passport Session Configuration //
-app.use(sessionMiddleware);
-
-// start up passport sessions
-app.use(passport.initialize());
-app.use(passport.session());
-
-/* Routes */
-app.use('/api/user',  userRouter);
-app.use('/api/plant', plantRouter);
-app.use('/api/photo', photoRouter);
-app.use('/api/current_date', current_dateRouter);
-app.use('/api/userList', userListRouter);
-
-// Serve static files
+// Serve static files //
 app.use(express.static('build'));
+
+// ----- Routes ----- //
+const messageRouter = require('../server/routes/message.router');
+const currentDateRouter = require('../server/routes/current_date.router');
+app.use('/api/message', messageRouter);
+app.use('/api/date', currentDateRouter);
 
 // App Set //
 const PORT = process.env.PORT || 5050;

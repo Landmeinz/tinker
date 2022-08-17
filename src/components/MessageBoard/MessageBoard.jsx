@@ -1,5 +1,6 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 
 import ExpandableDiv from '../ExpandableDiv/ExpandableDiv';
 
@@ -8,51 +9,37 @@ import {
     Typography,
     CardMedia,
     Box,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
 
 } from '@mui/material';
 
 
 import {
-    sxExpandContainer,
-    sxAccordionCenterText,
-
-    theme,
-    sxApp,
-    sxAppContainer,
-    sxSectionOne,
-    sxLeftColumn,
-    sxRightColumn,
-    sxHeroTextContent,
-    sxHeroText,
-    sxHeroImageContent,
-    sxHeroImage,
-
-    sxSectionTwo,
-    sxSectionTwoContent,
-
-    sxSectionThree,
-    sxSectionThreeContent,
-
-    sxSectionFour,
-    sxSectionFourContent,
     sxMessageBoardContent,
 
 } from '../sxStyles';
 
-function MessageBoard() {
+function MessageBoard({messageList}) {
 
     // function handleClick() {
     //     console.log('clicked');
     // }; // handleClick
+
+    let listMessages;
 
     return (
 
         <Box sx={sxMessageBoardContent}>
             <Typography variant='h5'>title</Typography>
             <Typography variant='body1'>their message will show here</Typography>
+
+            {messageList.map(message => (
+                <Box key={message.id}>
+                    <Typography><span>{message.name}</span></Typography>
+                    <Typography><span>{message.message}</span></Typography>
+                    <br />
+                </Box>
+            ))}
+
         </Box>
 
     )
