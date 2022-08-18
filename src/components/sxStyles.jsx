@@ -126,7 +126,6 @@ export const sxHeroTextContent = {
     wordWrap: 'break-word',
 
 }
-
 // ----- Shared On All Pages ----- //
 // ----- Shared On All Pages ----- //
 // ----- Shared On All Pages ----- //
@@ -163,7 +162,7 @@ export const sxHeroText = {
         fontSize: '4rem'
     },
     [theme.breakpoints.down('sm')]: {
-        fontSize: '2.5rem'
+        fontSize: '4rem'
     }
 
 }
@@ -180,10 +179,23 @@ export const sxHeroText = {
 export const sxAdditionalDetailsTitle = {
     // border: '1px solid red',
     textAlign: 'center',
-    mx: 12,
+    mx: 21,
     lineHeight: '1',
     color: 'info.light',
     mb: 2,
+
+    [theme.breakpoints.down('xl')]: {
+        mx: 21,
+    },
+    [theme.breakpoints.down('lg')]: {
+        mx: 13,
+    },
+    [theme.breakpoints.down('md')]: {
+        mx: 8,
+    },
+    [theme.breakpoints.down('sm')]: {
+        mx: 5,
+    }
 }
 
 export const sxDetailsContainer = {
@@ -225,9 +237,11 @@ export const sxCardDefineLeftContainer = {
     },
     [theme.breakpoints.down('sm')]: {
         flexDirection: 'column',
-        m: 0,
         display: 'flex',
-        gap: 1,
+        gap: 2,
+        m: 0,
+        pb: 2,
+
     }
 }
 // ----- CardDefineLeft --- //
@@ -241,7 +255,7 @@ export const sxCardDefineLeftContainer = {
 // ----- CardDefineRight --- //
 // ----- CardDefineRight --- //
 export const sxCardDefineRightContainer = {
-    border: '1px solid red',
+    // border: '1px solid red',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -261,6 +275,11 @@ export const sxCardDefineRightContainer = {
     },
     [theme.breakpoints.down('sm')]: {
         flexDirection: 'column',
+        display: 'flex',
+        gap: 2,
+        m: 0,
+        pt: 2,
+
     }
 }
 // ----- CardDefineRight --- //
@@ -274,7 +293,7 @@ export const sxCardDefineRightContainer = {
 // ----- CardDefine SHARED --- //
 // ----- CardDefine SHARED --- //
 export const sxTinkerDefined = {
-    border: '1px solid green',
+    // border: '1px solid green',
     px: 5,
     py: 3,
     display: 'flex',
@@ -307,7 +326,7 @@ export const sxCardDefineBody = {
 }
 
 export const sxBoxColor = {
-    border: '1px solid purple',
+    // border: '1px solid purple',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -380,7 +399,7 @@ export const sxContactText = {
     textAlign: 'center',
 
     [theme.breakpoints.down('xl')]: {
-        fontSize: '7.4rem',
+        fontSize: '7.4rem'
     },
     [theme.breakpoints.down('lg')]: {
         fontSize: '6rem'
@@ -389,7 +408,7 @@ export const sxContactText = {
         fontSize: '4rem'
     },
     [theme.breakpoints.down('sm')]: {
-        fontSize: '2.5rem'
+        fontSize: '3rem'
     }
 }
 
@@ -619,18 +638,47 @@ export const sxMsgBoardCardBodyText = {
 // ----- ProjectDescription ----- //
 // ----- ProjectDescription ----- //
 export const sxProjectDescriptionTitle = {
+    // border: '1px solid red',
     display: 'flex',
     justifyContent: 'center',
+    px: 8,
     py: 1.5,
     color: 'info.light',
+
+    [theme.breakpoints.down('xl')]: {
+        px: 8,
+    },
+    [theme.breakpoints.down('lg')]: {
+        px: 8,
+    },
+    [theme.breakpoints.down('md')]: {
+        px: 5,
+    },
+    [theme.breakpoints.down('sm')]: {
+        px: 3,
+    }
 }
 
 export const sxProjectDescriptionContent = {
+    // border: '1px solid red',
     display: 'flex',
     flexDirection: 'column',
     gap: 1,
     color: 'info.light',
-    px: 10,
+    px: 8,
+
+    [theme.breakpoints.down('xl')]: {
+        px: 8,
+    },
+    [theme.breakpoints.down('lg')]: {
+        px: 8,
+    },
+    [theme.breakpoints.down('md')]: {
+        px: 5,
+    },
+    [theme.breakpoints.down('sm')]: {
+        px: 3,
+    }
 }
 // ----- ProjectDescription ----- //
 // ----- ProjectDescription ----- //
@@ -646,10 +694,11 @@ export const sxWorkSectionOne = {
     // border: '1px solid red',
     display: 'flex',
     flexDirection: 'column',
-    // alignItems: 'center',`
+    // alignItems: 'center',
     justifyContent: 'center',
     gap: 17,
     mt: 12,
+    mx: 'auto',
 
 }
 
@@ -668,7 +717,7 @@ export const sxWorkHeroText = {
         fontSize: '4rem'
     },
     [theme.breakpoints.down('sm')]: {
-        fontSize: '2.5rem'
+        fontSize: '4rem'
     }
 }
 
