@@ -27,16 +27,16 @@ import {
 function CardDefineRight({ title, body, tag }) {
 
     return (
-        <Box sx={sxCardDefineRightContainer}>
-            <Box sx={sxBoxColor}>
-                <Box sx={sxCenterCircle}>
+        <Box id="sxCardDefineRightContainer" sx={sxCardDefineRightContainer}>
+            <Box id="sxBoxColorRight" sx={sxBoxColor}>
+                <Box id="sxCenterCircleRight" sx={sxCenterCircle}>
                     <img style={sxCircleFrame} src="https://i.giphy.com/media/RxVpypN9Ri2Yg/giphy.webp" />
                 </Box>
             </Box>
 
-            <Box sx={sxTinkerDefined}>
+            <Box id="sxTinkerDefinedRight" sx={sxTinkerDefined}>
                 <Typography sx={sxBreaksH4} variant='h4'>{title}</Typography>
-                <Box sx={sxCardDefineBody}>
+                <Box id="sxCardDefineBodyRight" sx={sxCardDefineBody}>
                     <Typography sx={sxBreaksH4} variant='h4'>{body}</Typography>
                     <Typography sx={sxBreaksH5} variant='h5'>{tag}</Typography>
                 </Box>

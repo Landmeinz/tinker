@@ -1,6 +1,7 @@
 
 export const addDetailsOne = {
-    title: `Tinkering requires dreaming up some wild ideas, taking the time to prototype and test, and being willing to fail early and often.`
+  
+    title: `Tinker is made up of a close group of entrepreneurs, designers, architects, engineers, developers, and people who are just plain creative.`
 };
 
 export const addDetailsTwo = {
@@ -8,5 +9,5 @@ export const addDetailsTwo = {
 };
 
 export const addDetailsThree = {
-    title: "We're a creative group of entrepreneurs, designers, architects, engineers, developers, and researchers"
+    title: `Tinkering requires dreaming up some wild ideas, taking the time to prototype and test those ideas, while being willing to fail early and often.`
 };

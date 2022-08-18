@@ -22,7 +22,7 @@ import {
 function CardProject({image, imageCaption}) {
 
     return (
-            <Box sx={sxProjectImageContent}>
+            <Box id="sxProjectImageContent" sx={sxProjectImageContent}>
                 <CardMedia
                     sx={sxCardProject}
                     component="img"

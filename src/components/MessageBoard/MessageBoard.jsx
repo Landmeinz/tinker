@@ -30,11 +30,11 @@ function MessageBoard({ messageList }) {
             {messageList.map(message => (
                 <Box id="sxMessageBoardText" sx={sxMessageBoardText} key={message.id}>
                     {/* <Typography variant='body1'><span>{message.likes}</span></Typography> */}
-                    <Box sx={sxMsgBoardCardHeader}>
+                    <Box id="sxMsgBoardCardHeader" sx={sxMsgBoardCardHeader}>
                         <Typography sx={sxBreaksH5} variant='h5'><span>{message.name}</span></Typography>
                         <Typography sx={sxMsgBoardCardBodyText} variant='body1'><span>{message.date.split('T', [1])}</span></Typography>
                     </Box>
-                    <Box sx={sxMsgBoardCardBody}>
+                    <Box id="sxMsgBoardCardBody" sx={sxMsgBoardCardBody}>
                         <Typography sx={sxMsgBoardCardBodyText} variant='h6'><span>{message.message}</span></Typography>
                     </Box>
                 </Box>

@@ -34,11 +34,13 @@ import {
 function About({ currentDate }) {
     return (
         <Box>
-            <Box sx={sxAboutSectionOne}>
-                <Box sx={sxHeroTextContent}>
+            <Box id="sxAboutSectionOne" sx={sxAboutSectionOne}>
+                <Box id="sxHeroTextContent" sx={sxHeroTextContent}>
                     <Typography sx={sxHeroText} variant='h1'>Together</Typography>
                     <Typography sx={sxHeroText} variant='h1'>We Tinker</Typography>
                 </Box>
+
+                <CardAdditionalDetails title={addDetailsOne.title} />
 
                 <CardDefineRight
                     title={DefineTextNoun.title}
@@ -49,8 +51,7 @@ function About({ currentDate }) {
                     title={DefineTextVerb.title}
                     body={DefineTextVerb.body}
                     tag={DefineTextVerb.tag} />
-
-                <CardAdditionalDetails title={addDetailsOne.title} />
+               
                 <CardAdditionalDetails title={addDetailsTwo.title} />
                 <CardAdditionalDetails title={addDetailsThree.title} />
 

@@ -241,6 +241,7 @@ export const sxCardDefineLeftContainer = {
         gap: 2,
         m: 0,
         pb: 2,
+        mx: 4,
 
     }
 }
@@ -279,6 +280,7 @@ export const sxCardDefineRightContainer = {
         gap: 2,
         m: 0,
         pt: 2,
+        mx: 4,
 
     }
 }
@@ -335,8 +337,8 @@ export const sxBoxColor = {
 
 export const sxCircleFrame = {
     borderRadius: '50%',
-    height: '18rem',
-    width: '18rem',
+    height: '17rem',
+    width: '17rem',
     objectFit: 'cover',
 
 }
@@ -461,7 +463,7 @@ export const sxPostButton = {
     },
 
     [theme.breakpoints.down('xl')]: {
-        fontSize: '1.618rem',
+        fontSize: '1.5rem',
         width: '60vw',
     },
     [theme.breakpoints.down('lg')]: {

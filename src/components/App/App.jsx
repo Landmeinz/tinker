@@ -57,8 +57,8 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={sxApp} >
-        <Box sx={sxAppContainer}>
+      <Box id="sxApp" sx={sxApp} >
+        <Box id="sxAppContainer" sx={sxAppContainer}>
           <BrowserRouter>
             <Nav />
             <Routes>

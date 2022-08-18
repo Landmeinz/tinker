@@ -32,12 +32,12 @@ function Nav() {
     }; // handleNav
 
     return (
-        <Box sx={sxNavContainer}>
-            <Box sx={sxTinkerNavText}>
+        <Box id="sxNavContainer" sx={sxNavContainer}>
+            <Box id="sxTinkerNavTextAbout" sx={sxTinkerNavText}>
                 <Typography sx={sxBreaksH4} variant='h4' onClick={() => handleNav('/about')}>Tinker</Typography>
             </Box>
 
-            <Box sx={sxTinkerNavText}>
+            <Box id="sxTinkerNavTextWork" sx={sxTinkerNavText}>
                 <Typography sx={sxBreaksH5} variant='h5' onClick={() => handleNav('/work')}>Our Work</Typography>
             </Box>
         </Box>

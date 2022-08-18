@@ -24,11 +24,11 @@ function CardAdditionalDetails({ title, body, details }) {
 
     return (
         <Box>
-            <Box sx={sxAdditionalDetailsTitle} >
+            <Box id="sxAdditionalDetailsTitle" sx={sxAdditionalDetailsTitle} >
                 <Typography sx={sxBreaksH4} variant='h4'>{title}</Typography>
             </Box>
 
-            <Box sx={sxDetailsContainer}>
+            <Box id="sxDetailsContainer" sx={sxDetailsContainer}>
                 <Typography sx={sxBreaksH5} variant='h5'>{body}</Typography>
                 <Typography sx={sxBreaksH5} variant='h5'>{details}</Typography>
             </Box>

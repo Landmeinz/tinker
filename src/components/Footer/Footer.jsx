@@ -20,7 +20,7 @@ import {
 function Footer() {
 
     return (
-        <Box sx={sxFooterContainer}>
+        <Box id="sxFooterContainer" sx={sxFooterContainer}>
             <Typography variant='body2'>Tinker Often 2022</Typography>
         </Box>
     )

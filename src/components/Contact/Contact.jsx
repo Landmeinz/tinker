@@ -109,7 +109,7 @@ function Contact({ currentDate }) {
             </Box>
 
             <form className="formPanel" onSubmit={handleSubmit}>
-                <Box sx={sxInputContainer}>
+                <Box id="sxInputContainer" sx={sxInputContainer}>
                     <TextField sx={sxInputText}
                         id="filled-static"
                         label="Your Name"
