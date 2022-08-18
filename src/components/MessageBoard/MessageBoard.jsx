@@ -1,8 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import axios from "axios";
 
-import ExpandableDiv from '../ExpandableDiv/ExpandableDiv';
 
 // --- MUI --- // 
 import {
@@ -13,6 +10,7 @@ import {
 } from '@mui/material';
 
 
+// --- Sx Styles --- //
 import {
     sxMessageBoardContent,
     sxMessageBoardText,
@@ -22,19 +20,12 @@ import {
     sxBreaksH4,
     sxBreaksH5,
 
-
 } from '../sxStyles';
+
 
 function MessageBoard({ messageList }) {
 
-    // function handleClick() {
-    //     console.log('clicked');
-    // }; // handleClick
-
-    let listMessages;
-
     return (
-
         <Box id="sxMessageBoardContent" sx={sxMessageBoardContent}>
             {messageList.map(message => (
                 <Box id="sxMessageBoardText" sx={sxMessageBoardText} key={message.id}>
@@ -48,9 +39,7 @@ function MessageBoard({ messageList }) {
                     </Box>
                 </Box>
             ))}
-
         </Box>
-
     )
 }
 export default MessageBoard;

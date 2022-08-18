@@ -1,9 +1,7 @@
 
 import React from 'react';
-import { useLocation } from 'react-router';
 import { useNavigate } from 'react-router-dom';
 
-import ExpandableDiv from '../ExpandableDiv/ExpandableDiv';
 
 // --- MUI --- // 
 import {
@@ -15,12 +13,14 @@ import {
 } from '@mui/material';
 
 
+// --- Sx Styles --- // 
 import {
     sxContactButtonContainer,
     sxContactButton,
     sxBreaksH4,
 
 } from '../sxStyles';
+
 
 function ContactButton() {
 
@@ -32,11 +32,9 @@ function ContactButton() {
     }; // handleNav
 
     return (
-
         <Typography variant='h4' sx={sxContactButtonContainer}>
             <Button onClick={() => handleNav("/contact")} sx={sxContactButton}>Drop us a message</Button>
         </Typography>
-
     )
 }
 export default ContactButton;

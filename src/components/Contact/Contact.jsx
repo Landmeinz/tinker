@@ -1,7 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
+
+// --- Components --- //
 import MessageBoard from '../MessageBoard/MessageBoard';
 
 // --- MUI --- // 
@@ -15,6 +16,7 @@ import {
 } from '@mui/material';
 
 
+// --- Sx Styles --- // 
 import {
     sxHeroTextContent,
     sxContactSectionOne,
@@ -27,10 +29,14 @@ import {
     sxBreaksH4,
     sxBreaksH5,
 
-
 } from '../sxStyles';
 
+
 function Contact({ currentDate }) {
+    
+    useEffect(() => {
+        fetchMesageList();
+    }, []);
 
     let messageTemplate = {
         name: '',
@@ -41,12 +47,6 @@ function Contact({ currentDate }) {
     const [newMessage, setNewMessage] = useState(messageTemplate);
     const [messageList, setMessageList] = useState([]);
 
-    useEffect(() => {
-        fetchMesageList();
-    }, []);
-
-
-
     const handleNameChange = (event, property) => {
         console.log(`--- handleNameChange: ${event.target.value}`);
         setNewMessage({
@@ -54,7 +54,6 @@ function Contact({ currentDate }) {
             [property]: event.target.value
         })
     } // handleNameChange
-
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -69,8 +68,6 @@ function Contact({ currentDate }) {
         setNewMessage(messageTemplate);
         console.log('-- setNewMessage back to empty --');
     } // handleSubmit
-
-
 
     const postMessage = (newMessage) => {
         console.log(`--- newMessage in postMessage: ${newMessage.name}, ${newMessage.message}, ${newMessage.date} ---`);
@@ -103,10 +100,7 @@ function Contact({ currentDate }) {
             });
     };
 
-
-
     return (
-
         <Box id="sxContactSectionOne" sx={sxContactSectionOne}>
             <Box id="sxHeroTextContent" sx={sxHeroTextContent}>
                 <Typography sx={sxContactText} variant='h1'>Leave A Note</Typography>
@@ -145,7 +139,6 @@ function Contact({ currentDate }) {
 
                 <MessageBoard messageList={messageList} />
             </Box>
-
         </Box>
     )
 }

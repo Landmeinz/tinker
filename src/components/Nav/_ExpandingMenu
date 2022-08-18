@@ -1,0 +1,19 @@
+
+// setOpenStatus(false); 
+
+// {openStatus &&
+//                     <MenuList sx={sxMenuList}>
+//                         <MenuItem sx={sxMenuItem} onClick={() => handleNav('/about')}>About</MenuItem>
+//                         <MenuItem sx={sxMenuItem} onClick={() => handleNav('/work')}>Work</MenuItem>
+//                     </MenuList>
+//                 }
+
+//                 <Button
+//                     id="basic-button"
+//                     aria-controls={openStatus ? 'basic-menu' : undefined}
+//                     aria-haspopup="true"
+//                     aria-expanded={openStatus ? 'true' : undefined}
+//                     onClick={() => openOrCloseMenu()}
+//                 >
+//                     <MenuIcon sx={sxMenuIcon} />
+//                 </Button>

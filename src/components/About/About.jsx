@@ -1,14 +1,17 @@
-
 import React from 'react';
 
+// --- Components --- //
 import CardDefineRight from '../CardDefineRight/CardDefineRight';
 import CardDefineLeft from '../CardDefineLeft/CardDefineLeft';
 import CardAdditionalDetails from '../CardAdditionalDetails/CardAdditionalDetails';
 import ContactButton from '../ContactButton/ContactButton';
 
+
+// --- Content --- //
 import { DefineTextNoun } from '../../content/DefineTextNoun';
 import { DefineTextVerb } from '../../content/DefineTextVerb';
 import { addDetailsOne, addDetailsTwo, addDetailsThree } from '../../content/AdditionalDetails';
+
 
 // --- MUI --- // 
 import {
@@ -18,19 +21,18 @@ import {
 
 } from '@mui/material';
 
+
 // --- Sx Styles --- //
 import {
     sxAboutSectionOne,
-    sxRightColumn,
     sxHeroTextContent,
     sxHeroText,
 
 } from '../sxStyles';
 
+
 function About({ currentDate }) {
-
     return (
-
         <Box>
             <Box sx={sxAboutSectionOne}>
                 <Box sx={sxHeroTextContent}>
@@ -55,7 +57,6 @@ function About({ currentDate }) {
                 <ContactButton />
             </Box>
         </Box>
-
     )
 }
 export default About;

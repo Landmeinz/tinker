@@ -1,20 +1,16 @@
-
 import React from 'react';
 
-import ExpandableDiv from '../ExpandableDiv/ExpandableDiv';
 
 // --- MUI --- // 
 import {
     Typography,
     CardMedia,
     Box,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
 
 } from '@mui/material';
 
 
+// --- Sx Styles --- // 
 import {
     sxTinkerDefined,
     sxCardDefineBody,
@@ -25,19 +21,13 @@ import {
     sxBreaksH4,
     sxBreaksH5,
 
-
 } from '../sxStyles';
+
 
 function CardDefineRight({ title, body, tag }) {
 
-    // function handleClick() {
-    //     console.log('clicked');
-    // }; // handleClick
-
     return (
-
         <Box sx={sxCardDefineRightContainer}>
-
             <Box sx={sxBoxColor}>
                 <Box sx={sxCenterCircle}>
                     <img style={sxCircleFrame} src="https://i.giphy.com/media/RxVpypN9Ri2Yg/giphy.webp" />
@@ -51,9 +41,7 @@ function CardDefineRight({ title, body, tag }) {
                     <Typography sx={sxBreaksH5} variant='h5'>{tag}</Typography>
                 </Box>
             </Box>
-
         </Box>
-
     )
 }
 export default CardDefineRight;
