@@ -148,7 +148,7 @@ export const sxCardProjectGallery = {
     justifyContent: 'center',
     flexWrap: 'wrap',
     gap: 3,
-    
+
 }
 
 export const sxProjectImageContent = {
@@ -254,7 +254,7 @@ export const sxBreaksH5 = {
     }
 }
 
-export const sxCardDefineContainer = {
+export const sxCardDefineRightContainer = {
     // border: '1px solid red',
     display: 'flex',
     flexDirection: 'row',
@@ -264,7 +264,20 @@ export const sxCardDefineContainer = {
     // width: '100%',
     bgcolor: 'primary.light',
     borderRadius: 6,
+    ml: '3vw',
+}
 
+export const sxCardDefineLeftContainer = {
+    // border: '1px solid red',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    // height: '100%',
+    // width: '100%',
+    bgcolor: 'primary.light',
+    borderRadius: 6,
+    mr: '3vw',
 }
 
 export const sxBoxColor = {
@@ -301,7 +314,7 @@ export const sxTinkerDefined = {
     width: '60%',
     height: 'inherit',
     bgcolor: 'info.light',
-    
+
 
 }
 
@@ -450,22 +463,42 @@ export const sxDetailsContainer = {
 export const sxContactButtonContainer = {
     display: 'flex',
     justifyContent: 'center',
-
 }
 
 export const sxContactButton = {
     bgcolor: 'secondary.main',
     color: 'primary.main',
-    width: '15rem',
+    width: '40vw',
+    height: '8vh',
     border: 1,
     borderColor: 'info.light',
     fontWeight: 'bold',
+    transition: '.25s',
 
     "&:hover": {
         bgcolor: 'primary.light',
         color: 'secondary.main',
         transform: 'scale(1.05)',
+        transition: '.25s',
     },
+
+    [theme.breakpoints.down('xl')]: {
+        fontSize: '1.618rem',
+        width: '60vw',
+    },
+    [theme.breakpoints.down('lg')]: {
+        fontSize: '1.25rem',
+        width: '60vw',
+    },
+    [theme.breakpoints.down('md')]: {
+        fontSize: '1rem',
+        width: '75vw',
+    },
+    [theme.breakpoints.down('sm')]: {
+        fontSize: '1rem',
+        width: '80vw',
+    }
+
 }
 
 export const sxFooterContainer = {
@@ -498,7 +531,7 @@ export const sxContactText = {
     textAlign: 'center',
 
     [theme.breakpoints.down('xl')]: {
-        fontSize: '7.4rem'
+        fontSize: '7.4rem',
     },
     [theme.breakpoints.down('lg')]: {
         fontSize: '6rem'
@@ -518,13 +551,28 @@ export const sxInputContainer = {
     alignItems: 'center',
     justifyContent: 'center',
     gap: 3,
+    minWidth: '60vw',
+
+    [theme.breakpoints.down('xl')]: {
+        minWidth: '70vw',
+    },
+    [theme.breakpoints.down('lg')]: {
+        minWidth: '75vw',
+    },
+    [theme.breakpoints.down('md')]: {
+        minWidth: '80vw',
+    },
+    [theme.breakpoints.down('sm')]: {
+        minWidth: '90vw',
+    }
 }
 
 export const sxInputText = {
+    // border: '1px solid red',
     bgcolor: 'info.light',
     color: 'secondary.main',
-    width: '50rem',
     borderRadius: 3,
+    width: '100%',
 
 }
 
@@ -535,27 +583,49 @@ export const sxPostButton = {
     border: 1,
     borderColor: 'info.light',
     fontWeight: 'bold',
+    transition: '.25s',
 
     "&:hover": {
         bgcolor: 'primary.light',
         color: 'secondary.main',
         transform: 'scale(1.05)',
+        transition: '.25s',
     },
 }
 
 export const sxMessageBoardContainer = {
+    // border: '1px solid red',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 3,
 
 }
 
 export const sxMessageBoardContent = {
+    // border: '1px solid blue',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 2,
+    bgcolor: 'primary.light',
+    p: 2,
+    borderRadius: 4,
+    width: '75vw',
+}
+
+export const sxMessageBoardText = {
     bgcolor: 'info.light',
     color: 'secondary.main',
-    width: '48rem',
     borderRadius: 3,
     p: '1rem',
+}
+
+export const sxMessageBoardHeader = {
+    // border: '1px solid green',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '95%',
+    py: 1.618,
+
 }

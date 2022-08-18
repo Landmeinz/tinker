@@ -15,6 +15,7 @@ import {
 
 import {
     sxMessageBoardContent,
+    sxMessageBoardText,
 
 } from '../sxStyles';
 
@@ -29,14 +30,12 @@ function MessageBoard({messageList}) {
     return (
 
         <Box sx={sxMessageBoardContent}>
-           
             {messageList.map(message => (
-                <Box key={message.id}>
+                <Box sx={sxMessageBoardText} key={message.id}>
                     <Typography variant='body1'><span>{message.date.split('T', [1])}</span></Typography>
                     <Typography variant='h5'><span>{message.name}</span></Typography>
                     <Typography variant='h6'><span>{message.message}</span></Typography>
                     <Typography variant='body1'><span>{message.likes}</span></Typography>
-                    <br />
                 </Box>
             ))}
 

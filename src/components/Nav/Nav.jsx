@@ -11,12 +11,6 @@ import {
     Typography,
     CardMedia,
     Box,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-    Menu,
-    MenuList,
-    MenuItem,
     Button,
 
 
@@ -25,29 +19,6 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 
 import {
-    sxExpandContainer,
-    sxAccordionCenterText,
-
-    theme,
-    sxApp,
-    sxAppContainer,
-    sxSectionOne,
-    sxLeftColumn,
-    sxRightColumn,
-    sxHeroTextContent,
-    sxHeroText,
-    sxHeroImageContent,
-    sxHeroImage,
-
-    sxSectionTwo,
-    sxSectionTwoContent,
-
-    sxSectionThree,
-    sxSectionThreeContent,
-
-    sxSectionFour,
-    sxSectionFourContent,
-
     sxNavContainer,
     // sxNavContent,
     sxMenuIcon,

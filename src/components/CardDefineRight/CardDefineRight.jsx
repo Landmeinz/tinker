@@ -16,38 +16,9 @@ import {
 
 
 import {
-    sxExpandContainer,
-    sxAccordionCenterText,
-
-    theme,
-    sxApp,
-    sxAppContainer,
-    sxSectionOne,
-    sxLeftColumn,
-    sxRightColumn,
-    sxHeroTextContent,
-    sxHeroText,
-    sxHeroImageContent,
-    sxHeroImage,
-
-    sxSectionTwo,
-    sxSectionTwoContent,
-
-    sxSectionThree,
-    sxSectionThreeContent,
-
-    sxSectionFour,
-    sxSectionFourContent,
-
-    sxNavContainer,
-    sxNavContent,
-    sxMenuIcon,
-    sxMenuList,
-    sxMenuItem,
-    sxTinker,
     sxTinkerDefined,
     sxCardDefineBody,
-    sxCardDefineContainer,
+    sxCardDefineRightContainer,
     sxBoxColor,
     sxCenterCircle,
     sxCircleFrame,
@@ -65,7 +36,7 @@ function CardDefineRight({ title, body, tag }) {
 
     return (
 
-        <Box sx={sxCardDefineContainer}>
+        <Box sx={sxCardDefineRightContainer}>
 
             <Box sx={sxBoxColor}>
                 <Box sx={sxCenterCircle}>

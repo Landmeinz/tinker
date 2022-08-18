@@ -11,38 +11,14 @@ import {
     CardMedia,
     Box,
     Button,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
 
 } from '@mui/material';
 
 
 import {
-    sxExpandContainer,
-    sxAccordionCenterText,
-
-    theme,
-    sxApp,
-    sxAppContainer,
-    sxSectionOne,
-    sxLeftColumn,
-    sxRightColumn,
-    sxHeroTextContent,
-    sxHeroText,
-    sxHeroImageContent,
-    sxHeroImage,
-
-    sxSectionTwo,
-    sxSectionTwoContent,
-
-    sxSectionThree,
-    sxSectionThreeContent,
-
-    sxSectionFour,
-    sxSectionFourContent,
     sxContactButtonContainer,
     sxContactButton,
+    sxBreaksH4,
 
 } from '../sxStyles';
 
@@ -57,9 +33,9 @@ function ContactButton() {
 
     return (
 
-        <Box sx={sxContactButtonContainer}>
+        <Typography variant='h4' sx={sxContactButtonContainer}>
             <Button onClick={() => handleNav("/contact")} sx={sxContactButton}>Drop us a message</Button>
-        </Box>
+        </Typography>
 
     )
 }

@@ -4,6 +4,7 @@ import React from 'react';
 import ExpandableDiv from '../ExpandableDiv/ExpandableDiv';
 import CardProject from '../CardProject/CardProject';
 import ProjectDescription from '../ProjectDescription/ProjectDescription';
+import ContactButton from '../ContactButton/ContactButton';
 
 import {
     useNavigate,
@@ -133,7 +134,7 @@ function Work({currentDate}) {
                         <CardProject image={other.imagePath6} imageCaption={other.imageCaption6} />
                     </Box>
                 </Box>
-
+                <ContactButton />
             </Box>
         </Box>
 

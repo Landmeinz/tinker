@@ -23,6 +23,9 @@ import {
     sxInputContainer,
     sxPostButton,
     sxMessageBoardContainer,
+    sxMessageBoardHeader,
+    sxBreaksH4,
+    sxBreaksH5,
 
 
 } from '../sxStyles';
@@ -104,8 +107,8 @@ function Contact({ currentDate }) {
 
     return (
 
-        <Box sx={sxContactSectionOne}>
-            <Box sx={sxHeroTextContent}>
+        <Box id="sxContactSectionOne" sx={sxContactSectionOne}>
+            <Box id="sxHeroTextContent" sx={sxHeroTextContent}>
                 <Typography sx={sxContactText} variant='h1'>Leave A Note</Typography>
                 <Typography sx={sxContactText} variant='h1'>Write A Poem</Typography>
                 <Typography sx={sxContactText} variant='h1'>Drop A Message</Typography>
@@ -135,8 +138,12 @@ function Contact({ currentDate }) {
                 </Box>
             </form>
 
-            <Box sx={sxMessageBoardContainer}>
-                <Typography variant="h4">Message Board {currentDate[0]?.current_date.split('T', [1])}</Typography>
+            <Box id="sxMessageBoardContainer" sx={sxMessageBoardContainer}>
+                <Box id="sxMessageBoardHeader" sx={sxMessageBoardHeader}>
+                    <Typography color={'info.light'} sx={sxBreaksH4} variant="h4">See What Other's Have Said</Typography>
+                    <Typography color={'info.light'} variant="h6">{currentDate[0]?.current_date.split('T', [1])}</Typography>
+                </Box>
+
                 <MessageBoard messageList={messageList} />
             </Box>
 

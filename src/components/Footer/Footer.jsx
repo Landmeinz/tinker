@@ -29,7 +29,7 @@ function Footer() {
     return (
 
         <Box sx={sxFooterContainer}>
-            <Typography variant='body2'>Tinker 2022</Typography>
+            <Typography variant='body2'>Tinker Often 2022</Typography>
         </Box>
 
     )

@@ -16,38 +16,9 @@ import {
 } from '@mui/material';
 
 import {
-    sxExpandContainer,
-    sxAccordionCenterText,
-
-    theme,
-    sxApp,
-    sxAppContainer,
-    sxSectionOne,
-    sxLeftColumn,
-    sxRightColumn,
-    sxHeroTextContent,
-    sxHeroText,
-    sxHeroImageContent,
-    sxHeroImage,
-
-    sxSectionTwo,
-    sxSectionTwoContent,
-
-    sxSectionThree,
-    sxSectionThreeContent,
-
-    sxSectionFour,
-    sxSectionFourContent,
-
-    sxNavContainer,
-    sxNavContent,
-    sxMenuIcon,
-    sxMenuList,
-    sxMenuItem,
-    sxTinker,
     sxTinkerDefined,
     sxCardDefineBody,
-    sxCardDefineContainer,
+    sxCardDefineLeftContainer,
     sxBoxColor,
     sxCircleFrame,
     sxCenterCircle,
@@ -65,7 +36,7 @@ function CardDefineRight({ title, body, tag }) {
 
     return (
 
-        <Box sx={sxCardDefineContainer}>
+        <Box sx={sxCardDefineLeftContainer}>
             <Box sx={sxTinkerDefined}>
                 <Typography sx={sxBreaksH4} variant='h4'>{title}</Typography>
                 <Box sx={sxCardDefineBody}>

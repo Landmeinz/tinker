@@ -49,6 +49,8 @@ import {
     sxCardDefineContainer,
     sxBoxColor,
 
+    sxTransitionStyles,
+
 
 } from '../sxStyles';
 
