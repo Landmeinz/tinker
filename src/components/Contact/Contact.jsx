@@ -118,7 +118,7 @@ function Contact({ currentDate }) {
                 <Box sx={sxInputContainer}>
                     <TextField sx={sxInputText}
                         id="filled-static"
-                        label="Name"
+                        label="Your Name"
                         required
                         variant="filled"
                         value={newMessage.name}
@@ -141,7 +141,6 @@ function Contact({ currentDate }) {
             <Box id="sxMessageBoardContainer" sx={sxMessageBoardContainer}>
                 <Box id="sxMessageBoardHeader" sx={sxMessageBoardHeader}>
                     <Typography color={'info.light'} sx={sxBreaksH4} variant="h4">See What Other's Have Said</Typography>
-                    <Typography color={'info.light'} variant="h6">{currentDate[0]?.current_date.split('T', [1])}</Typography>
                 </Box>
 
                 <MessageBoard messageList={messageList} />

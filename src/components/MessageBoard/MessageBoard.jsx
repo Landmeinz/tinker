@@ -16,10 +16,16 @@ import {
 import {
     sxMessageBoardContent,
     sxMessageBoardText,
+    sxMsgBoardCardHeader,
+    sxMsgBoardCardBody,
+    sxMsgBoardCardBodyText,
+    sxBreaksH4,
+    sxBreaksH5,
+
 
 } from '../sxStyles';
 
-function MessageBoard({messageList}) {
+function MessageBoard({ messageList }) {
 
     // function handleClick() {
     //     console.log('clicked');
@@ -29,13 +35,17 @@ function MessageBoard({messageList}) {
 
     return (
 
-        <Box sx={sxMessageBoardContent}>
+        <Box id="sxMessageBoardContent" sx={sxMessageBoardContent}>
             {messageList.map(message => (
-                <Box sx={sxMessageBoardText} key={message.id}>
-                    <Typography variant='body1'><span>{message.date.split('T', [1])}</span></Typography>
-                    <Typography variant='h5'><span>{message.name}</span></Typography>
-                    <Typography variant='h6'><span>{message.message}</span></Typography>
-                    <Typography variant='body1'><span>{message.likes}</span></Typography>
+                <Box id="sxMessageBoardText" sx={sxMessageBoardText} key={message.id}>
+                    {/* <Typography variant='body1'><span>{message.likes}</span></Typography> */}
+                    <Box sx={sxMsgBoardCardHeader}>
+                        <Typography sx={sxBreaksH5} variant='h5'><span>{message.name}</span></Typography>
+                        <Typography sx={sxMsgBoardCardBodyText} variant='body1'><span>{message.date.split('T', [1])}</span></Typography>
+                    </Box>
+                    <Box sx={sxMsgBoardCardBody}>
+                        <Typography sx={sxMsgBoardCardBodyText} variant='h6'><span>{message.message}</span></Typography>
+                    </Box>
                 </Box>
             ))}
 

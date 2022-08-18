@@ -247,10 +247,10 @@ export const sxBreaksH5 = {
         fontSize: '1.5rem'
     },
     [theme.breakpoints.down('md')]: {
-        fontSize: '1rem'
+        fontSize: '1.1rem'
     },
     [theme.breakpoints.down('sm')]: {
-        fontSize: '1rem'
+        fontSize: '1.1rem'
     }
 }
 
@@ -624,8 +624,39 @@ export const sxMessageBoardHeader = {
     // border: '1px solid green',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '95%',
+    justifyContent: 'center',
     py: 1.618,
 
+
+}
+
+export const sxMsgBoardCardHeader = {
+    // border: '1px solid green',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: '3vw',
+}
+
+export const sxMsgBoardCardBody = {
+    display: 'flex',
+    lineHeight: 4,
+}
+
+export const sxMsgBoardCardBodyText = {
+    lineHeight: 1.1,
+
+    [theme.breakpoints.down('xl')]: {
+        fontSize: '1.25rem'
+    },
+    [theme.breakpoints.down('lg')]: {
+        fontSize: '1.25rem'
+    },
+    [theme.breakpoints.down('md')]: {
+        fontSize: '1rem'
+    },
+    [theme.breakpoints.down('sm')]: {
+        fontSize: '.9rem'
+    }
 }
