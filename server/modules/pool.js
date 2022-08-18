@@ -1,16 +1,36 @@
 // Node Module that will connect to postgesql
 const pg = require('pg');
+const url = require('url');
 
-// Setup PG to connect to the database
-const Pool = pg.Pool;
+let config = {};
 
-const pool = new Pool({
-    database: 'tinker', // database name (this will change)
-    host: 'localhost', // where to find the database
-    port: 5432,        // port for finding the database
-    max: 10,           // max number of connections for the pool
-    idleTimeoutMillis: 30000 // 30 seconds before timeout/cancel query
-});
+// ---- Heroku or Default Config ----- //
+if (process.env.DATABASE_URL) {
+    // Heroku gives a url, not a connection object
+    // https://github.com/brianc/node-pg-pool
+    const params = url.parse(process.env.DATABASE_URL);
+
+    config = {
+        host: params.hostname,
+        port: params.port,
+        database: params.pathname.split('/')[1],
+        ssl: { rejectUnauthorized: false },
+        max: 10, // max number of clients in the pool
+        idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
+      };
+    
+    } else {
+      config = {
+        host: process.env.DATABASE_SERVER     || 'localhost', // Server hosting the postgres database
+        port: process.env.DATABASE_PORT       || 5432, //env var: PGPORT
+        database: process.env.DATABASE_NAME   || 'tinker', //env var: PGDATABASE or the name of your database (e.g. database: process.env.DATABASE_NAME || 'koala_holla',)
+        max: 10, // max number of clients in the pool
+        idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
+      };
+}
+
+// this creates the pool that will be shared by all other modules
+const pool = new pg.Pool(config);
 
 // Listener setup on the pool isn't required, 
 // but can be super handy for troubleshooting.
@@ -20,6 +40,7 @@ pool.on('connect', () => {
 
 pool.on('error', (error) => {
     console.log('Error with database pool', error);
+    process.exit(-1);
 });
 
 module.exports = pool;

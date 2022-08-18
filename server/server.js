@@ -9,6 +9,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
+const sessionMiddleware = require('./modules/session-middleware');
+app.use(sessionMiddleware);
+
 // Serve static files //
 app.use(express.static('build'));
 

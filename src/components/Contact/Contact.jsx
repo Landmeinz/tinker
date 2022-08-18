@@ -35,7 +35,7 @@ import {
 function Contact({ currentDate }) {
     
     useEffect(() => {
-        fetchMesageList();
+        fetchMessageList();
     }, []);
 
     let messageTemplate = {
@@ -48,59 +48,55 @@ function Contact({ currentDate }) {
     const [messageList, setMessageList] = useState([]);
 
     const handleNameChange = (event, property) => {
-        console.log(`--- handleNameChange: ${event.target.value}`);
         setNewMessage({
             ...newMessage,
             [property]: event.target.value
         })
-    } // handleNameChange
+    }; // handleNameChange
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        console.log('--- CLICKED --- hit handleSubmit ');
-
-        console.log('-- the newMessage:', newMessage);
-
-        postMessage(newMessage);
-        console.log('-- called postMessage() --');
-
-        setNewMessage(messageTemplate);
-        console.log('-- setNewMessage back to empty --');
-    } // handleSubmit
+        if (newMessage.name.length <= 1 || newMessage.message.length <= 3) {
+            return window.alert("Please be more descriptive");
+        }
+        else {
+            postMessage(newMessage);
+            setNewMessage(messageTemplate);
+        }
+    }; // handleSubmit
 
     const postMessage = (newMessage) => {
-        console.log(`--- newMessage in postMessage: ${newMessage.name}, ${newMessage.message}, ${newMessage.date} ---`);
+
         axios({
             method: "POST",
             url: "http://localhost:5050/api/message",
             data: newMessage,
         })
             .then((response) => {
-                console.log("--- postMessage Response is", response);
-                fetchMesageList();
-                console.log(`--- refresh message list after POST`);
+                fetchMessageList();
+
             })
             .catch((error) => {
                 console.log("Error on POST", error);
             });
-    };
+    }; // postMessage
 
-    const fetchMesageList = () => {
-        // console.log("--- in fetchMesageList ---");
+    const fetchMessageList = () => {
+
         axios
             .get("http://localhost:5050/api/message")
             .then((response) => {
-                // console.log("GET /api/message RESPONSE': ", response);
                 setMessageList(response.data);
 
             })
             .catch((err) => {
                 console.log("Error on axios GET: ", err);
             });
-    };
+    }; // fetchMessageList
 
     return (
+        
         <Box id="sxContactSectionOne" sx={sxContactSectionOne}>
             <Box id="sxHeroTextContent" sx={sxHeroTextContent}>
                 <Typography sx={sxContactText} variant='h1'>Leave A Note</Typography>
