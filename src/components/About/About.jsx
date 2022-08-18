@@ -1,98 +1,63 @@
-
 import React from 'react';
 
-import ExpandableDiv from '../ExpandableDiv/ExpandableDiv';
+// --- Components --- //
+import CardDefineRight from '../CardDefineRight/CardDefineRight';
+import CardDefineLeft from '../CardDefineLeft/CardDefineLeft';
+import CardAdditionalDetails from '../CardAdditionalDetails/CardAdditionalDetails';
+import ContactButton from '../ContactButton/ContactButton';
 
-import {
-    useNavigate,
-} from 'react-router-dom';
+
+// --- Content --- //
+import { DefineTextNoun } from '../../content/DefineTextNoun';
+import { DefineTextVerb } from '../../content/DefineTextVerb';
+import { addDetailsOne, addDetailsTwo, addDetailsThree } from '../../content/AdditionalDetails';
+
 
 // --- MUI --- // 
 import {
     Typography,
     CardMedia,
     Box,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
 
 } from '@mui/material';
 
 
+// --- Sx Styles --- //
 import {
-    sxExpandContainer,
-    sxAccordionCenterText,
-
-    theme,
-    sxApp,
-    sxAppContainer,
-    sxSectionOne,
-    sxLeftColumn,
-    sxRightColumn,
+    sxAboutSectionOne,
     sxHeroTextContent,
     sxHeroText,
-    sxHeroImageContent,
-    sxHeroImage,
-
-    sxSectionTwo,
-    sxSectionTwoContent,
-
-    sxSectionThree,
-    sxSectionThreeContent,
-
-    sxSectionFour,
-    sxSectionFourContent,
 
 } from '../sxStyles';
 
-function About() {
 
-    const navigate = useNavigate();
-
-    function handleClick(path) {
-        navigate(path);
-    };
-
+function About({ currentDate }) {
     return (
-
         <Box>
-            <Box sx={sxSectionOne}>
-                <Box sx={sxHeroTextContent}>
-                    <Typography sx={sxHeroText} variant='h1'>TOGETHER</Typography>
-                    <Typography sx={sxHeroText} variant='h1'>WE TINKER</Typography>
+            <Box id="sxAboutSectionOne" sx={sxAboutSectionOne}>
+                <Box id="sxHeroTextContent" sx={sxHeroTextContent}>
+                    <Typography sx={sxHeroText} variant='h1'>Together</Typography>
+                    <Typography sx={sxHeroText} variant='h1'>We Tinker</Typography>
                 </Box>
 
-                <Box>
-                    <Typography variant=''>
-                        Tinker (v.)
+                <CardAdditionalDetails title={addDetailsOne.title} />
 
-                        1590s, "to work as a tinker," from tinker (n.). Meaning "work imperfectly, keep busy in a useless way," is first found 1650s. Related: Tinkered; tinkering.
-                    </Typography>
-                </Box>
-                {/* 
-                <Box sx={sxHeroImageContent} onClick={() => handleClick('/work')}>
-                    <CardMedia sx={sxHeroImage}
-                        component="img"
-                        // height="194"
-                        image="/images/tools1.jpg"
-                    // alt="Some Image"
-                    />
-                    <CardMedia sx={sxHeroImage}
-                        component="img"
-                        // height="194"
-                        image="/images/tools2.jpg"
-                    // alt="Some Image"
-                    />
-                    <CardMedia sx={sxHeroImage}
-                        component="img"
-                        // height="194"
-                        image="/images/notes.jpg"
-                    // alt="Some Image"
-                    />
-                </Box> */}
+                <CardDefineRight
+                    title={DefineTextNoun.title}
+                    body={DefineTextNoun.body}
+                    tag={DefineTextNoun.tag} />
+
+                <CardDefineLeft
+                    title={DefineTextVerb.title}
+                    body={DefineTextVerb.body}
+                    tag={DefineTextVerb.tag} />
+               
+                <CardAdditionalDetails title={addDetailsTwo.title} />
+                <CardAdditionalDetails title={addDetailsThree.title} />
+
+                <ContactButton />
             </Box>
         </Box>
-
     )
 }
 export default About;

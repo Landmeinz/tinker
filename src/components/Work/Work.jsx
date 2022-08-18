@@ -1,11 +1,17 @@
-
 import React from 'react';
 
-import ExpandableDiv from '../ExpandableDiv/ExpandableDiv';
+// --- Components --- //
+import CardProject from '../CardProject/CardProject';
+import ProjectDescription from '../ProjectDescription/ProjectDescription';
+import ContactButton from '../ContactButton/ContactButton';
 
+
+// --- Content --- // 
 import {
-    useNavigate,
-} from 'react-router-dom';
+    swing,
+    other,
+
+} from '../../content/Projects';
 
 
 // --- MUI --- // 
@@ -13,67 +19,69 @@ import {
     Typography,
     CardMedia,
     Box,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
 
 } from '@mui/material';
 
 
+// --- Sx Styles --- //
 import {
-  sxWorkContainer,
-  sxHeroText,
-
-  sxSectionOne,
-  sxHeroTextContent,
-  sxHeroImageContent,
-  sxHeroImage,
+    sxWorkHeroText,
+    sxWorkSectionOne,
+    sxHeroTextContent,
+    sxProjectContainer,
+    sxCardProjectGallery,
 
 } from '../sxStyles';
 
-function Work() {
 
-    const navigate = useNavigate();
-
-        function handleClick(path) {
-      navigate(path);
-    }; 
+function Work({ currentDate }) {
 
     return (
-
-        <Box sx={sxWorkContainer}>
-            <Typography sx={sxHeroText} variant='h1'>We've Been Tinkering</Typography>
-
-            <Box sx={sxSectionOne}>
-                <Box sx={sxHeroTextContent}>
-                    <Typography sx={sxHeroText} variant='h1'>Work</Typography>
-                    <Typography sx={sxHeroText} variant='h1'>Work</Typography>
+        <Box id="WorkSectionParent">
+            <Box id="sxWorkSectionOne" sx={sxWorkSectionOne}>
+                <Box id="sxHeroTextContentWork" sx={sxHeroTextContent}>
+                    <Typography sx={sxWorkHeroText} variant='h1'>We've</Typography>
+                    <Typography sx={sxWorkHeroText} variant='h1'>Been Tinkering</Typography>
                 </Box>
 
-                <Box sx={sxHeroImageContent} onClick={() => handleClick('/home')}>
-                    <CardMedia sx={sxHeroImage}
-                        component="img"
-                        // height="194"
-                        image="/images/tools1.jpg"
-                    // alt="Some Image"
+                <Box id="sxProjectContainerSwing" sx={sxProjectContainer}>
+                    <ProjectDescription
+                        id="ProjectDescriptionSwing"
+                        title={swing.title}
+                        body={swing.body}
+                        details={swing.details}
                     />
-                    <CardMedia sx={sxHeroImage}
-                        component="img"
-                        // height="194"
-                        image="/images/tools2.jpg"
-                    // alt="Some Image"
-                    />
-                    <CardMedia sx={sxHeroImage}
-                        component="img"
-                        // height="194"
-                        image="/images/notes.jpg"
-                    // alt="Some Image"
-                    />
+                    <Box id="sxCardProjectGallerySwing" sx={sxCardProjectGallery}>
+                        {swing.images.map(image => (
+                            <CardProject
+                                key={image.id}
+                                image={image.path}
+                                imageCaption={image.caption}
+                            />
+                        ))}
+                    </Box>
                 </Box>
+
+                <Box id="sxProjectContainerOther" sx={sxProjectContainer}>
+                    <ProjectDescription
+                        id="ProjectDescriptionOther"
+                        title={other.title}
+                        body={other.body}
+                        details={other.details}
+                    />
+                    <Box id="sxCardProjectGalleryOther" sx={sxCardProjectGallery}>
+                        {other.images.map(image => (
+                            <CardProject
+                                key={image.id}
+                                image={image.path}
+                                imageCaption={image.caption}
+                            />
+                        ))}
+                    </Box>
+                </Box>
+                <ContactButton />
             </Box>
-
         </Box>
-
     )
 }
 export default Work;

@@ -1,108 +1,46 @@
 
 import React, { useState } from 'react';
 
-import ExpandableDiv from '../ExpandableDiv/ExpandableDiv';
-
-import {
-    useNavigate,
-} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // --- MUI --- // 
 import {
     Typography,
     CardMedia,
     Box,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-    Menu,
-    MenuList,
-    MenuItem,
     Button,
-
 
 } from '@mui/material';
 
-import MenuIcon from '@mui/icons-material/Menu';
-
+// --- Sx Styles --- // 
 import {
-    sxExpandContainer,
-    sxAccordionCenterText,
-
-    theme,
-    sxApp,
-    sxAppContainer,
-    sxSectionOne,
-    sxLeftColumn,
-    sxRightColumn,
-    sxHeroTextContent,
-    sxHeroText,
-    sxHeroImageContent,
-    sxHeroImage,
-
-    sxSectionTwo,
-    sxSectionTwoContent,
-
-    sxSectionThree,
-    sxSectionThreeContent,
-
-    sxSectionFour,
-    sxSectionFourContent,
-
     sxNavContainer,
-    sxNavContent,
-    sxMenuIcon,
-    sxMenuList,
-    sxMenuItem,
-    sxTinker,
-
+    sxTinkerNavText,
+    sxBreaksH4,
+    sxBreaksH5,
 
 } from '../sxStyles';
+
 
 function Nav() {
 
     const navigate = useNavigate();
 
-    let anchorEl = false;
-    const [openStatus, setOpenStatus] = useState(false);
-
     function handleNav(path) {
         navigate(path);
-        setOpenStatus(false);
+        window.scrollTo(0, 0);
     }; // handleNav
 
-    function openOrCloseMenu() {
-        setOpenStatus(!openStatus);
-    }; // handleClick
-
     return (
-
-        <Box sx={sxNavContainer}>
-            <Typography sx={sxTinker} variant='h4' onClick={() => handleNav('/about')}>Tinker</Typography>
-            <Box sx={sxNavContent}>
-
-            <Typography sx={sxTinker} variant='h5' onClick={() => handleNav('/work')}>Our Work</Typography>
-                {/* {openStatus &&
-                    <MenuList sx={sxMenuList}>
-                        <MenuItem sx={sxMenuItem} onClick={() => handleNav('/about')}>About</MenuItem>
-                        <MenuItem sx={sxMenuItem} onClick={() => handleNav('/work')}>Work</MenuItem>
-                    </MenuList>
-                }
-
-                <Button
-                    id="basic-button"
-                    aria-controls={openStatus ? 'basic-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={openStatus ? 'true' : undefined}
-                    onClick={() => openOrCloseMenu()}
-                >
-                    <MenuIcon sx={sxMenuIcon} />
-                </Button> */}
-
+        <Box id="sxNavContainer" sx={sxNavContainer}>
+            <Box id="sxTinkerNavTextAbout" sx={sxTinkerNavText}>
+                <Typography sx={sxBreaksH4} variant='h4' onClick={() => handleNav('/about')}>Tinker</Typography>
             </Box>
 
+            <Box id="sxTinkerNavTextWork" sx={sxTinkerNavText}>
+                <Typography sx={sxBreaksH5} variant='h5' onClick={() => handleNav('/work')}>Our Work</Typography>
+            </Box>
         </Box>
-
     )
 }
 export default Nav;
