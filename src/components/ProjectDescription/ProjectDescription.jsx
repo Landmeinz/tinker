@@ -5,7 +5,6 @@ import React from 'react';
 // --- MUI --- // 
 import {
     Typography,
-    CardMedia,
     Box,
 
 } from '@mui/material';
