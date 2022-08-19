@@ -32,11 +32,11 @@ You may also see any lint errors in the console.
 
 ## Built With
 
-react
-node
-express
-postgres sql
-heroku
+react \
+node \
+express \
+postgres sql \
+heroku 
 
 ## Acknowledgement
 
