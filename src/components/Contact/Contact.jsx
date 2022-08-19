@@ -8,7 +8,6 @@ import MessageBoard from '../MessageBoard/MessageBoard';
 // --- MUI --- // 
 import {
     Typography,
-    CardMedia,
     Box,
     TextField,
     Button,
@@ -27,7 +26,7 @@ import {
     sxMessageBoardContainer,
     sxMessageBoardHeader,
     sxBreaksH4,
-    sxBreaksH5,
+    // sxBreaksH5,
 
 } from '../sxStyles';
 
