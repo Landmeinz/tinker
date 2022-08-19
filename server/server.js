@@ -4,8 +4,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config();
 
-const history = require('connect-history-api-fallback');
-app.use(history);
+// const history = require('connect-history-api-fallback');
+// app.use(history);
+
 // Body parser middleware //
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
