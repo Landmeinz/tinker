@@ -4,7 +4,6 @@ import React from 'react';
 // --- MUI --- // 
 import {
     Typography,
-    CardMedia,
     Box,
 
 } from '@mui/material';
@@ -38,7 +37,11 @@ function CardDefineRight({ title, body, tag }) {
 
             <Box id="sxBoxColorLeft" sx={sxBoxColor}>
                 <Box id="sxCenterCircleLeft" sx={sxCenterCircle}>
-                    <img src="https://i.giphy.com/media/xThuWbe1xJ4jv5Cszm/giphy.webp" style={sxCircleFrame} />
+                    <img
+                        src="https://i.giphy.com/media/xThuWbe1xJ4jv5Cszm/giphy.webp"
+                        style={sxCircleFrame}
+                        alt="Loop animation of a Rube Goldberg esque machine"
+                    />
                 </Box>
             </Box>
         </Box>
