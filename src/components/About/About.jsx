@@ -47,6 +47,8 @@ function About({ currentDate }) {
                     body={DefineTextNoun.body}
                     tag={DefineTextNoun.tag} />
 
+                    
+
                 <CardDefineLeft
                     title={DefineTextVerb.title}
                     body={DefineTextVerb.body}
