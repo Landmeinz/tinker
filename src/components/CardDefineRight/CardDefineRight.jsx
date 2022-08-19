@@ -4,7 +4,6 @@ import React from 'react';
 // --- MUI --- // 
 import {
     Typography,
-    CardMedia,
     Box,
 
 } from '@mui/material';
@@ -30,7 +29,11 @@ function CardDefineRight({ title, body, tag }) {
         <Box id="sxCardDefineRightContainer" sx={sxCardDefineRightContainer}>
             <Box id="sxBoxColorRight" sx={sxBoxColor}>
                 <Box id="sxCenterCircleRight" sx={sxCenterCircle}>
-                    <img style={sxCircleFrame} src="https://i.giphy.com/media/RxVpypN9Ri2Yg/giphy.webp" />
+                    <img
+                        style={sxCircleFrame}
+                        src="https://i.giphy.com/media/RxVpypN9Ri2Yg/giphy.webp"
+                        alt="Loop of hammer hitting nail"
+                    />
                 </Box>
             </Box>
 
