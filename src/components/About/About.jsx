@@ -16,7 +16,6 @@ import { addDetailsOne, addDetailsTwo, addDetailsThree } from '../../content/Add
 // --- MUI --- // 
 import {
     Typography,
-    CardMedia,
     Box,
 
 } from '@mui/material';
