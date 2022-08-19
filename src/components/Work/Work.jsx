@@ -62,7 +62,7 @@ function Work({ currentDate }) {
                     </Box>
                 </Box>
 
-                <Box id="sxProjectContainerOther" sx={sxProjectContainer}>
+                {/* <Box id="sxProjectContainerOther" sx={sxProjectContainer}>
                     <ProjectDescription
                         id="ProjectDescriptionOther"
                         title={other.title}
@@ -78,7 +78,7 @@ function Work({ currentDate }) {
                             />
                         ))}
                     </Box>
-                </Box>
+                </Box> */}
                 <ContactButton />
             </Box>
         </Box>
