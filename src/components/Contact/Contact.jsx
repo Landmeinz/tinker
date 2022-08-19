@@ -124,7 +124,7 @@ function Contact({ currentDate }) {
                         value={newMessage.message}
                         onChange={(event) => handleNameChange(event, 'message')}
                     />
-                    <Button sx={sxPostButton} type="submit" size="large">Post My Message</Button>
+                    <Button sx={sxPostButton} type="submit" size="large">Post My Public Message</Button>
                 </Box>
             </form>
 

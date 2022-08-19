@@ -447,7 +447,7 @@ export const sxInputContainer = {
 
 export const sxPostButton = {
     bgcolor: 'secondary.main',
-    color: 'primary.main',
+    color: 'primary.light',
     width: '40vw',
     height: '8vh',
     border: 1,
@@ -464,19 +464,19 @@ export const sxPostButton = {
 
     [theme.breakpoints.down('xl')]: {
         fontSize: '1.5rem',
-        width: '60vw',
+        width: '35vw',
     },
     [theme.breakpoints.down('lg')]: {
         fontSize: '1.25rem',
-        width: '60vw',
+        width: '40vw',
     },
     [theme.breakpoints.down('md')]: {
         fontSize: '1rem',
-        width: '75vw',
+        width: '80vw',
     },
     [theme.breakpoints.down('sm')]: {
         fontSize: '1rem',
-        width: '80vw',
+        width: '90vw',
     }
 }
 
@@ -515,7 +515,7 @@ export const sxContactButtonContainer = {
 
 export const sxContactButton = {
     bgcolor: 'secondary.main',
-    color: 'primary.main',
+    color: 'primary.light',
     width: '40vw',
     height: '8vh',
     border: 1,
