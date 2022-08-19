@@ -6,13 +6,13 @@ This website is where the people of tinker.group can display their work and show
 
 ## Installation & Available Scripts
 
-(optional server / db for message board)
-Create a SQL database named "tinker"; see messages.sql in file explorer
-Open up your editor of choice and run: `npm install`
-`npm run client` in your terminal
-`npm run server` in another terminal (to connect to message board db)
-The `npm run client` command will open up a new browser tab for you!
-The `npm run server` command will activate your server!
+(optional server / db for message board) \
+Create a SQL database named "tinker"; see messages.sql in file explorer \
+Open up your editor of choice and run: `npm install` \
+`npm run client` in your terminal \
+`npm run server` in another terminal (to connect to message board db) \
+The `npm run client` command will open up a new browser tab for you! \
+The `npm run server` command will activate your server! 
 
 ### `npm run client`
 
