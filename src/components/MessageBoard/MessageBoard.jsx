@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 
 // --- MUI --- // 
 import {
     Typography,
-    CardMedia,
     Box,
 
 } from '@mui/material';
@@ -17,7 +16,7 @@ import {
     sxMsgBoardCardHeader,
     sxMsgBoardCardBody,
     sxMsgBoardCardBodyText,
-    sxBreaksH4,
+    // sxBreaksH4,
     sxBreaksH5,
 
 } from '../sxStyles';
@@ -29,7 +28,6 @@ function MessageBoard({ messageList }) {
         <Box id="sxMessageBoardContent" sx={sxMessageBoardContent}>
             {messageList.map(message => (
                 <Box id="sxMessageBoardText" sx={sxMessageBoardText} key={message.id}>
-                    {/* <Typography variant='body1'><span>{message.likes}</span></Typography> */}
                     <Box id="sxMsgBoardCardHeader" sx={sxMsgBoardCardHeader}>
                         <Typography sx={sxBreaksH5} variant='h5'><span>{message.name}</span></Typography>
                         <Typography sx={sxMsgBoardCardBodyText} variant='body1'><span>{message.date.split('T', [1])}</span></Typography>
