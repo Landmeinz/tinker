@@ -6,8 +6,6 @@ import { useNavigate } from 'react-router-dom';
 // --- MUI --- // 
 import {
     Typography,
-    CardMedia,
-    Box,
     Button,
 
 } from '@mui/material';
@@ -17,7 +15,7 @@ import {
 import {
     sxContactButtonContainer,
     sxContactButton,
-    sxBreaksH4,
+    // sxBreaksH4,
 
 } from '../sxStyles';
 
