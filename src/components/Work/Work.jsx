@@ -9,7 +9,7 @@ import ContactButton from '../ContactButton/ContactButton';
 // --- Content --- // 
 import {
     swing,
-    other,
+    // other,
 
 } from '../../content/Projects';
 
@@ -17,7 +17,6 @@ import {
 // --- MUI --- // 
 import {
     Typography,
-    CardMedia,
     Box,
 
 } from '@mui/material';
@@ -57,28 +56,11 @@ function Work({ currentDate }) {
                                 key={image.id}
                                 image={image.path}
                                 imageCaption={image.caption}
+                                alt={image.caption}
                             />
                         ))}
                     </Box>
                 </Box>
-
-                {/* <Box id="sxProjectContainerOther" sx={sxProjectContainer}>
-                    <ProjectDescription
-                        id="ProjectDescriptionOther"
-                        title={other.title}
-                        body={other.body}
-                        details={other.details}
-                    />
-                    <Box id="sxCardProjectGalleryOther" sx={sxCardProjectGallery}>
-                        {other.images.map(image => (
-                            <CardProject
-                                key={image.id}
-                                image={image.path}
-                                imageCaption={image.caption}
-                            />
-                        ))}
-                    </Box>
-                </Box> */}
                 <ContactButton />
             </Box>
         </Box>
