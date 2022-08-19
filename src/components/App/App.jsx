@@ -19,8 +19,6 @@ import Contact from '../Contact/Contact';
 
 // --- MUI --- //
 import {
-  Typography,
-  CardMedia,
   Box,
 
 } from '@mui/material';
