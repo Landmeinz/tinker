@@ -22,7 +22,6 @@ const serverSessionSecret = () => {
     // Warning if user doesn't have a good secret
     console.log(warnings.badSecret);
   }
-
   return process.env.SERVER_SESSION_SECRET;
 };
 
