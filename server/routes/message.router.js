@@ -1,4 +1,3 @@
-const { LivingOutlined } = require('@mui/icons-material');
 const express = require('express');
 const pool = require('../modules/pool.js');
 const router = express.Router();
@@ -7,7 +6,7 @@ const router = express.Router();
 // ----- GET ----- //
 router.get('/', (req, res) => {
 
-  let queryText = `npm 
+  let queryText = `
     SELECT 	  *
     FROM 	    "messages"
     ORDER BY  "id" DESC; `;

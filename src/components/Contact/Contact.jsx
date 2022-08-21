@@ -32,7 +32,7 @@ import {
 
 
 function Contact({ currentDate }) {
-    
+
     useEffect(() => {
         fetchMessageList();
     }, []);
@@ -65,26 +65,11 @@ function Contact({ currentDate }) {
         }
     }; // handleSubmit
 
-    const postMessage = (newMessage) => {
-
-        axios({
-            method: "POST",
-            url: "api/message",
-            data: newMessage,
-        })
-            .then((response) => {
-                fetchMessageList();
-
-            })
-            .catch((error) => {
-                console.log("Error on POST", error);
-            });
-    }; // postMessage
-
     const fetchMessageList = () => {
+        console.log("--- in fetchMessageList ---");
 
         axios
-            .get("api/message")
+            .get("/api/messages")
             .then((response) => {
                 setMessageList(response.data);
 
@@ -94,8 +79,21 @@ function Contact({ currentDate }) {
             });
     }; // fetchMessageList
 
+    const postMessage = (newMessage) => {
+
+        axios
+            .post("/api/messages", newMessage,)
+            .then((response) => {
+                fetchMessageList();
+
+            })
+            .catch((error) => {
+                console.log("Error on POST", error);
+            });
+    }; // postMessage
+
     return (
-        
+
         <Box id="sxContactSectionOne" sx={sxContactSectionOne}>
             <Box id="sxHeroTextContent" sx={sxHeroTextContent}>
                 <Typography sx={sxContactText} variant='h1'>Leave A Note</Typography>
