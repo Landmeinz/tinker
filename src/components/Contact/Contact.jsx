@@ -69,7 +69,7 @@ function Contact({ currentDate }) {
 
         axios({
             method: "POST",
-            url: "http://localhost:5050/api/message",
+            url: "api/message",
             data: newMessage,
         })
             .then((response) => {
@@ -84,7 +84,7 @@ function Contact({ currentDate }) {
     const fetchMessageList = () => {
 
         axios
-            .get("http://localhost:5050/api/message")
+            .get("api/message")
             .then((response) => {
                 setMessageList(response.data);
 

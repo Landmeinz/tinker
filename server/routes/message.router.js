@@ -7,7 +7,7 @@ const router = express.Router();
 // ----- GET ----- //
 router.get('/', (req, res) => {
 
-  let queryText = `
+  let queryText = `npm 
     SELECT 	  *
     FROM 	    "messages"
     ORDER BY  "id" DESC; `;
@@ -30,8 +30,6 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
 
   const newMessage = req.body;
-  console.log(`--- in router.POST /api/message`);
-  console.log(`--- req.body values: ${newMessage.name} ${newMessage.message} ${newMessage.date}`);
 
   const sqlText = `
     INSERT INTO messages
@@ -43,7 +41,6 @@ router.post('/', (req, res) => {
   pool
     .query(sqlText, values)
     .then((response) => {      
-      console.log('--- router.POST /api/message response', response);
       res.sendStatus(201);
 
     })
