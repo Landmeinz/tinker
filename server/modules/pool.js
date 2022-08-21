@@ -6,7 +6,6 @@ let config = {};
 
 // ---- Heroku or Default Config ----- //
 if (process.env.DATABASE_URL) {
-  console.log('---hit if --');
   // Heroku gives a url, not a connection object
   // https://github.com/brianc/node-pg-pool
   const params = url.parse(process.env.DATABASE_URL);
@@ -15,7 +14,7 @@ if (process.env.DATABASE_URL) {
   config = {
     user: auth[0],
     password: auth[1],
-    connectionString: params.DATABASE_URL,
+    // connectionString: params.DATABASE_URL,
     host: params.hostname,
     port: params.port,
     database: params.pathname.split('/')[1],
@@ -24,7 +23,6 @@ if (process.env.DATABASE_URL) {
     idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
   };
 } else {
-  console.log('---hit else --');
   config = {
     host: 'localhost', // Server hosting the postgres database
     port: 5432, // env var: PGPORT
@@ -33,8 +31,6 @@ if (process.env.DATABASE_URL) {
     idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
   };
 }
-console.log(`-- DATABASE_URL: ${process.env.DATABASE_URL}`);
-console.log(`-- config host: ${config.host}, port: ${config.port}, database: ${config.database}`);
 
 // this creates the pool that will be shared by all other modules
 const pool = new pg.Pool(config);
