@@ -27,7 +27,7 @@ app.use('/api/date', currentDateRouter);
 // App Set //
 const PORT = process.env.PORT || 5050;
 
-/** Listen * */
+// ----- Listen ----- //
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
 });
