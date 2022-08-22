@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from "react-helmet";
+import { motion } from "framer-motion"
 
 // --- Components --- //
 import CardDefineRight from '../CardDefineRight/CardDefineRight';
@@ -24,6 +25,7 @@ import {
 
 // --- Sx Styles --- //
 import {
+    trans,
     sxAboutSectionOne,
     sxHeroTextContent,
     sxHeroText,
@@ -34,37 +36,45 @@ import {
 function About({ currentDate }) {
     return (
         <Box>
-            <Helmet>
-                <title>Tinker About</title>
-                <meta
-                    name="description"
-                    content="Tinker is made up of a close group of entrepreneurs, designers, architects, engineers, developers, and people who are just plain creative."
-                />
-            </Helmet>
-            <Box id="sxAboutSectionOne" sx={sxAboutSectionOne}>
-                <Box id="sxHeroTextContent" sx={sxHeroTextContent}>
-                    <Typography sx={sxHeroText} variant='h1'>Together</Typography>
-                    <Typography sx={sxHeroText} variant='h1'>We Tinker</Typography>
+            <motion.div
+                initial={trans.initial}
+                animate={trans.animate}
+                exit={trans.exit}
+                style={trans.style}
+                transition={trans.time}
+            >
+                <Helmet>
+                    <title>Tinker About</title>
+                    <meta
+                        name="description"
+                        content="Tinker is made up of a close group of entrepreneurs, designers, architects, engineers, developers, and people who are just plain creative."
+                    />
+                </Helmet>
+                <Box id="sxAboutSectionOne" sx={sxAboutSectionOne}>
+                    <Box id="sxHeroTextContent" sx={sxHeroTextContent}>
+                        <Typography sx={sxHeroText} variant='h1'>Together</Typography>
+                        <Typography sx={sxHeroText} variant='h1'>We Tinker</Typography>
+                    </Box>
+
+                    <CardAdditionalDetails title={addDetailsOne.title} />
+
+                    <CardDefineRight
+                        title={DefineTextNoun.title}
+                        body={DefineTextNoun.body}
+                        tag={DefineTextNoun.tag} />
+
+                    <CardDefineLeft
+                        title={DefineTextVerb.title}
+                        body={DefineTextVerb.body}
+                        tag={DefineTextVerb.tag} />
+
+                    <CardAdditionalDetails title={addDetailsTwo.title} />
+                    <CardAdditionalDetails title={addDetailsThree.title} />
+
+                    <ContactButton />
                 </Box>
-
-                <CardAdditionalDetails title={addDetailsOne.title} />
-
-                <CardDefineRight
-                    title={DefineTextNoun.title}
-                    body={DefineTextNoun.body}
-                    tag={DefineTextNoun.tag} />
-
-                <CardDefineLeft
-                    title={DefineTextVerb.title}
-                    body={DefineTextVerb.body}
-                    tag={DefineTextVerb.tag} />
-
-                <CardAdditionalDetails title={addDetailsTwo.title} />
-                <CardAdditionalDetails title={addDetailsThree.title} />
-
-                <ContactButton />
-            </Box>
-        </Box>
+            </motion.div>
+        </Box >
     )
 }
 export default About;

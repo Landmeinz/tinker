@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { ThemeProvider } from '@mui/material/styles';
+import { motion, AnimatePresence } from "framer-motion"
 import { Helmet } from "react-helmet";
 import {
   // BrowserRouter,
@@ -28,6 +29,8 @@ import {
 // --- Sx Styles --- //
 import {
   theme,
+  transApp,
+  trans,
   sxApp,
   sxAppContainer,
 
@@ -68,14 +71,25 @@ function App() {
           />
         </Helmet>
         <Box id="sxAppContainer" sx={sxAppContainer}>
+
           <Router>
-            <Nav />
-            <Routes>
-              <Route path="/" element={<Navigate to="/about" />} />
-              <Route path="/about" element={<About currentDate={currentDate} />} />
-              <Route path="/work" element={<Work currentDate={currentDate} />} />
-              <Route path="/contact" element={<Contact currentDate={currentDate} />} />
-            </Routes>
+            <AnimatePresence exitBeforeEnter initial={true}>
+              <motion.div
+                initial={transApp.initial}
+                animate={transApp.animate}
+                exit={transApp.exit}
+                style={transApp.style}
+                transition={transApp.time}
+              >
+                <Nav />
+                <Routes>
+                  <Route path="/" element={<Navigate to="/about" />} />
+                  <Route path="/about" element={<About currentDate={currentDate} />} />
+                  <Route path="/work" element={<Work currentDate={currentDate} />} />
+                  <Route path="/contact" element={<Contact currentDate={currentDate} />} />
+                </Routes>
+              </motion.div>
+            </AnimatePresence>
           </Router>
         </Box>
         <Footer />

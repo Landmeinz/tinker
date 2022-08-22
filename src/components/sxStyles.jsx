@@ -2,6 +2,26 @@
 import { createTheme } from '@mui/material/styles';
 
 
+// ----- Transitions ----- //
+// ----- Transitions ----- //
+// ----- Transitions ----- //
+export const trans = {
+    time: { duration: .75 },
+    initial: { rotate: 0, y: 0, opacity: 0 },
+    animate: { rotate: 0, y: 0, opacity: 1 },
+    // exit:       { rotate: -30 },
+}
+
+export const transApp = {
+    time: { duration: 1.25 },
+    initial: { rotate: 0, y: 0, opacity: 0 },
+    animate: { rotate: 0, y: 0, opacity: 1 },
+}
+// ----- Transitions ----- //
+// ----- Transitions ----- //
+// ----- Transitions ----- //
+
+
 // ----- App ----- //
 // ----- App ----- //
 // ----- App ----- //
