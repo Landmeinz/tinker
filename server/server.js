@@ -20,9 +20,6 @@ app.use(function(req, res, next) {
 const sessionMiddleware = require('./modules/session-middleware');
 app.use(sessionMiddleware);
 
-// Serve static files //
-// app.use(express.static('build'));
-
 // ----- Routes ----- //
 const messageRouter = require('../server/routes/message.router');
 const currentDateRouter = require('../server/routes/current_date.router');
@@ -30,8 +27,6 @@ app.use('/api/messages', messageRouter);
 app.use('/api/date', currentDateRouter);
 
 // App Set //
-// const PORT = process.env.PORT || 5050;
-
 app.set("port", process.env.PORT || 5050);
 
 // Express only serves static assets in production
@@ -40,10 +35,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // ----- Listen ----- //
-// app.listen(PORT, () => {
-//   console.log(`Listening on port: ${PORT}`);
-// });
-
 app.listen(app.get("port"), () => {
   console.log(`Find the server at: http://localhost:${app.get("port")}/`); // eslint-disable-line no-console
 });

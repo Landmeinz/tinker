@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { ThemeProvider } from '@mui/material/styles';
 import {
-  BrowserRouter,
+  // BrowserRouter,
+  HashRouter as Router,
   Route,
   Routes,
   Navigate,
@@ -55,22 +56,22 @@ function App() {
   };
 
   return (
+
     <ThemeProvider theme={theme}>
-      <Box id="sxApp" sx={sxApp} >
-        <Box id="sxAppContainer" sx={sxAppContainer}>
-          <BrowserRouter>
-            <Nav />
-            <Routes>
-              <Route path="/" element={<Navigate to="/about" />} />
-              {/* <Route path="/home" element={<Home />} /> */}
-              <Route path="/about" element={<About currentDate={currentDate} />} />
-              <Route path="/work" element={<Work currentDate={currentDate} />} />
-              <Route path="/contact" element={<Contact currentDate={currentDate} />} />
-            </Routes>
-            <Footer />
-          </BrowserRouter>
+        <Box id="sxApp" sx={sxApp} >
+          <Box id="sxAppContainer" sx={sxAppContainer}>
+            <Router>
+              <Nav />
+              <Routes>
+                <Route path="/" element={<Navigate to="/about" />} />
+                <Route path="/about" element={<About currentDate={currentDate} />} />
+                <Route path="/work" element={<Work currentDate={currentDate} />} />
+                <Route path="/contact" element={<Contact currentDate={currentDate} />} />
+              </Routes>
+              <Footer />
+            </Router>
+          </Box>
         </Box>
-      </Box>
     </ThemeProvider >
   );
 }
