@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from "react-helmet";
 
 // --- Components --- //
 import CardProject from '../CardProject/CardProject';
@@ -37,6 +38,13 @@ function Work({ currentDate }) {
 
     return (
         <Box id="WorkSectionParent">
+            <Helmet>
+                <title>Tinker Our Work</title>
+                <meta
+                    name="description"
+                    content="We've been tinkering, view our work, gallery, project photos, completed work"
+                />
+            </Helmet>
             <Box id="sxWorkSectionOne" sx={sxWorkSectionOne}>
                 <Box id="sxHeroTextContentWork" sx={sxHeroTextContent}>
                     <Typography sx={sxWorkHeroText} variant='h1'>We've</Typography>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 
 // --- Components --- //
@@ -93,6 +94,13 @@ function Contact({ currentDate }) {
     return (
 
         <Box id="sxContactSectionOne" sx={sxContactSectionOne}>
+            <Helmet>
+                <title>Tinker Contact</title>
+                <meta
+                    name="description"
+                    content="Leave a note, write a poem, drop a message, contact, email tinker.group"
+                />
+            </Helmet>
             <Box id="sxHeroTextContent" sx={sxHeroTextContent}>
                 <Typography sx={sxContactText} variant='h1'>Leave A Note</Typography>
                 <Typography sx={sxContactText} variant='h1'>Write A Poem</Typography>

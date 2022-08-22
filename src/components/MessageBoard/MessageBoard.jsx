@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Helmet } from 'react-helmet';
 
 // --- MUI --- // 
 import {
@@ -26,6 +26,12 @@ function MessageBoard({ messageList }) {
 
     return (
         <Box id="sxMessageBoardContent" sx={sxMessageBoardContent}>
+            <Helmet>
+                <meta
+                    name="description"
+                    content="message board for those who want to share their thoughts"
+                />
+            </Helmet>
             {messageList.map(message => (
                 <Box id="sxMessageBoardText" sx={sxMessageBoardText} key={message.id}>
                     <Box id="sxMsgBoardCardHeader" sx={sxMsgBoardCardHeader}>

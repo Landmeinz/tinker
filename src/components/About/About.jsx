@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from "react-helmet";
 
 // --- Components --- //
 import CardDefineRight from '../CardDefineRight/CardDefineRight';
@@ -33,6 +34,13 @@ import {
 function About({ currentDate }) {
     return (
         <Box>
+            <Helmet>
+                <title>Tinker About</title>
+                <meta
+                    name="description"
+                    content="Tinker is made up of a close group of entrepreneurs, designers, architects, engineers, developers, and people who are just plain creative."
+                />
+            </Helmet>
             <Box id="sxAboutSectionOne" sx={sxAboutSectionOne}>
                 <Box id="sxHeroTextContent" sx={sxHeroTextContent}>
                     <Typography sx={sxHeroText} variant='h1'>Together</Typography>
@@ -50,7 +58,7 @@ function About({ currentDate }) {
                     title={DefineTextVerb.title}
                     body={DefineTextVerb.body}
                     tag={DefineTextVerb.tag} />
-               
+
                 <CardAdditionalDetails title={addDetailsTwo.title} />
                 <CardAdditionalDetails title={addDetailsThree.title} />
 

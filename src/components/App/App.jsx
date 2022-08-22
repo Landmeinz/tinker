@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { ThemeProvider } from '@mui/material/styles';
+import { Helmet } from "react-helmet";
 import {
   // BrowserRouter,
   HashRouter as Router,
@@ -59,6 +60,13 @@ function App() {
 
     <ThemeProvider theme={theme}>
       <Box id="sxApp" sx={sxApp} >
+        <Helmet>
+          <title>Tinker Together</title>
+          <meta
+            name="description"
+            content="general information and mission statement of the tinker.group along with a gallery of work."
+          />
+        </Helmet>
         <Box id="sxAppContainer" sx={sxAppContainer}>
           <Router>
             <Nav />
