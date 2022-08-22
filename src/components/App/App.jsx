@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import baseURL from '../../axios/url';
 import { ThemeProvider } from '@mui/material/styles';
 import {
   BrowserRouter,
@@ -34,7 +33,7 @@ import {
 
 
 function App() {
-  axios.defaults.baseURL = baseURL;
+  axios.defaults.baseURL = 'http://localhost:5050';
 
   const [currentDate, setCurrentDate] = useState([]);
 
@@ -43,7 +42,7 @@ function App() {
   }, []);
 
   const fetchCurrentDate = () => {
-    
+
     axios
       .get('/api/date')
       .then((response) => {

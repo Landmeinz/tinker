@@ -6,6 +6,8 @@ let config = {};
 
 // ---- Heroku or Default Config ----- //
 if (process.env.DATABASE_URL) {
+  console.log('--- pool - in if statement ---');
+
   // Heroku gives a url, not a connection object
   // https://github.com/brianc/node-pg-pool
   const params = url.parse(process.env.DATABASE_URL);
@@ -22,7 +24,9 @@ if (process.env.DATABASE_URL) {
     max: 10, // max number of clients in the pool
     idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
   };
+  
 } else {
+  console.log('--- pool - in else statement ---');
   config = {
     host: 'localhost', // Server hosting the postgres database
     port: 5432, // env var: PGPORT
@@ -42,7 +46,7 @@ pool.on('connect', () => {
 });
 
 pool.on('error', (error) => {
-  console.log('Error with database pool', error);
+  console.log('!Error with database pool!', error);
   process.exit(-1);
 });
 

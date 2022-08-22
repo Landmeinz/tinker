@@ -1,11 +1,9 @@
+
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config();
-
-// const history = require('connect-history-api-fallback');
-// app.use(history);
 
 // Body parser middleware //
 app.use(bodyParser.json());
@@ -19,7 +17,6 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-
 
 const sessionMiddleware = require('./modules/session-middleware');
 app.use(sessionMiddleware);
