@@ -1,8 +1,7 @@
-const base_url = window.location.origin;
-const production = 'ec2-34-203-182-65.compute-1.amazonaws.com';
+const currentURL = window.location.origin;
+const production = process.env.DATABASE_URL;
 const development = 'http://localhost:5050';
 
-// const url = (base_url == 'http://localhost:3000' ? development : production);
-const url = development;
+const baseURL = (currentURL === 'http://localhost:3000' ? development : production);
 
-module.exports = url;
+module.exports = baseURL;

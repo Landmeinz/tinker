@@ -14,7 +14,7 @@ if (process.env.DATABASE_URL) {
   config = {
     user: auth[0],
     password: auth[1],
-    // connectionString: params.DATABASE_URL,
+    connectionString: params.DATABASE_URL,
     host: params.hostname,
     port: params.port,
     database: params.pathname.split('/')[1],

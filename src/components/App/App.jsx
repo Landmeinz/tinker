@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import url from '../../axios/url';
+import baseURL from '../../axios/url';
 import { ThemeProvider } from '@mui/material/styles';
 import {
   BrowserRouter,
@@ -34,7 +34,7 @@ import {
 
 
 function App() {
-  axios.defaults.baseURL = url;
+  axios.defaults.baseURL = baseURL;
 
   const [currentDate, setCurrentDate] = useState([]);
 
@@ -43,9 +43,7 @@ function App() {
   }, []);
 
   const fetchCurrentDate = () => {
-    console.log("--- in fetchCurrentDate ---");
-
-    // axios.get('/api/date')
+    
     axios
       .get('/api/date')
       .then((response) => {

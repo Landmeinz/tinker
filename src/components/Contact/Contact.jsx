@@ -66,8 +66,6 @@ function Contact({ currentDate }) {
     }; // handleSubmit
 
     const fetchMessageList = () => {
-        console.log("--- in fetchMessageList ---");
-
         axios
             .get("/api/messages")
             .then((response) => {
