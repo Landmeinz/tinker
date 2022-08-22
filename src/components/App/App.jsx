@@ -33,7 +33,7 @@ import {
 
 
 function App() {
-  axios.defaults.baseURL = 'http://localhost:5050';
+  axios.defaults.baseURL = process.env.DATABASE_URL || 'http://localhost:5050';
 
   const [currentDate, setCurrentDate] = useState([]);
 
