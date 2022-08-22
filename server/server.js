@@ -31,7 +31,8 @@ app.use('/api/messages', messageRouter);
 app.use('/api/date', currentDateRouter);
 
 // App Set //
-const PORT = process.env.PORT || 5050;
+// const PORT = process.env.PORT || 5050;
+const PORT = 5432;
 
 // ----- Listen ----- //
 app.listen(PORT, () => {

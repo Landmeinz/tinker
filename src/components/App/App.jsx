@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import baseURL from '../Axios/baseURL'
 import { ThemeProvider } from '@mui/material/styles';
 import {
   BrowserRouter,
@@ -33,7 +34,10 @@ import {
 
 
 function App() {
-  axios.defaults.baseURL = process.env.DATABASE_URL || 'http://localhost:5050';
+
+  axios.defaults.baseURL = baseURL;
+
+  // 'http://localhost:5050';
 
   const [currentDate, setCurrentDate] = useState([]);
 
