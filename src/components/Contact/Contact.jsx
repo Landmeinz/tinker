@@ -95,14 +95,14 @@ function Contact({ currentDate }) {
 
     return (
 
-        <Box id="sxContactSectionOne" sx={sxContactSectionOne}>
-            <motion.div
-                initial={trans.initial}
-                animate={trans.animate}
-                exit={trans.exit}
-                style={trans.style}
-                transition={trans.time}
-            >
+        <motion.div
+            initial={trans.initial}
+            animate={trans.animate}
+            exit={trans.exit}
+            style={trans.style}
+            transition={trans.time}
+        >
+            <Box id="sxContactSectionOne" sx={sxContactSectionOne}>
                 <Helmet>
                     <title>Tinker Contact</title>
                     <meta
@@ -147,8 +147,8 @@ function Contact({ currentDate }) {
 
                     <MessageBoard messageList={messageList} />
                 </Box>
-            </motion.div>
-        </Box>
+            </Box>
+        </motion.div>
     )
 }
 export default Contact;

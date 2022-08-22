@@ -35,14 +35,14 @@ import {
 
 function About({ currentDate }) {
     return (
-        <Box>
-            <motion.div
-                initial={trans.initial}
-                animate={trans.animate}
-                exit={trans.exit}
-                style={trans.style}
-                transition={trans.time}
-            >
+        <motion.div
+            initial={trans.initial}
+            animate={trans.animate}
+            exit={trans.exit}
+            style={trans.style}
+            transition={trans.time}
+        >
+            <Box>
                 <Helmet>
                     <title>Tinker About</title>
                     <meta
@@ -73,8 +73,8 @@ function About({ currentDate }) {
 
                     <ContactButton />
                 </Box>
-            </motion.div>
-        </Box >
+            </Box >
+        </motion.div>
     )
 }
 export default About;

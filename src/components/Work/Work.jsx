@@ -39,14 +39,15 @@ import {
 function Work({ currentDate }) {
 
     return (
-        <Box id="WorkSectionParent">
-            <motion.div
-                initial={trans.initial}
-                animate={trans.animate}
-                exit={trans.exit}
-                style={trans.style}
-                transition={trans.time}
-            >
+        
+        <motion.div
+            initial={trans.initial}
+            animate={trans.animate}
+            exit={trans.exit}
+            style={trans.style}
+            transition={trans.time}
+        >
+            <Box id="WorkSectionParent">
                 <Helmet>
                     <title>Tinker Our Work</title>
                     <meta
@@ -80,8 +81,8 @@ function Work({ currentDate }) {
                     </Box>
                     <ContactButton />
                 </Box>
-            </motion.div>
-        </Box>
+            </Box>
+        </motion.div>
     )
 }
 export default Work;

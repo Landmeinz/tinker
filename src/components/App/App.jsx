@@ -71,7 +71,6 @@ function App() {
           />
         </Helmet>
         <Box id="sxAppContainer" sx={sxAppContainer}>
-
           <Router>
             <AnimatePresence exitBeforeEnter initial={true}>
               <motion.div
