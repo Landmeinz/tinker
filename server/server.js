@@ -36,5 +36,5 @@ if (process.env.NODE_ENV === "production") {
 
 // ----- Listen ----- //
 app.listen(app.get("port"), () => {
-  console.log(`Find the server at: http://localhost:${app.get("port")}/`); // eslint-disable-line no-console
+  console.log(`server connected at: http://localhost:${app.get("port")}/`); // eslint-disable-line no-console
 });

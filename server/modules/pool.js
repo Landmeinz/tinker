@@ -6,8 +6,6 @@ let config = {};
 
 // ---- Heroku or Default Config ----- //
 if (process.env.DATABASE_URL) {
-  console.log('--- pool - in if statement ---');
-
   // Heroku gives a url, not a connection object
   // https://github.com/brianc/node-pg-pool
   const params = url.parse(process.env.DATABASE_URL);
@@ -26,7 +24,6 @@ if (process.env.DATABASE_URL) {
   };  
   
 } else {
-  console.log('--- pool - in else statement ---');
   config = {
     host: 'localhost', // Server hosting the postgres database
     port: 5432, // env var: PGPORT

@@ -47,27 +47,27 @@ export const sxApp = {
 
 export const sxAppContainer = {
     height: '100%',
-    pb: 25,
+    pb: 20,
 }
 
 export const sxBreaksH4 = {
     [theme.breakpoints.down('xl')]: {
-        fontSize: '2rem'
+        fontSize: '2.25rem'
     },
     [theme.breakpoints.down('lg')]: {
         fontSize: '2rem'
     },
     [theme.breakpoints.down('md')]: {
-        fontSize: '1.5rem'
+        fontSize: '1.75rem'
     },
     [theme.breakpoints.down('sm')]: {
-        fontSize: '1.25rem'
+        fontSize: '1.5rem'
     }
 }
 
 export const sxBreaksH5 = {
     [theme.breakpoints.down('xl')]: {
-        fontSize: '1.5rem'
+        fontSize: '1.75rem'
     },
     [theme.breakpoints.down('lg')]: {
         fontSize: '1.5rem'
@@ -91,7 +91,7 @@ export const sxBreaksH5 = {
 // ----- Nav ----- //
 export const sxNavContainer = {
     // border: '1px solid red',
-    py: 1,
+    py: 2,
     px: 2,
     display: 'flex',
     justifyContent: 'space-between',
@@ -560,9 +560,7 @@ export const sxContactButton = {
 // ----- Footer ----- //
 export const sxFooterContainer = {
     // border: '1px solid red',
-    position: 'fixed',
-    bottom: 0,
-    height: '1.25rem',
+    height: '1.5rem',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -590,6 +588,19 @@ export const sxMessageBoardContent = {
     p: 2,
     borderRadius: 4,
     width: '75vw',
+
+    [theme.breakpoints.down('xl')]: {
+        width: '70vw',
+    },
+    [theme.breakpoints.down('lg')]: {
+        width: '75vw',
+    },
+    [theme.breakpoints.down('md')]: {
+        width: '80vw',
+    },
+    [theme.breakpoints.down('sm')]: {
+        width: '90vw',
+    }
 }
 
 export const sxMessageBoardText = {
@@ -643,6 +654,7 @@ export const sxProjectDescriptionTitle = {
     // border: '1px solid red',
     display: 'flex',
     justifyContent: 'center',
+    textAlign: 'center',
     px: 8,
     py: 1.5,
     color: 'info.light',
@@ -680,6 +692,7 @@ export const sxProjectDescriptionContent = {
     },
     [theme.breakpoints.down('sm')]: {
         px: 3,
+        textAlign: 'center',
     }
 }
 // ----- ProjectDescription ----- //
@@ -739,7 +752,23 @@ export const sxCardProjectGallery = {
     justifyContent: 'center',
     flexWrap: 'wrap',
     gap: 3,
+    borderBottom: 1,
+    borderColor: 'primary.light',
+    pb: 5,
+    mx: 8,
 
+    [theme.breakpoints.down('xl')]: {
+        mx: 8,
+    },
+    [theme.breakpoints.down('lg')]: {
+        mx: 8,
+    },
+    [theme.breakpoints.down('md')]: {
+        mx: 5,
+    },
+    [theme.breakpoints.down('sm')]: {
+        mx: 3,
+    }
 }
 // ----- Work ----- //
 // ----- Work ----- //

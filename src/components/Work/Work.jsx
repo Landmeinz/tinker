@@ -51,12 +51,12 @@ function Work({ currentDate }) {
                         details={swing.details}
                     />
                     <Box id="sxCardProjectGallerySwing" sx={sxCardProjectGallery}>
-                        {swing.images.map(image => (
+                        {swing.content.map(content => (
                             <CardProject
-                                key={image.id}
-                                image={image.path}
-                                imageCaption={image.caption}
-                                alt={image.caption}
+                                key={content.id}
+                                image={content.image}
+                                imageCaption={content.caption}
+                                alt={content.caption}
                             />
                         ))}
                     </Box>
