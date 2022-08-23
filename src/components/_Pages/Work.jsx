@@ -43,6 +43,10 @@ function Work({ currentDate }) {
             name="keywords"
             content="tinker work, projects, gallery, portfolio"
           />
+          <meta
+            name="author"
+            content="tinker.group, Eric Meinzer, Chris Benner, Adam Donner"
+          />
         </Helmet>
 
         <Box id="sxWorkSectionOne" sx={sxWorkSectionOne}>

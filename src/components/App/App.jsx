@@ -55,7 +55,11 @@ function App() {
           />
           <meta
             name="keywords"
-            content="tinker together, tinker.group, Eric Meinzer, Chris Benner, Adam Donner"
+            content="tinker together, tinker.group, welcome"
+          />
+          <meta
+            name="author"
+            content="tinker.group, Eric Meinzer, Chris Benner, Adam Donner"
           />
         </Helmet>
 

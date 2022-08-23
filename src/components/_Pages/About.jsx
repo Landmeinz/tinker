@@ -46,7 +46,11 @@ function About({ currentDate }) {
           />
           <meta
             name="keywords"
-            content="tinker about, tinker.group, mission, Eric Meinzer, Chris Benner, Adam Donner"
+            content="tinker about, tinker.group, who, mission, create"
+          />
+          <meta
+            name="author"
+            content="tinker.group, Eric Meinzer, Chris Benner, Adam Donner"
           />
         </Helmet>
 

@@ -55,9 +55,12 @@ function Contact({ currentDate }) {
             name="description"
             content="Leave a note, write a poem, drop a message, contact, email tinker.group"
           />
+          <meta 
+            name="keywords" 
+            content="tinker contact, message board, email" />
           <meta
-            name="keywords"
-            content="tinker contact, message board, "
+            name="author"
+            content="tinker.group, Eric Meinzer, Chris Benner, Adam Donner"
           />
         </Helmet>
 
