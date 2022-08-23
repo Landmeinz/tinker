@@ -55,24 +55,19 @@ function About({ currentDate }) {
               We Tinker
             </Typography>
           </Box>
-
           <CardAdditionalDetails title={addDetailsOne.title} />
-
           <CardDefineRight
             title={DefineTextNoun.title}
             body={DefineTextNoun.body}
             tag={DefineTextNoun.tag}
           />
-
           <CardDefineLeft
             title={DefineTextVerb.title}
             body={DefineTextVerb.body}
             tag={DefineTextVerb.tag}
           />
-
           <CardAdditionalDetails title={addDetailsTwo.title} />
           <CardAdditionalDetails title={addDetailsThree.title} />
-
           <ContactButton />
         </Box>
       </Box>

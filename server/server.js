@@ -19,6 +19,9 @@ app.use(function(req, res, next) {
 
 const sessionMiddleware = require('./modules/session-middleware');
 app.use(sessionMiddleware);
+// var cookieParser = require('cookie-parser');
+// app.use(cookieParser());
+
 
 // ----- Routes ----- //
 const messageRouter = require('../server/routes/message.router');

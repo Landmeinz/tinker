@@ -3,6 +3,7 @@ import axios from "axios";
 import { ThemeProvider } from "@mui/material/styles";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet";
+import { useCookies } from 'react-cookie';
 import {
   // BrowserRouter,
   HashRouter as Router,
@@ -22,10 +23,9 @@ import Contact from "../_Pages/Contact";
 import { Box } from "@mui/material";
 
 // --- Sx Styles --- //
-import { theme, transApp, trans, sxApp, sxAppContainer } from "../sxStyles";
+import { theme, transApp, sxApp, sxAppContainer } from "../sxStyles";
 
 function App() {
-  // axios.defaults.baseURL = 'http://localhost:5050';
 
   const [currentDate, setCurrentDate] = useState([]);
 
@@ -57,7 +57,7 @@ function App() {
         </Helmet>
         <Box id="sxAppContainer" sx={sxAppContainer}>
           <Router>
-            <AnimatePresence exitBeforeEnter initial={true}>
+            <AnimatePresence mode="wait" initial={true}>
               <motion.div
                 initial={transApp.initial}
                 animate={transApp.animate}

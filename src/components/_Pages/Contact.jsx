@@ -4,10 +4,11 @@ import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 
 // --- Components --- //
+import MessageForm from "../MessageForm/MessageForm";
 import MessageBoard from "../MessageBoard/MessageBoard";
 
 // --- MUI --- //
-import { Typography, Box, TextField, Button } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 
 // --- Sx Styles --- //
 import {
@@ -15,9 +16,6 @@ import {
   sxHeroTextContent,
   sxContactSectionOne,
   sxContactText,
-  sxInputText,
-  sxInputContainer,
-  sxPostButton,
   sxMessageBoardContainer,
   sxMessageBoardHeader,
   sxBreaksH4,
@@ -29,32 +27,7 @@ function Contact({ currentDate }) {
     fetchMessageList();
   }, []);
 
-  let messageTemplate = {
-    name: "",
-    message: "",
-    date: "today",
-  };
-
-  const [newMessage, setNewMessage] = useState(messageTemplate);
   const [messageList, setMessageList] = useState([]);
-
-  const handleNameChange = (event, property) => {
-    setNewMessage({
-      ...newMessage,
-      [property]: event.target.value,
-    });
-  }; // handleNameChange
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (newMessage.name.length <= 1 || newMessage.message.length <= 3) {
-      return window.alert("Please be more descriptive");
-    } else {
-      postMessage(newMessage);
-      setNewMessage(messageTemplate);
-    }
-  }; // handleSubmit
 
   const fetchMessageList = () => {
     axios
@@ -66,17 +39,6 @@ function Contact({ currentDate }) {
         console.log("Error on axios GET: ", err);
       });
   }; // fetchMessageList
-
-  const postMessage = (newMessage) => {
-    axios
-      .post("/api/messages", newMessage)
-      .then((response) => {
-        fetchMessageList();
-      })
-      .catch((error) => {
-        console.log("Error on POST", error);
-      });
-  }; // postMessage
 
   return (
     <motion.div
@@ -94,6 +56,7 @@ function Contact({ currentDate }) {
             content="Leave a note, write a poem, drop a message, contact, email tinker.group"
           />
         </Helmet>
+
         <Box id="sxHeroTextContent" sx={sxHeroTextContent}>
           <Typography sx={sxContactText} variant="h1">
             Leave A Note
@@ -106,33 +69,7 @@ function Contact({ currentDate }) {
           </Typography>
         </Box>
 
-        <form className="formPanel" onSubmit={handleSubmit}>
-          <Box id="sxInputContainer" sx={sxInputContainer}>
-            <TextField
-              sx={sxInputText}
-              id="filled-static"
-              label="Your Name"
-              required
-              variant="filled"
-              value={newMessage.name}
-              onChange={(event) => handleNameChange(event, "name")}
-            />
-            <TextField
-              sx={sxInputText}
-              id="filled-multiline-static"
-              label="What's Up Buttercup?"
-              multiline
-              required
-              rows={5}
-              variant="filled"
-              value={newMessage.message}
-              onChange={(event) => handleNameChange(event, "message")}
-            />
-            <Button sx={sxPostButton} type="submit" size="large">
-              Post My Public Message
-            </Button>
-          </Box>
-        </form>
+        <MessageForm fetchMessageList={fetchMessageList} />
 
         <Box id="sxMessageBoardContainer" sx={sxMessageBoardContainer}>
           <Box id="sxMessageBoardHeader" sx={sxMessageBoardHeader}>
