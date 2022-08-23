@@ -1,34 +1,23 @@
-import React from 'react';
+import React from "react";
 
+// --- MUI --- //
+import { Typography, CardMedia, Box } from "@mui/material";
 
-// --- MUI --- // 
+// --- Sx Styles --- //
 import {
-    Typography,
-    CardMedia,
-    Box,
+  sxProjectImageContent,
+  sxCardProject,
+  sxImageCaption,
+} from "../sxStyles";
 
-} from '@mui/material';
-
-
-// --- Sx Styles --- // 
-import {
-    sxProjectImageContent,
-    sxCardProject,
-    sxImageCaption,
-
-} from '../sxStyles';
-
-
-function CardProject({image, imageCaption}) {
-
-    return (
-            <Box id="sxProjectImageContent" sx={sxProjectImageContent}>
-                <CardMedia
-                    sx={sxCardProject}
-                    component="img"
-                    image={image} />
-                <Typography sx={sxImageCaption} variant='body1'>{imageCaption}</Typography>
-            </Box>            
-    )
+function CardProject({ image, imageCaption }) {
+  return (
+    <Box id="sxProjectImageContent" sx={sxProjectImageContent}>
+      <CardMedia sx={sxCardProject} component="img" image={image} />
+      <Typography sx={sxImageCaption} variant="body1">
+        {imageCaption}
+      </Typography>
+    </Box>
+  );
 }
 export default CardProject;

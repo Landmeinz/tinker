@@ -1,80 +1,82 @@
-import React from 'react';
+import React from "react";
 import { Helmet } from "react-helmet";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 // --- Components --- //
-import CardDefineRight from '../CardDefineRight/CardDefineRight';
-import CardDefineLeft from '../CardDefineLeft/CardDefineLeft';
-import CardAdditionalDetails from '../CardAdditionalDetails/CardAdditionalDetails';
-import ContactButton from '../ContactButton/ContactButton';
-
+import CardDefineRight from "../CardDefineRight/CardDefineRight";
+import CardDefineLeft from "../CardDefineLeft/CardDefineLeft";
+import CardAdditionalDetails from "../CardAdditionalDetails/CardAdditionalDetails";
+import ContactButton from "../ContactButton/ContactButton";
 
 // --- Content --- //
-import { DefineTextNoun } from '../../content/DefineTextNoun';
-import { DefineTextVerb } from '../../content/DefineTextVerb';
-import { addDetailsOne, addDetailsTwo, addDetailsThree } from '../../content/AdditionalDetails';
-
-
-// --- MUI --- // 
+import { DefineTextNoun } from "../../content/DefineTextNoun";
+import { DefineTextVerb } from "../../content/DefineTextVerb";
 import {
-    Typography,
-    Box,
+  addDetailsOne,
+  addDetailsTwo,
+  addDetailsThree,
+} from "../../content/AdditionalDetails";
 
-} from '@mui/material';
-
+// --- MUI --- //
+import { Typography, Box } from "@mui/material";
 
 // --- Sx Styles --- //
 import {
-    trans,
-    sxAboutSectionOne,
-    sxHeroTextContent,
-    sxHeroText,
-
-} from '../sxStyles';
-
+  trans,
+  sxAboutSectionOne,
+  sxHeroTextContent,
+  sxHeroText,
+} from "../sxStyles";
 
 function About({ currentDate }) {
-    return (
-        <motion.div
-            initial={trans.initial}
-            animate={trans.animate}
-            exit={trans.exit}
-            style={trans.style}
-            transition={trans.time}
-        >
-            <Box>
-                <Helmet>
-                    <title>Tinker About</title>
-                    <meta
-                        name="description"
-                        content="Tinker is made up of a close group of entrepreneurs, designers, architects, engineers, developers, and people who are just plain creative."
-                    />
-                </Helmet>
-                <Box id="sxAboutSectionOne" sx={sxAboutSectionOne}>
-                    <Box id="sxHeroTextContent" sx={sxHeroTextContent}>
-                        <Typography sx={sxHeroText} variant='h1'>Together</Typography>
-                        <Typography sx={sxHeroText} variant='h1'>We Tinker</Typography>
-                    </Box>
+  return (
+    <motion.div
+      initial={trans.initial}
+      animate={trans.animate}
+      exit={trans.exit}
+      style={trans.style}
+      transition={trans.time}
+    >
+      <Box>
+        <Helmet>
+          <title>Tinker About</title>
+          <meta
+            name="description"
+            content="Tinker is made up of a close group of entrepreneurs, designers, architects, engineers, developers, and people who are just plain creative."
+          />
+        </Helmet>
 
-                    <CardAdditionalDetails title={addDetailsOne.title} />
+        <Box id="sxAboutSectionOne" sx={sxAboutSectionOne}>
+          <Box id="sxHeroTextContent" sx={sxHeroTextContent}>
+            <Typography sx={sxHeroText} variant="h1">
+              Together
+            </Typography>
+            <Typography sx={sxHeroText} variant="h1">
+              We Tinker
+            </Typography>
+          </Box>
 
-                    <CardDefineRight
-                        title={DefineTextNoun.title}
-                        body={DefineTextNoun.body}
-                        tag={DefineTextNoun.tag} />
+          <CardAdditionalDetails title={addDetailsOne.title} />
 
-                    <CardDefineLeft
-                        title={DefineTextVerb.title}
-                        body={DefineTextVerb.body}
-                        tag={DefineTextVerb.tag} />
+          <CardDefineRight
+            title={DefineTextNoun.title}
+            body={DefineTextNoun.body}
+            tag={DefineTextNoun.tag}
+          />
 
-                    <CardAdditionalDetails title={addDetailsTwo.title} />
-                    <CardAdditionalDetails title={addDetailsThree.title} />
+          <CardDefineLeft
+            title={DefineTextVerb.title}
+            body={DefineTextVerb.body}
+            tag={DefineTextVerb.tag}
+          />
 
-                    <ContactButton />
-                </Box>
-            </Box >
-        </motion.div>
-    )
+          <CardAdditionalDetails title={addDetailsTwo.title} />
+          <CardAdditionalDetails title={addDetailsThree.title} />
+
+          <ContactButton />
+        </Box>
+      </Box>
+    </motion.div>
+  );
 }
 export default About;

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { ThemeProvider } from '@mui/material/styles';
-import { motion, AnimatePresence } from "framer-motion"
+import { ThemeProvider } from "@mui/material/styles";
+import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet";
 import {
   // BrowserRouter,
@@ -9,33 +9,20 @@ import {
   Route,
   Routes,
   Navigate,
-} from 'react-router-dom';
+} from "react-router-dom";
 
 // --- Components --- //
-import Work from '../Work/Work';
-import About from '../About/About';
-import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
-import Contact from '../Contact/Contact';
-
+import Work from "../Work/Work";
+import About from "../About/About";
+import Nav from "../Nav/Nav";
+import Footer from "../Footer/Footer";
+import Contact from "../Contact/Contact";
 
 // --- MUI --- //
-import {
-  Box,
-
-} from '@mui/material';
-
+import { Box } from "@mui/material";
 
 // --- Sx Styles --- //
-import {
-  theme,
-  transApp,
-  trans,
-  sxApp,
-  sxAppContainer,
-
-} from '../sxStyles';
-
+import { theme, transApp, trans, sxApp, sxAppContainer } from "../sxStyles";
 
 function App() {
   // axios.defaults.baseURL = 'http://localhost:5050';
@@ -47,22 +34,20 @@ function App() {
   }, []);
 
   const fetchCurrentDate = () => {
-
     axios
-      .get('/api/date')
+      .get("/api/date")
       .then((response) => {
         // console.log('GET /api/date RESPONSE', response);
         setCurrentDate(response.data);
-
-      }).catch((error) => {
-        console.log('GET /api/date ERROR', error);
+      })
+      .catch((error) => {
+        console.log("GET /api/date ERROR", error);
       });
   };
 
   return (
-
     <ThemeProvider theme={theme}>
-      <Box id="sxApp" sx={sxApp} >
+      <Box id="sxApp" sx={sxApp}>
         <Helmet>
           <title>Tinker Together</title>
           <meta
@@ -83,9 +68,18 @@ function App() {
                 <Nav />
                 <Routes>
                   <Route path="/" element={<Navigate to="/about" />} />
-                  <Route path="/about" element={<About currentDate={currentDate} />} />
-                  <Route path="/work" element={<Work currentDate={currentDate} />} />
-                  <Route path="/contact" element={<Contact currentDate={currentDate} />} />
+                  <Route
+                    path="/about"
+                    element={<About currentDate={currentDate} />}
+                  />
+                  <Route
+                    path="/work"
+                    element={<Work currentDate={currentDate} />}
+                  />
+                  <Route
+                    path="/contact"
+                    element={<Contact currentDate={currentDate} />}
+                  />
                 </Routes>
               </motion.div>
             </AnimatePresence>
@@ -93,7 +87,7 @@ function App() {
         </Box>
         <Footer />
       </Box>
-    </ThemeProvider >
+    </ThemeProvider>
   );
 }
 
