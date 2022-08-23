@@ -12,11 +12,11 @@ import {
 } from "react-router-dom";
 
 // --- Components --- //
-import Work from "../Work/Work";
-import About from "../About/About";
+import Work from "../_Pages/Work";
+import About from "../_Pages/About";
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
-import Contact from "../Contact/Contact";
+import Contact from "../_Pages/Contact";
 
 // --- MUI --- //
 import { Box } from "@mui/material";
