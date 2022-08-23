@@ -44,6 +44,10 @@ function About({ currentDate }) {
             name="description"
             content="Tinker is made up of a close group of entrepreneurs, designers, architects, engineers, developers, and people who are just plain creative."
           />
+          <meta
+            name="keywords"
+            content="tinker about, tinker.group, mission, Eric Meinzer, Chris Benner, Adam Donner"
+          />
         </Helmet>
 
         <Box id="sxAboutSectionOne" sx={sxAboutSectionOne}>

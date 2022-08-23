@@ -55,6 +55,10 @@ function Contact({ currentDate }) {
             name="description"
             content="Leave a note, write a poem, drop a message, contact, email tinker.group"
           />
+          <meta
+            name="keywords"
+            content="tinker contact, message board, "
+          />
         </Helmet>
 
         <Box id="sxHeroTextContent" sx={sxHeroTextContent}>

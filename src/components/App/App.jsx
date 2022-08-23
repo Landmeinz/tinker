@@ -3,7 +3,7 @@ import axios from "axios";
 import { ThemeProvider } from "@mui/material/styles";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet";
-import { useCookies } from 'react-cookie';
+import { useCookies } from "react-cookie";
 import {
   // BrowserRouter,
   HashRouter as Router,
@@ -26,7 +26,6 @@ import { Box } from "@mui/material";
 import { theme, transApp, sxApp, sxAppContainer } from "../sxStyles";
 
 function App() {
-
   const [currentDate, setCurrentDate] = useState([]);
 
   useEffect(() => {
@@ -54,7 +53,12 @@ function App() {
             name="description"
             content="general information and mission statement of the tinker.group along with a gallery of work."
           />
+          <meta
+            name="keywords"
+            content="tinker together, tinker.group, Eric Meinzer, Chris Benner, Adam Donner"
+          />
         </Helmet>
+
         <Box id="sxAppContainer" sx={sxAppContainer}>
           <Router>
             <AnimatePresence mode="wait" initial={true}>

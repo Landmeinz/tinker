@@ -39,6 +39,10 @@ function Work({ currentDate }) {
             name="description"
             content="We've been tinkering, view our work, gallery, project photos, completed work"
           />
+          <meta
+            name="keywords"
+            content="tinker work, projects, gallery, portfolio"
+          />
         </Helmet>
 
         <Box id="sxWorkSectionOne" sx={sxWorkSectionOne}>
