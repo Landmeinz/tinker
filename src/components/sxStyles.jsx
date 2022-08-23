@@ -250,13 +250,13 @@ export const sxCardDefineLeftContainer = {
 // ----- CardDefineRight --- //
 // ----- CardDefineRight --- //
 export const sxCardDefineRightContainer = {
-  // border: '1px solid red',
+//   border: '1px solid red',
   display: "flex",
   flexDirection: "row",
   justifyContent: "center",
   alignItems: "center",
   bgcolor: "primary.light",
-  borderRadius: 6,
+  borderRadius: 5,
   ml: "8vw",
 
   [theme.breakpoints.down("xl")]: {
@@ -285,7 +285,7 @@ export const sxCardDefineRightContainer = {
 // ----- CardDefine SHARED --- //
 // ----- CardDefine SHARED --- //
 export const sxTinkerDefined = {
-  // border: '1px solid green',
+//   border: '1px solid green',
   px: 5,
   py: 3,
   display: "flex",
@@ -294,6 +294,19 @@ export const sxTinkerDefined = {
   width: "60%",
   height: "inherit",
   bgcolor: "info.light",
+
+  [theme.breakpoints.down("xl")]: {
+
+  },
+  [theme.breakpoints.down("lg")]: {
+
+  },
+  [theme.breakpoints.down("md")]: {
+
+  },
+  [theme.breakpoints.down("sm")]: {
+    borderRadius: 2.5,
+  },
 };
 
 export const sxCardDefineBody = {
@@ -325,14 +338,29 @@ export const sxBoxColor = {
 
 export const sxCircleFrame = {
   borderRadius: "50%",
-  height: "17rem",
-  width: "17rem",
+  height: "15rem",
+  width: "15rem",
   objectFit: "cover",
 };
 
 export const sxCenterCircle = {
   display: "flex",
   alignItems: "center",
+};
+
+export const sxCardDefineH4 = {
+  [theme.breakpoints.down("xl")]: {
+    fontSize: "1.75rem",
+  },
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "1.75rem",
+  },
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1.5rem",
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1.25rem",
+  },
 };
 // ----- CardDefine SHARED --- //
 // ----- CardDefine SHARED --- //

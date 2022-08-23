@@ -11,7 +11,8 @@ import {
   sxBoxColor,
   sxCenterCircle,
   sxCircleFrame,
-  sxBreaksH4,
+  sxCardDefineH4,
+  // sxBreaksH4,
   sxBreaksH5,
 } from "../sxStyles";
 
@@ -29,11 +30,11 @@ function CardDefineRight({ title, body, tag }) {
       </Box>
 
       <Box id="sxTinkerDefinedRight" sx={sxTinkerDefined}>
-        <Typography sx={sxBreaksH4} variant="h4">
+        <Typography sx={sxCardDefineH4} variant="h4">
           {title}
         </Typography>
         <Box id="sxCardDefineBodyRight" sx={sxCardDefineBody}>
-          <Typography sx={sxBreaksH4} variant="h4">
+          <Typography sx={sxCardDefineH4} variant="h4">
             {body}
           </Typography>
           <Typography sx={sxBreaksH5} variant="h5">

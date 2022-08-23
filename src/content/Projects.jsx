@@ -6,7 +6,7 @@ export const swing = {
     {
       id: 0,
       image: "/images/swing/finished-2.jpg",
-      caption: "attached to tree using a simple knot this is a really long description for some reason lets make sure it doesnt ruin the page",
+      caption: "attached to tree using a simple knot",
       alt: "two swings hanging, rope tied around top of tree using a simple knot."
     },
     {
