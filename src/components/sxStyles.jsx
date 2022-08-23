@@ -355,6 +355,7 @@ export const sxCardProject = {
 
 export const sxImageCaption = {
   color: "info.light",
+  width: "20rem",
 };
 // ----- CardProject --- //
 // ----- CardProject --- //

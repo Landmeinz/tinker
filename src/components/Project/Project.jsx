@@ -29,7 +29,7 @@ function Project({ project }) {
             key={content.id}
             image={content.image}
             imageCaption={content.caption}
-            alt={content.caption}
+            alt={content.alt}
           />
         ))}
       </Box>

@@ -3,7 +3,6 @@ import axios from "axios";
 import { ThemeProvider } from "@mui/material/styles";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet";
-import { useCookies } from "react-cookie";
 import {
   // BrowserRouter,
   HashRouter as Router,
