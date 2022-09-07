@@ -96,6 +96,43 @@ export const sxBreaksH5 = {
     fontSize: "1.1rem",
   },
 };
+
+export const sxBreaksH6 = {
+    [theme.breakpoints.down("xl")]: {
+      fontSize: "1.5rem",
+    },
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "1.35rem",
+    },
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1.25rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.15rem",
+    },
+  };
+
+  export const sxNavH6 = {
+    cursor: "pointer",
+
+    "&:hover": {
+        color: "primary.light",
+        transform: "scale(1.05)",
+      },
+
+    [theme.breakpoints.down("xl")]: {
+        fontSize: "1.5rem",
+      },
+      [theme.breakpoints.down("lg")]: {
+        fontSize: "1.35rem",
+      },
+      [theme.breakpoints.down("md")]: {
+        fontSize: "1.25rem",
+      },
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "1.15rem",
+      },
+  }
 // ----- App ----- //
 // ----- App ----- //
 // ----- App ----- //
@@ -125,6 +162,13 @@ export const sxTinkerNavText = {
     transform: "scale(1.05)",
   },
 };
+
+export const sxTinkerSubText = {
+    display: "flex",
+    justifyContent: "center",
+    gap: "2vh",
+    color: "secondary.main",
+  };
 // ----- Nav ----- //
 // ----- Nav ----- //
 // ----- Nav ----- //
@@ -135,6 +179,16 @@ export const sxTinkerNavText = {
 export const sxHeroTextContent = {
   wordWrap: "break-word",
 };
+
+export const sxContactTitle = {
+    cursor: "pointer",
+
+    "&:hover": {
+        color: "secondary.main",
+        transform: "scale(1.02)",
+        transition: ".2s",
+      },
+}
 // ----- Shared On All Pages ----- //
 // ----- Shared On All Pages ----- //
 // ----- Shared On All Pages ----- //
@@ -406,6 +460,7 @@ export const sxContactText = {
   color: "primary.light",
   fontWeight: "bold", // normal, bold, light
   textAlign: "center",
+  userSelect: "none",
 
   [theme.breakpoints.down("xl")]: {
     fontSize: "7.4rem",

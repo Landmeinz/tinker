@@ -9,8 +9,13 @@ import { Typography, Box } from "@mui/material";
 import {
   sxNavContainer,
   sxTinkerNavText,
+  sxTinkerSubText,
+
   sxBreaksH4,
   sxBreaksH5,
+  sxBreaksH6,
+  sxNavH6,
+
 } from "../sxStyles";
 
 function Nav() {
@@ -33,13 +38,21 @@ function Nav() {
         </Typography>
       </Box>
 
-      <Box id="sxTinkerNavTextWork" sx={sxTinkerNavText}>
+      <Box id="sxTinkerNavTextWork" sx={sxTinkerSubText}>
         <Typography
-          sx={sxBreaksH5}
-          variant="h5"
+          sx={sxNavH6}
+          variant="h6"
           onClick={() => handleNav("/work")}
         >
           Our Work
+        </Typography>
+
+        <Typography
+          sx={sxNavH6}
+          variant="h6"
+          onClick={() => handleNav("/contact")}
+        >
+          Contact
         </Typography>
       </Box>
     </Box>

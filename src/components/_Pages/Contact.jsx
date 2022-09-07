@@ -6,9 +6,20 @@ import { motion } from "framer-motion";
 // --- Components --- //
 import MessageForm from "../MessageForm/MessageForm";
 import MessageBoard from "../MessageBoard/MessageBoard";
+import EmailForm from "../EmailForm/EmailForm";
 
 // --- MUI --- //
-import { Typography, Box } from "@mui/material";
+import {
+  Typography,
+  Box,
+  Button,
+  TextField,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
 
 // --- Sx Styles --- //
 import {
@@ -19,15 +30,19 @@ import {
   sxMessageBoardContainer,
   sxMessageBoardHeader,
   sxBreaksH4,
+  sxContactTitle,
+
   // sxBreaksH5,
 } from "../sxStyles";
 
 function Contact({ currentDate }) {
+  
   useEffect(() => {
     fetchMessageList();
   }, []);
 
   const [messageList, setMessageList] = useState([]);
+  const [open, setOpen] = useState(false);
 
   const fetchMessageList = () => {
     axios
@@ -39,6 +54,27 @@ function Contact({ currentDate }) {
         console.log("Error on axios GET: ", err);
       });
   }; // fetchMessageList
+
+  function handleClick(input) {
+    switch (input) {
+      case "email":
+        console.log("email");
+        setOpen(true);
+        break;
+
+      case "post":
+        console.log("post");
+        window.scrollTo({
+          top: 550,
+          left: 0,
+          behavior: "smooth",
+        });
+        break;
+
+      default:
+        break;
+    }
+  }
 
   return (
     <motion.div
@@ -55,9 +91,10 @@ function Contact({ currentDate }) {
             name="description"
             content="Leave a note, write a poem, drop a message, contact, email tinker.group"
           />
-          <meta 
-            name="keywords" 
-            content="tinker contact, message board, email" />
+          <meta
+            name="keywords"
+            content="tinker contact, message board, email"
+          />
           <meta
             name="author"
             content="tinker.group, Eric Meinzer, Chris Benner, Adam Donner"
@@ -65,15 +102,36 @@ function Contact({ currentDate }) {
         </Helmet>
 
         <Box id="sxHeroTextContent" sx={sxHeroTextContent}>
-          <Typography sx={sxContactText} variant="h1">
-            Leave A Note
-          </Typography>
-          <Typography sx={sxContactText} variant="h1">
-            Write A Poem
-          </Typography>
-          <Typography sx={sxContactText} variant="h1">
-            Drop A Message
-          </Typography>
+          <Box sx={sxContactTitle}>
+            <Typography
+              sx={sxContactText}
+              variant="h1"
+              onClick={() => handleClick("email")}
+            >
+              Send An Email
+            </Typography>
+
+            <EmailForm open={open} setOpen={setOpen}/>
+      
+          </Box>
+
+          <Box sx={sxContactTitle} onClick={() => handleClick("post")}>
+            <Typography sx={sxContactText} variant="h1">
+              Leave A Note
+            </Typography>
+          </Box>
+
+          <Box sx={sxContactTitle} onClick={() => handleClick("post")}>
+            <Typography sx={sxContactText} variant="h1">
+              Write A Poem
+            </Typography>
+          </Box>
+
+          <Box sx={sxContactTitle} onClick={() => handleClick("post")}>
+            <Typography sx={sxContactText} variant="h1">
+              Drop A Message
+            </Typography>
+          </Box>
         </Box>
 
         <MessageForm fetchMessageList={fetchMessageList} />
