@@ -5,9 +5,14 @@ import axios from "axios";
 import { Typography, Box, TextField, Button } from "@mui/material";
 
 // --- Sx Styles --- //
-import { sxInputContainer, sxInputText, sxPostButton } from "../sxStyles";
+import {
+  sxInputContainer,
+  sxInputText,
+  sxPostButton,
+  sxMessageButtonContainer,
+} from "../sxStyles";
 
-function MessageForm({ fetchMessageList }) {
+function MessageForm({ fetchMessageList, setOpen }) {
   let messageTemplate = {
     name: "",
     message: "",
@@ -45,6 +50,10 @@ function MessageForm({ fetchMessageList }) {
       });
   }; // postMessage
 
+  const handleEmail = () => {
+    setOpen(true);
+  };
+
   return (
     <form className="formPanel" onSubmit={handleSubmit}>
       <Box id="sxInputContainer" sx={sxInputContainer}>
@@ -68,9 +77,14 @@ function MessageForm({ fetchMessageList }) {
           value={newMessage.message}
           onChange={(event) => handleNameChange(event, "message")}
         />
-        <Button sx={sxPostButton} type="submit" size="large">
-          Post My Public Message
-        </Button>
+        <Box sx={sxMessageButtonContainer}>
+          <Button sx={sxPostButton} type="submit" size="large">
+            Post My Public Message
+          </Button>
+          <Button sx={sxPostButton} size="large" onClick={handleEmail}>
+            I'd Rather Send An Email
+          </Button>
+        </Box>
       </Box>
     </form>
   );

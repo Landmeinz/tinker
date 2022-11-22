@@ -36,7 +36,6 @@ import {
 } from "../sxStyles";
 
 function Contact({ currentDate }) {
-  
   useEffect(() => {
     fetchMessageList();
   }, []);
@@ -110,9 +109,7 @@ function Contact({ currentDate }) {
             >
               Send An Email
             </Typography>
-
-            <EmailForm open={open} setOpen={setOpen}/>
-      
+            <EmailForm open={open} setOpen={setOpen} />
           </Box>
 
           <Box sx={sxContactTitle} onClick={() => handleClick("post")}>
@@ -134,7 +131,7 @@ function Contact({ currentDate }) {
           </Box>
         </Box>
 
-        <MessageForm fetchMessageList={fetchMessageList} />
+        <MessageForm fetchMessageList={fetchMessageList} setOpen={setOpen}/>
 
         <Box id="sxMessageBoardContainer" sx={sxMessageBoardContainer}>
           <Box id="sxMessageBoardHeader" sx={sxMessageBoardHeader}>

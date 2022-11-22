@@ -506,12 +506,19 @@ export const sxInputContainer = {
   },
 };
 
+export const sxMessageButtonContainer = {
+    // border: "1px solid red",
+    display: "flex",
+    gap: 2,
+}
+
 export const sxPostButton = {
   bgcolor: "secondary.main",
   color: "primary.light",
-  width: "40vw",
+//   width: "35vw",
   height: "8vh",
   border: 1,
+  lineHeight: 1.1,
   borderColor: "info.light",
   fontWeight: "bold",
   transition: ".25s",
@@ -525,19 +532,19 @@ export const sxPostButton = {
 
   [theme.breakpoints.down("xl")]: {
     fontSize: "1.5rem",
-    width: "35vw",
+    // width: "35vw",
   },
   [theme.breakpoints.down("lg")]: {
     fontSize: "1.25rem",
-    width: "40vw",
+    // width: "40vw",
   },
   [theme.breakpoints.down("md")]: {
     fontSize: "1rem",
-    width: "80vw",
+    // width: "80vw",
   },
   [theme.breakpoints.down("sm")]: {
     fontSize: "1rem",
-    width: "90vw",
+    // width: "90vw",
   },
 };
 
@@ -605,6 +612,17 @@ export const sxContactButton = {
 // ----- ContactButton --- //
 // ----- ContactButton --- //
 // ----- ContactButton --- //
+
+// ----- EmailFOrm --- //
+// ----- EmailFOrm --- //
+// ----- EmailFOrm --- //
+// export const sxDialogContainer = {
+//     maxWidth: "md",
+
+// }
+// ----- EmailFOrm --- //
+// ----- EmailFOrm --- //
+// ----- EmailFOrm --- //
 
 // ----- Footer ----- //
 // ----- Footer ----- //

@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:5050/",
   "dependencies": {
+    "@emailjs/browser": "^3.9.1",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.8.4",
@@ -23,6 +24,7 @@
     "express": "^4.18.1",
     "framer-motion": "^7.2.0",
     "material-icons": "^1.11.8",
+    "node-mailjet": "^5.1.1",
     "nodemon": "^2.0.19",
     "nth-check": "^2.1.1",
     "parse-database-url": "^0.3.0",
