@@ -36,7 +36,7 @@ function CardDefineRight({ title, body, tag }) {
       <Box id="sxBoxColorLeft" sx={sxBoxColor}>
         <Box id="sxCenterCircleLeft" sx={sxCenterCircle}>
           <img
-            src="https://i.giphy.com/media/xThuWbe1xJ4jv5Cszm/giphy.webp"
+            src="../images/aboutPage/process-2.jpg"
             style={sxCircleFrame}
             alt="Loop animation of a Rube Goldberg esque machine"
           />
