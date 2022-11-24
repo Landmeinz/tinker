@@ -12,7 +12,8 @@ import {
 } from "react-router-dom";
 
 // --- Components --- //
-import Work from "../_Pages/Work";
+import Crafts from "../_Pages/Crafts";
+import Products from "../_Pages/Products";
 import About from "../_Pages/About";
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
@@ -80,8 +81,12 @@ function App() {
                     element={<About currentDate={currentDate} />}
                   />
                   <Route
-                    path="/work"
-                    element={<Work currentDate={currentDate} />}
+                    path="/crafts"
+                    element={<Crafts currentDate={currentDate} />}
+                  />
+                   <Route
+                    path="/products"
+                    element={<Products currentDate={currentDate} />}
                   />
                   <Route
                     path="/contact"

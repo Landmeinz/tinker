@@ -121,16 +121,16 @@ export const sxBreaksH6 = {
       },
 
     [theme.breakpoints.down("xl")]: {
-        fontSize: "1.5rem",
-      },
-      [theme.breakpoints.down("lg")]: {
-        fontSize: "1.35rem",
-      },
-      [theme.breakpoints.down("md")]: {
         fontSize: "1.25rem",
       },
-      [theme.breakpoints.down("sm")]: {
+      [theme.breakpoints.down("lg")]: {
         fontSize: "1.15rem",
+      },
+      [theme.breakpoints.down("md")]: {
+        fontSize: "1.05rem",
+      },
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "1.05rem",
       },
   }
 // ----- App ----- //
@@ -613,6 +613,76 @@ export const sxContactButton = {
 // ----- ContactButton --- //
 // ----- ContactButton --- //
 
+// ----- Crafts ----- //
+// ----- Crafts ----- //
+// ----- Crafts ----- //
+export const sxCraftsSectionOne = {
+  // border: '1px solid red',
+  display: "flex",
+  flexDirection: "column",
+  // alignItems: 'center',
+  justifyContent: "center",
+  gap: 17,
+  mt: 12,
+  mx: "auto",
+};
+
+export const sxCraftsHeroText = {
+  color: "primary.light",
+  fontWeight: "bold", // normal, bold, light
+  textAlign: "center",
+
+  [theme.breakpoints.down("xl")]: {
+    fontSize: "7.4rem",
+  },
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "6rem",
+  },
+  [theme.breakpoints.down("md")]: {
+    fontSize: "4rem",
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "4rem",
+  },
+};
+
+export const sxProjectContainer = {
+  // border: '1px solid blue',
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: 2,
+};
+
+export const sxCardProjectGallery = {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "center",
+  flexWrap: "wrap",
+  gap: 3,
+  borderBottom: 1,
+  borderColor: "primary.light",
+  pb: 5,
+  mx: 8,
+
+  [theme.breakpoints.down("xl")]: {
+    mx: 8,
+  },
+  [theme.breakpoints.down("lg")]: {
+    mx: 8,
+  },
+  [theme.breakpoints.down("md")]: {
+    mx: 5,
+  },
+  [theme.breakpoints.down("sm")]: {
+    mx: 3,
+  },
+};
+// ----- Crafts ----- //
+// ----- Crafts ----- //
+// ----- Crafts ----- //
+
 // ----- EmailFOrm --- //
 // ----- EmailFOrm --- //
 // ----- EmailFOrm --- //
@@ -709,6 +779,151 @@ export const sxMsgBoardCardBodyText = {
 // ----- MessageBoard ----- //
 // ----- MessageBoard ----- //
 
+// ----- Products ----- //
+// ----- Products ----- //
+// ----- Products ----- //
+export const sxProductSectionOne = {
+  // border: '1px solid red',
+  display: "flex",
+  flexDirection: "column",
+  // alignItems: 'center',
+  justifyContent: "center",
+  gap: 17,
+  mt: 12,
+  mx: "auto",
+};
+
+export const sxProductHeroText = {
+  color: "primary.light",
+  fontWeight: "bold", // normal, bold, light
+  textAlign: "center",
+
+  [theme.breakpoints.down("xl")]: {
+    fontSize: "7.4rem",
+  },
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "6rem",
+  },
+  [theme.breakpoints.down("md")]: {
+    fontSize: "4rem",
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "4rem",
+  },
+};
+
+export const sxProductContainer = {
+  // border: '1px solid blue',
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: 2,
+};
+
+export const sxCardProductGallery = {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "center",
+  flexWrap: "wrap",
+  gap: 3,
+  borderBottom: 1,
+  borderColor: "primary.light",
+  pb: 5,
+  mx: 8,
+
+  [theme.breakpoints.down("xl")]: {
+    mx: 8,
+  },
+  [theme.breakpoints.down("lg")]: {
+    mx: 8,
+  },
+  [theme.breakpoints.down("md")]: {
+    mx: 5,
+  },
+  [theme.breakpoints.down("sm")]: {
+    mx: 3,
+  },
+};
+// ----- Products ----- //
+// ----- Products ----- //
+// ----- Products ----- //
+
+// ----- ProductCard --- //
+// ----- ProductCard --- //
+// ----- ProductCard --- //
+export const sxProductImageContent = {
+  display: "flex",
+  flexDirection: "column",
+};
+
+export const sxCardProduct = {
+  width: "20rem",
+  height: "26.9rem",
+  mb: 1,
+  borderRadius: 2,
+};
+
+// export const sxImageCaption = {
+//   color: "info.light",
+//   width: "20rem",
+// };
+// ----- ProductCard --- //
+// ----- ProductCard --- //
+// ----- ProductCard --- //
+
+// ----- ProductDescription ----- //
+// ----- ProductDescription ----- //
+// ----- ProductDescription ----- //
+export const sxProductDescriptionTitle = {
+  // border: '1px solid red',
+  display: "flex",
+  justifyContent: "center",
+  textAlign: "center",
+  px: 8,
+  py: 1.5,
+  color: "info.light",
+
+  [theme.breakpoints.down("xl")]: {
+    px: 8,
+  },
+  [theme.breakpoints.down("lg")]: {
+    px: 8,
+  },
+  [theme.breakpoints.down("md")]: {
+    px: 5,
+  },
+  [theme.breakpoints.down("sm")]: {
+    px: 3,
+  },
+};
+
+export const sxProductDescriptionContent = {
+  // border: '1px solid red',
+  display: "flex",
+  flexDirection: "column",
+  gap: 1,
+  color: "info.light",
+  px: 8,
+
+  [theme.breakpoints.down("xl")]: {
+    px: 8,
+  },
+  [theme.breakpoints.down("lg")]: {
+    px: 8,
+  },
+  [theme.breakpoints.down("md")]: {
+    px: 5,
+  },
+  [theme.breakpoints.down("sm")]: {
+    px: 3,
+    textAlign: "center",
+  },
+};
+// ----- ProductDescription ----- //
+// ----- ProductDescription ----- //
+// ----- ProductDescription ----- //
+
 // ----- ProjectDescription ----- //
 // ----- ProjectDescription ----- //
 // ----- ProjectDescription ----- //
@@ -761,72 +976,4 @@ export const sxProjectDescriptionContent = {
 // ----- ProjectDescription ----- //
 // ----- ProjectDescription ----- //
 
-// ----- Work ----- //
-// ----- Work ----- //
-// ----- Work ----- //
-export const sxWorkSectionOne = {
-  // border: '1px solid red',
-  display: "flex",
-  flexDirection: "column",
-  // alignItems: 'center',
-  justifyContent: "center",
-  gap: 17,
-  mt: 12,
-  mx: "auto",
-};
 
-export const sxWorkHeroText = {
-  color: "primary.light",
-  fontWeight: "bold", // normal, bold, light
-  textAlign: "center",
-
-  [theme.breakpoints.down("xl")]: {
-    fontSize: "7.4rem",
-  },
-  [theme.breakpoints.down("lg")]: {
-    fontSize: "6rem",
-  },
-  [theme.breakpoints.down("md")]: {
-    fontSize: "4rem",
-  },
-  [theme.breakpoints.down("sm")]: {
-    fontSize: "4rem",
-  },
-};
-
-export const sxProjectContainer = {
-  // border: '1px solid blue',
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  gap: 2,
-};
-
-export const sxCardProjectGallery = {
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "center",
-  flexWrap: "wrap",
-  gap: 3,
-  borderBottom: 1,
-  borderColor: "primary.light",
-  pb: 5,
-  mx: 8,
-
-  [theme.breakpoints.down("xl")]: {
-    mx: 8,
-  },
-  [theme.breakpoints.down("lg")]: {
-    mx: 8,
-  },
-  [theme.breakpoints.down("md")]: {
-    mx: 5,
-  },
-  [theme.breakpoints.down("sm")]: {
-    mx: 3,
-  },
-};
-// ----- Work ----- //
-// ----- Work ----- //
-// ----- Work ----- //

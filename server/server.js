@@ -26,10 +26,8 @@ app.use(sessionMiddleware);
 // ----- Routes ----- //
 const messageRouter = require('../server/routes/message.router');
 const currentDateRouter = require('../server/routes/current_date.router');
-const mailjetRouter = require('./routes/mailjet.router');
 app.use('/api/messages', messageRouter);
 app.use('/api/date', currentDateRouter);
-app.use('/api/mailjet', mailjetRouter);
 
 // App Set //
 app.set("port", process.env.PORT || 5050);

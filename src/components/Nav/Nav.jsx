@@ -42,9 +42,17 @@ function Nav() {
         <Typography
           sx={sxNavH6}
           variant="h6"
-          onClick={() => handleNav("/work")}
+          onClick={() => handleNav("/crafts ")}
         >
-          Our Work
+          Crafts
+        </Typography>
+
+        <Typography
+          sx={sxNavH6}
+          variant="h6"
+          onClick={() => handleNav("/products")}
+        >
+          Products
         </Typography>
 
         <Typography

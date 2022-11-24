@@ -3,14 +3,14 @@ import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 
 // --- Components --- //
-import Project from "../Project/Project";
+import Product from "../Product/Product"
 import ContactButton from "../ContactButton/ContactButton";
 
 // --- Content --- //
 import {
-  swing,
+  posters,
   // other,
-} from "../../content/Projects";
+} from "../../content/Products/Posters";
 
 // --- MUI --- //
 import { Typography, Box } from "@mui/material";
@@ -18,8 +18,8 @@ import { Typography, Box } from "@mui/material";
 // --- Sx Styles --- //
 import {
   trans,
-  sxWorkHeroText,
-  sxWorkSectionOne,
+  sxProductHeroText,
+  sxProductSectionOne,
   sxHeroTextContent,
 } from "../sxStyles";
 
@@ -32,12 +32,12 @@ function Work({ currentDate }) {
       style={trans.style}
       transition={trans.time}
     >
-      <Box id="WorkSectionParent">
+      <Box id="ProductSectionParent">
         <Helmet>
           <title>Tinker Our Work</title>
           <meta
             name="description"
-            content="We've been tinkering, view our work, gallery, project photos, completed work"
+            content="We've been tinkering, view our products, gallery, project photos, completed work, shop"
           />
           <meta
             name="keywords"
@@ -49,18 +49,20 @@ function Work({ currentDate }) {
           />
         </Helmet>
 
-        <Box id="sxWorkSectionOne" sx={sxWorkSectionOne}>
+        <Box id="sxProductSectionOne" sx={sxProductSectionOne}>
           <Box id="sxHeroTextContentWork" sx={sxHeroTextContent}>
-            <Typography sx={sxWorkHeroText} variant="h1">
+            <Typography sx={sxProductHeroText} variant="h1">
               We've
             </Typography>
-            <Typography sx={sxWorkHeroText} variant="h1">
+            <Typography sx={sxProductHeroText} variant="h1">
               Been Tinkering
             </Typography>
           </Box>
-          <Project project={swing} />
+          <Product product={posters} />
+          {/* <Product product={mug} /> */}
           <ContactButton />
         </Box>
+        
       </Box>
     </motion.div>
   );
