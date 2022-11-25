@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
+import { useDispatch, useSelector } from 'react-redux';
 
 // --- Components --- //
 import CardDefineRight from "../CardDefineRight/CardDefineRight";
@@ -28,7 +29,9 @@ import {
   sxHeroText,
 } from "../sxStyles";
 
-function About({ currentDate }) {
+function About() {
+  const currentDate = useSelector((store) => store.currentDate);
+
   return (
     <motion.div
       initial={trans.initial}
@@ -53,6 +56,8 @@ function About({ currentDate }) {
             content="tinker.group, Eric Meinzer, Chris Benner, Adam Donner"
           />
         </Helmet>
+
+        <h1>date: {currentDate}</h1>
 
         <Box id="sxAboutSectionOne" sx={sxAboutSectionOne}>
           <Box id="sxHeroTextContent" sx={sxHeroTextContent}>

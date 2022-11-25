@@ -822,6 +822,8 @@ export const sxProductContainer = {
 };
 
 export const sxCardProductGallery = {
+  // border: "1px solid red",
+  // cursor: "pointer",
   display: "flex",
   flexDirection: "row",
   justifyContent: "center",
@@ -853,8 +855,19 @@ export const sxCardProductGallery = {
 // ----- ProductCard --- //
 // ----- ProductCard --- //
 export const sxProductImageContent = {
+  cursor: "pointer",
   display: "flex",
   flexDirection: "column",
+
+  "&:hover": {
+    color: "primary.light",
+    transform: "scale(1.025)",
+  },
+  "&:active": {
+    color: "primary.light",
+    transform: "scale(1.05)",
+  },
+
 };
 
 export const sxCardProduct = {

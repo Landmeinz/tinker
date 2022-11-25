@@ -3,6 +3,8 @@ import axios from "axios";
 import { ThemeProvider } from "@mui/material/styles";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet";
+import { useDispatch, useSelector } from 'react-redux';
+import { store } from '../../redux/store';
 import {
   // BrowserRouter,
   HashRouter as Router,
@@ -14,6 +16,7 @@ import {
 // --- Components --- //
 import Crafts from "../_Pages/Crafts";
 import Products from "../_Pages/Products";
+import ProductDetails from "../_Pages/ProductDetails"
 import About from "../_Pages/About";
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
@@ -26,23 +29,26 @@ import { Box } from "@mui/material";
 import { theme, transApp, sxApp, sxAppContainer } from "../sxStyles";
 
 function App() {
-  const [currentDate, setCurrentDate] = useState([]);
+
+  const dispatch = useDispatch();
+  const currentDate = useSelector((store) => store.currentDate);
 
   useEffect(() => {
-    fetchCurrentDate();
+    // fetchCurrentDate();
+    dispatch({ type: 'FETCH_CURRENT_DATE' })
   }, []);
 
-  const fetchCurrentDate = () => {
-    axios
-      .get("/api/date")
-      .then((response) => {
-        // console.log('GET /api/date RESPONSE', response);
-        setCurrentDate(response.data);
-      })
-      .catch((error) => {
-        console.log("GET /api/date ERROR", error);
-      });
-  };
+  // const fetchCurrentDate = () => {
+  //   axios
+  //     .get("/api/date")
+  //     .then((response) => {
+  //       // console.log('GET /api/date RESPONSE', response);
+  //       setCurrentDate(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log("GET /api/date ERROR", error);
+  //     });
+  // };
 
   return (
     <ThemeProvider theme={theme}>
@@ -78,15 +84,19 @@ function App() {
                   <Route path="/" element={<Navigate to="/about" />} />
                   <Route
                     path="/about"
-                    element={<About currentDate={currentDate} />}
+                    element={<About />}
                   />
                   <Route
                     path="/crafts"
-                    element={<Crafts currentDate={currentDate} />}
+                    element={<Crafts />}
                   />
                    <Route
                     path="/products"
-                    element={<Products currentDate={currentDate} />}
+                    element={<Products />}
+                  />
+                    <Route
+                    path="/product-details"
+                    element={<ProductDetails />}
                   />
                   <Route
                     path="/contact"
