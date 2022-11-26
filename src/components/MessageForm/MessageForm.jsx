@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 
 // --- MUI --- //
 import { Typography, Box, TextField, Button } from "@mui/material";
@@ -12,7 +13,10 @@ import {
   sxMessageButtonContainer,
 } from "../sxStyles";
 
-function MessageForm({ fetchMessageList, setOpen }) {
+function MessageForm({ setOpen }) {
+  const dispatch = useDispatch();
+  // const messageList = useSelector((store) => store.messageList);
+
   let messageTemplate = {
     name: "",
     message: "",
@@ -30,7 +34,6 @@ function MessageForm({ fetchMessageList, setOpen }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     if (newMessage.name.length <= 1 || newMessage.message.length <= 3) {
       return window.alert("Please be more descriptive");
     } else {
@@ -40,19 +43,13 @@ function MessageForm({ fetchMessageList, setOpen }) {
   }; // handleSubmit
 
   const postMessage = (newMessage) => {
-    axios
-      .post("/api/messages", newMessage)
-      .then((response) => {
-        fetchMessageList();
-      })
-      .catch((error) => {
-        console.log("Error on POST", error);
-      });
+    dispatch({ type: "POST_MESSAGE", payload: newMessage });
+    dispatch({ type: "FETCH_MESSAGES" });
   }; // postMessage
 
   const handleEmail = () => {
     setOpen(true);
-  };
+  }; // handleEmail
 
   return (
     <form className="formPanel" onSubmit={handleSubmit}>

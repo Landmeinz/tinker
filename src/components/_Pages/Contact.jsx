@@ -37,25 +37,11 @@ import {
 } from "../sxStyles";
 
 function Contact() {
-  useEffect(() => {
-    fetchMessageList();
-  }, []);
 
-  const [messageList, setMessageList] = useState([]);
   const [open, setOpen] = useState(false);
 
-  const currentDate = useSelector((store) => store.currentDate);
-
-  const fetchMessageList = () => {
-    axios
-      .get("/api/messages")
-      .then((response) => {
-        setMessageList(response.data);
-      })
-      .catch((err) => {
-        console.log("Error on axios GET: ", err);
-      });
-  }; // fetchMessageList
+  // const currentDate = useSelector((store) => store.currentDate);
+  // const messageList = useSelector((store) => store.messageList);
 
   function handleClick(input) {
     switch (input) {
@@ -134,7 +120,7 @@ function Contact() {
           </Box>
         </Box>
 
-        <MessageForm fetchMessageList={fetchMessageList} setOpen={setOpen}/>
+        <MessageForm setOpen={setOpen}/>
 
         <Box id="sxMessageBoardContainer" sx={sxMessageBoardContainer}>
           <Box id="sxMessageBoardHeader" sx={sxMessageBoardHeader}>
@@ -143,7 +129,7 @@ function Contact() {
             </Typography>
           </Box>
 
-          <MessageBoard messageList={messageList} />
+          <MessageBoard />
         </Box>
       </Box>
     </motion.div>
