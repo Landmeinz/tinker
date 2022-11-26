@@ -31,8 +31,7 @@ import {
 
 function About() {
   const currentDate = useSelector((store) => store.currentDate);
-
-  console.log("--- About currentDate", currentDate);
+  console.log("--- About currentDate", currentDate.currentDate);
 
   return (
     <motion.div

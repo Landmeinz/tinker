@@ -3,6 +3,7 @@ import { combineReducers } from 'redux'
 import errorsReducer from './errors.reducer';
 import currentDate from './current_date.reducer';
 import messageList from './messages.reducer';
+import selectedProduct from './selectedProduct.reducer';
 // import selectedPlant from './selectedPlant.reducer';
 // import selectedPhoto from './selectedPhoto.reducer';
 // import userList from './userList.reducer';
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
   //   plants,   // getting the user's plants from the store
   //   photos,   // getting the photo's of all the plants
   currentDate: currentDate,   // getting the current year month and day
-  messageList: messageList
+  messageList: messageList,
+  selectedProduct: selectedProduct,
   //   selectedPlant,  // getting and setting the clicked on plant
   //   selectedPhoto,  // getting and setting the click on plant's photos
   //   userList,       // getting all of the usernames registered to the app

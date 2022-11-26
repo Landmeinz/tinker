@@ -885,6 +885,21 @@ export const sxCardProduct = {
 // ----- ProductCard --- //
 // ----- ProductCard --- //
 
+// ----- ProductDetails --- //
+// ----- ProductDetails --- //
+// ----- ProductDetails --- //
+export const sxCardProductDetail = {
+  width: "50%",
+  height: "50%",
+  mb: 1,
+  borderRadius: 2,
+};
+// ----- ProductDetails --- //
+// ----- ProductDetails --- //
+// ----- ProductDetails --- //
+
+
+
 // ----- ProductDescription ----- //
 // ----- ProductDescription ----- //
 // ----- ProductDescription ----- //

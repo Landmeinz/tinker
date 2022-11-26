@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 // --- Components --- //
 import ProductCard from "../ProductCard/ProductCard";
@@ -14,6 +16,8 @@ import {
 import { sxProductContainer, sxCardProductGallery } from "../sxStyles";
 
 function Product({ product }) {
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
 
   return (
     <Box id="sxProductContainer" sx={sxProductContainer}>
