@@ -62,7 +62,7 @@ function EmailForm({ open, setOpen }) {
     console.log(`email ${newEmail.email}: ${newEmail.message}`);
   }; // handleSubmit
 
-  const postEmail = (newEmail) => {
+  const postEmail = () => {
     console.log("--- clicked on send ---");
     emailTinker(form.current);
     emailConfirmation(form.current);
