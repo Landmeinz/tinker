@@ -31,12 +31,13 @@ import { theme, transApp, sxApp, sxAppContainer } from "../sxStyles";
 function App() {
 
   const dispatch = useDispatch();
-  const currentDate = useSelector((store) => store.currentDate);
+  // const currentDate = useSelector((store) => store.currentDate);
 
   useEffect(() => {
     // fetchCurrentDate();
-    dispatch({ type: 'FETCH_CURRENT_DATE' })
-  }, []);
+    dispatch({ type: 'FETCH_CURRENT_DATE' });
+    dispatch({ type: 'FETCH_MESSAGES' });
+  }, [dispatch]);
 
   // const fetchCurrentDate = () => {
   //   axios
@@ -100,7 +101,7 @@ function App() {
                   />
                   <Route
                     path="/contact"
-                    element={<Contact currentDate={currentDate} />}
+                    element={<Contact />}
                   />
                 </Routes>
               </motion.div>

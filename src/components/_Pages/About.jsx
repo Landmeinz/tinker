@@ -32,6 +32,8 @@ import {
 function About() {
   const currentDate = useSelector((store) => store.currentDate);
 
+  console.log("--- About currentDate", currentDate);
+
   return (
     <motion.div
       initial={trans.initial}
@@ -56,8 +58,6 @@ function About() {
             content="tinker.group, Eric Meinzer, Chris Benner, Adam Donner"
           />
         </Helmet>
-
-        <h1>date: {currentDate}</h1>
 
         <Box id="sxAboutSectionOne" sx={sxAboutSectionOne}>
           <Box id="sxHeroTextContent" sx={sxHeroTextContent}>

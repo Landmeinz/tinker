@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
+import { useSelector, useDispatch } from 'react-redux';
 
 // --- Components --- //
 import MessageForm from "../MessageForm/MessageForm";
@@ -35,13 +36,15 @@ import {
   // sxBreaksH5,
 } from "../sxStyles";
 
-function Contact({ currentDate }) {
+function Contact() {
   useEffect(() => {
     fetchMessageList();
   }, []);
 
   const [messageList, setMessageList] = useState([]);
   const [open, setOpen] = useState(false);
+
+  const currentDate = useSelector((store) => store.currentDate);
 
   const fetchMessageList = () => {
     axios
