@@ -91,14 +91,14 @@ function App() {
                     path="/crafts"
                     element={<Crafts />}
                   />
-                   <Route
+                   {/* <Route
                     path="/products"
                     element={<Products />}
                   />
                     <Route
                     path="/product-details"
                     element={<ProductDetails />}
-                  />
+                  /> */}
                   <Route
                     path="/contact"
                     element={<Contact />}

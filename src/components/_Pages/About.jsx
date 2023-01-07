@@ -79,7 +79,7 @@ function About() {
             tag={DefineTextVerb.tag}
           />
           <CardAdditionalDetails title={addDetailsTwo.title} />
-          <CardAdditionalDetails title={addDetailsThree.title} />
+          {/* <CardAdditionalDetails title={addDetailsThree.title} /> */}
           <ContactButton />
         </Box>
       </Box>
