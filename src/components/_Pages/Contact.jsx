@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
+import { useSelector, useDispatch } from 'react-redux';
 
 // --- Components --- //
 import MessageForm from "../MessageForm/MessageForm";
@@ -35,24 +36,12 @@ import {
   // sxBreaksH5,
 } from "../sxStyles";
 
-function Contact({ currentDate }) {
-  useEffect(() => {
-    fetchMessageList();
-  }, []);
+function Contact() {
 
-  const [messageList, setMessageList] = useState([]);
   const [open, setOpen] = useState(false);
 
-  const fetchMessageList = () => {
-    axios
-      .get("/api/messages")
-      .then((response) => {
-        setMessageList(response.data);
-      })
-      .catch((err) => {
-        console.log("Error on axios GET: ", err);
-      });
-  }; // fetchMessageList
+  // const currentDate = useSelector((store) => store.currentDate);
+  // const messageList = useSelector((store) => store.messageList);
 
   function handleClick(input) {
     switch (input) {
@@ -131,7 +120,7 @@ function Contact({ currentDate }) {
           </Box>
         </Box>
 
-        <MessageForm fetchMessageList={fetchMessageList} setOpen={setOpen}/>
+        <MessageForm setOpen={setOpen}/>
 
         <Box id="sxMessageBoardContainer" sx={sxMessageBoardContainer}>
           <Box id="sxMessageBoardHeader" sx={sxMessageBoardHeader}>
@@ -140,7 +129,7 @@ function Contact({ currentDate }) {
             </Typography>
           </Box>
 
-          <MessageBoard messageList={messageList} />
+          <MessageBoard />
         </Box>
       </Box>
     </motion.div>

@@ -47,13 +47,13 @@ function Nav() {
           Crafts
         </Typography>
 
-        <Typography
+        {/* <Typography
           sx={sxNavH6}
           variant="h6"
           onClick={() => handleNav("/products")}
         >
           Products
-        </Typography>
+        </Typography> */}
 
         <Typography
           sx={sxNavH6}

@@ -1,5 +1,5 @@
 export const addDetailsOne = {
-  title: `Tinker is made up of a close group of entrepreneurs, designers, architects, engineers, developers, and people who are just plain creative.`,
+  title: `Tinker Group is a collection of people who work together to create new ideas and solve problems. Tinker Group members have very different skills, many with backgrounds in design and engineering. We help each other succeed, enjoy collaborating, and push each other to make our ideas a reality.`,
 };
 
 export const addDetailsTwo = {

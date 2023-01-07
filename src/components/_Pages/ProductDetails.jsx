@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
+import { useDispatch, useSelector } from 'react-redux';
 
 // --- Components --- //
 import Product from "../Product/Product"
@@ -13,7 +14,7 @@ import {
 } from "../../content/Products/Posters";
 
 // --- MUI --- //
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, CardMedia } from "@mui/material";
 
 // --- Sx Styles --- //
 import {
@@ -21,9 +22,14 @@ import {
   sxProductHeroText,
   sxProductSectionOne,
   sxHeroTextContent,
+  sxCardProductDetail,
 } from "../sxStyles";
 
 function Work() {
+
+  const selectedProduct = useSelector((store) => store.selectedProduct);
+  console.log("--- selectedProductContent from ProductDetails: ", selectedProduct);
+
   return (
     <motion.div
       initial={trans.initial}
@@ -52,14 +58,12 @@ function Work() {
         <Box id="sxProductSectionOne" sx={sxProductSectionOne}>
           <Box id="sxHeroTextContentWork" sx={sxHeroTextContent}>
             <Typography sx={sxProductHeroText} variant="h1">
-              We've
-            </Typography>
-            <Typography sx={sxProductHeroText} variant="h1">
-              Been Tinkering
+              The Details
             </Typography>
           </Box>
-          <Product product={posters} />
-          {/* <Product product={mug} /> */}
+
+          <CardMedia sx={sxCardProductDetail} component="img" image={selectedProduct.image} />
+
           <ContactButton />
         </Box>
         

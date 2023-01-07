@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
+import { useDispatch, useSelector } from 'react-redux';
 
 // --- Components --- //
 import CardDefineRight from "../CardDefineRight/CardDefineRight";
@@ -28,7 +29,10 @@ import {
   sxHeroText,
 } from "../sxStyles";
 
-function About({ currentDate }) {
+function About() {
+  const currentDate = useSelector((store) => store.currentDate);
+  console.log("--- About currentDate", currentDate.currentDate);
+
   return (
     <motion.div
       initial={trans.initial}
@@ -75,7 +79,7 @@ function About({ currentDate }) {
             tag={DefineTextVerb.tag}
           />
           <CardAdditionalDetails title={addDetailsTwo.title} />
-          <CardAdditionalDetails title={addDetailsThree.title} />
+          {/* <CardAdditionalDetails title={addDetailsThree.title} /> */}
           <ContactButton />
         </Box>
       </Box>

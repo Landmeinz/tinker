@@ -2,6 +2,11 @@ import React, { useState, useRef } from "react";
 import axios from "axios";
 import emailjs from "@emailjs/browser";
 
+import {
+  emailTinker,
+  emailConfirmation
+} from "../../services/emailJsService";
+
 // --- MUI --- //
 import {
   Typography,
@@ -28,7 +33,7 @@ function EmailForm({ open, setOpen }) {
     email: "",
     message: "",
   };
-  
+
   const form = useRef();
   const [newEmail, setNewEmail] = useState(emailTemplate);
 
@@ -42,7 +47,7 @@ function EmailForm({ open, setOpen }) {
   const handleClose = () => {
     console.log("handleClose");
     setOpen(false);
-  };
+  }; // handleClose
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -50,54 +55,18 @@ function EmailForm({ open, setOpen }) {
     if (newEmail.message.length <= 10) {
       return window.alert("Please be more descriptive");
     } else {
-      postEmail(newEmail);
+      postEmail();
       console.log("message sent");
       setNewEmail(emailTemplate);
     }
     console.log(`email ${newEmail.email}: ${newEmail.message}`);
   }; // handleSubmit
 
-  const postEmail = (newEmail) => {
+  const postEmail = () => {
     console.log("--- clicked on send ---");
-    emailTinker();
-    emailConfirmation();
-  }; // newEmail
-
-  const emailTinker = (newEmail) => {
-    emailjs
-      .sendForm(
-        "service_9tkdfov",
-        "template_send_to_tinker",
-        form.current,
-        "wYwftsR5miSZDs5fb"
-      )
-      .then(
-        function (response) {
-          console.log("SUCCESS!", response.status, response.text);
-        },
-        function (error) {
-          console.log("FAILED...", error);
-        }
-      );
-  };
-
-  const emailConfirmation = (newEmail) => {
-    emailjs
-      .sendForm(
-        "service_9tkdfov",
-        "template_send_confirm",
-        form.current,
-        "wYwftsR5miSZDs5fb"
-      )
-      .then(
-        function (response) {
-          console.log("SUCCESS!", response.status, response.text);
-        },
-        function (error) {
-          console.log("FAILED...", error);
-        }
-      );
-  };
+    emailTinker(form.current);
+    emailConfirmation(form.current);
+  }; // postEmail
 
   return (
     <Dialog open={open} onClose={handleClose} maxWidth={"md"} fullWidth={true}>

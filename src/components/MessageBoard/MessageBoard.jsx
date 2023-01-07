@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { useDispatch, useSelector } from 'react-redux';
 
 // --- MUI --- //
 import { Typography, Box } from "@mui/material";
@@ -15,7 +16,10 @@ import {
   sxBreaksH5,
 } from "../sxStyles";
 
-function MessageBoard({ messageList }) {
+function MessageBoard() {
+
+  const messageList = useSelector((store) => store.messageList);
+
   return (
     <Box id="sxMessageBoardContent" sx={sxMessageBoardContent}>
       <Helmet>
@@ -24,6 +28,7 @@ function MessageBoard({ messageList }) {
           content="message board for those who want to share their thoughts"
         />
       </Helmet>
+
       {messageList.map((message) => (
         <Box id="sxMessageBoardText" sx={sxMessageBoardText} key={message.id}>
           <Box id="sxMsgBoardCardHeader" sx={sxMsgBoardCardHeader}>

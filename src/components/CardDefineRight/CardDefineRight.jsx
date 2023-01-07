@@ -23,7 +23,7 @@ function CardDefineRight({ title, body, tag }) {
         <Box id="sxCenterCircleRight" sx={sxCenterCircle}>
           <img
             style={sxCircleFrame}
-            src="../images/aboutPage/process-4.jpg"
+            src="../images/aboutPage/toolshop.png"
             alt="Loop of hammer hitting nail"
           />
         </Box>
