@@ -63,8 +63,8 @@ function WeeklyForm() {
 
   let weeklyFormTemplate = {
     name: "",
-    completeGoal: null,
-    presentItems: null,
+    completeGoal: false,
+    presentItems: false,
     items: "",
     ideas: "",
     research: "",
@@ -73,7 +73,7 @@ function WeeklyForm() {
     learned: "",
     nextGoals: "",
     difficultly: 25,
-    date: "today",
+    date: "CURRENT_TIMESTAMP",
   };
 
   const [weeklyForm, setWeeklyForm] = useState(weeklyFormTemplate);
@@ -96,7 +96,7 @@ function WeeklyForm() {
     // }
     postWeeklyForm(weeklyForm);
     setWeeklyForm(weeklyFormTemplate);
-    console.log('weeklyForm', weeklyForm);
+    console.log('weeklyForm submit', weeklyForm);
 
   }; // handleSubmit
 
@@ -309,19 +309,10 @@ function WeeklyForm() {
             </Box>
           </Box>
 
-
-
           <Button sx={sxSubmitButton} type="submit" size="large">
             Submit
           </Button>
-          {/* <Box sx={sxMessageButtonContainer}>
-            <Button sx={sxPostButton} type="submit" size="large">
-              Post My Public Message
-            </Button>
-            <Button sx={sxPostButton} size="large" onClick={""}>
-              I'd Rather Send An Email
-            </Button>
-          </Box> */}
+
         </Box>
       </form>
     </motion.div>

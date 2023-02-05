@@ -7,9 +7,9 @@ const router = express.Router();
 router.get('/', (req, res) => {
 
   let queryText = `
-    SELECT 	  *
+    SELECT 	  name, complete_goal, present_items, items, ideas, research, tasks_completed, blockers, learned, next_goals, difficultly, to_char(date, 'yyyy-mm-dd @ hh:mi:ss') as date
     FROM 	    "weeklyform"
-    ORDER BY  "id"; `;
+    ORDER BY  "date"; `;
 
   // let userId = [req.user.id];
 
@@ -28,18 +28,22 @@ router.get('/', (req, res) => {
 // ----- POST ----- //
 router.post('/', (req, res) => {
 
-  const newMessage = req.body;
+  console.log('hit post route in form.router.js');
+  
+  const form = req.body;
 
   const sqlText = `
-    INSERT INTO messages
-      (name, message, date)
-      VALUES ($1, $2, $3)`;
+      INSERT INTO weeklyform
+      (name, complete_goal, present_items, items, ideas, research, tasks_completed, blockers, learned, next_goals, difficultly, date)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`;
 
-    let values = [newMessage.name, newMessage.message, newMessage.date];
+  let values = [form.name, form.completeGoal, form.presentItems, form.items, form.ideas, form.research, form.tasksCompleted, form.blockers, form.learned, form.nextGoals, form.difficultly, form.date ];
 
   pool
     .query(sqlText, values)
-    .then((response) => {      
+    .then((response) => {
+      console.log('response in form.router.js', response);
+      
       res.sendStatus(201);
 
     })

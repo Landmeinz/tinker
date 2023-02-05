@@ -13,9 +13,13 @@ function* fetchWeeklyForm() {
 
 // --- POST NEW WEEKLY --- //
 function* postWeeklyForm(action) {
+    console.log('hit postWeeklyForm in saga.js');
+    
     try {
         yield axios.post('/api/weeklyForm', action.payload)
         yield put({ type: 'FETCH_WEEKLY_FORM' })
+        console.log('post try success');
+        
     } catch (error) {
         console.log('ERROR', error);
         yield put({ type: 'ERROR postWeeklyForm SAGA' })

@@ -80,26 +80,20 @@ function DisplayResults() {
 
   // --- COMPLETED GOALS --- // 
   const goalsTrue = weeklyForm.filter(x => x.complete_goal === true);
-  console.log('goalsTrue', goalsTrue);
 
   let trueNames = []
   goalsTrue.forEach(x => {
     trueNames.push(x.name);
   });
-  trueNames.push("true", "trueToo", "superTrue",);
   let trueNameString = trueNames.join(', ')
-  console.log('trueNameString', trueNameString);
 
   const goalsFalse = weeklyForm.filter(x => x.complete_goal === false);
-  console.log('goalsFalse', goalsFalse);
 
   let falseNames = []
   goalsFalse.forEach(x => {
     falseNames.push(x.name);
   });
-  falseNames.push("falsely", "false", "false");
   let falseNameString = falseNames.join(', ')
-  console.log('falseNameString', falseNameString);
 
   const dataGoals = {
     labels: [trueNameString, falseNameString],
@@ -122,24 +116,20 @@ function DisplayResults() {
 
   // --- WHO'S PRESENTING  --- // 
   const presentTrue = weeklyForm.filter(x => x.present_items == true);
-  console.log('presentTrue', presentTrue);
 
   let presentTrueNames = []
   presentTrue.forEach(x => {
     presentTrueNames.push(x.name);
   });
   let presentTrueNamesString = presentTrueNames.join(', ')
-  console.log('presentTrueNamesString', presentTrueNamesString);
 
   const presentFalse = weeklyForm.filter(x => x.present_items == false);
-  console.log('presentFalse', presentFalse);
 
   let presentFalseNames = []
   presentFalse.forEach(x => {
     presentFalseNames.push(x.name);
   });
   let presentFalseNamesString = presentFalseNames.join(', ')
-  console.log('presentFalseNamesString', presentFalseNamesString);
 
   const dataPresent = {
     labels: [presentTrueNamesString, presentFalseNamesString],
@@ -218,7 +208,7 @@ function DisplayResults() {
           {weeklyForm.map((form) => (
             <Box key={form.id} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
-              <Typography variant="body1">{form.date.split('T')[0]} @ {form.date.split('T')[1].split('.')[0]}</Typography>
+              <Typography variant="body1">{form.date}</Typography>
             </Box>
           ))}
         </Box>
