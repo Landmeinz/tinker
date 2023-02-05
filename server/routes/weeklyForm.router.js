@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   let queryText = `
     SELECT 	  *
     FROM 	    "weeklyform"
-    ORDER BY  "id" DESC; `;
+    ORDER BY  "id"; `;
 
   // let userId = [req.user.id];
 

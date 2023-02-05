@@ -1145,11 +1145,83 @@ export const sxSubmitButton = {
 // ----- WeeklyResults ----- //
 
 export const sxWeeklyResultsContainer = {
+  border: "2px solid purple",
   display: "flex",
-  flexDirection: "colum",
+  flexDirection: "column",
   justifyContent: "center",
   mt: 12,
-  
+  mx: 15,
+  gap: 10,
+
+}
+
+export const sxDisplayResultsContainer = {
+  border: "2px solid green",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  color: "info.light",
+  gap: 8, 
+
+}
+
+export const sxDisplaySection1 = {
+  // border: "1px solid yellow",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-evenly",
+  alignItems: "center",
+  width: "100%",
+  // gap: 8,
+
+}
+
+export const sxColumnContainer = {
+  // border: "2px solid blue",
+  boxShadow: 8,
+  borderRadius: 8,
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "start",
+  alignItems: "center",
+  width: "100%",
+  p: 2,
+
+}
+
+export const sxColumnHeader = {
+  border: "1px solid white",
+  width: "12%",
+
+}
+
+export const sxColumnText = {
+  border: "1px solid orange",
+  width: "88%",
+}
+
+export const sxDoughnutContainer = {
+  // border: "2px solid green",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  width: "32%",
+  height: "100%",
+  gap: 4,
+  textAlign: "center",
+
+}
+
+export const sxGoalCelebrateContent = {
+  // border: "2px solid blue",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  width: "100%",
+
 }
 
 // ----- WeeklyResults ----- //

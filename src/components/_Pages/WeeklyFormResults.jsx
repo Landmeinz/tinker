@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import { useSelector, useDispatch } from 'react-redux';
 
 // --- Components --- //
-
+import DisplayResults from '../DisplayResults/DisplayResults';
+import Agenda from '../Agenda/Agenda';
 
 // --- MUI --- //
 import {
@@ -51,7 +52,9 @@ import {
     sxSliderTextContent,
     sxSubmitButton,
     sxWeeklyResultsContainer,
-    
+    sxHeroText,
+
+
 
     // sxBreaksH5,
 } from "../sxStyles";
@@ -66,7 +69,7 @@ function WeeklyForm() {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_WEEKLY_FORM' });
-      }, [dispatch]);
+    }, [dispatch]);
 
     let messageTemplate = {
         name: "",
@@ -120,9 +123,10 @@ function WeeklyForm() {
             style={trans.style}
             transition={trans.time}
         >
-
             <Box sx={sxWeeklyResultsContainer}>
-                <Typography sx={sxWeeklyFormDate} variant='h4'>RESULTS GO HERE // RESULTS GO HERE</Typography>
+                <Typography sx={sxHeroText} variant="h1">Together Again</Typography>
+                {/* <Agenda /> */}
+                <DisplayResults />
             </Box>
         </motion.div>
     );
