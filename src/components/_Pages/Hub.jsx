@@ -31,6 +31,7 @@ import {
     sxMessageBoardHeader,
     sxBreaksH4,
     sxContactTitle,
+    sxHubText,
 
     // sxBreaksH5,
 } from "../sxStyles";
@@ -73,18 +74,31 @@ function Hub() {
                     />
                 </Helmet>
 
-                <Typography
-                    sx={sxContactText}
-                    variant="h1"
-                    onClick={() => handleNav("/weekly-form")}
-                >
-                    Tinker Log
-                </Typography>
-                <Typography
-                    sx={sxContactText}
-                    variant="h1">
-                    Connect on Slack
-                </Typography>
+                <Box sx={sxHeroTextContent}>
+                    <Typography
+                        sx={sxHubText}
+                        variant="h1"
+                        onClick={() => handleNav("/weekly-form")}
+                    >
+                        Tinker Log
+                    </Typography>
+                    <Typography
+                        sx={sxHubText}
+                        variant="h1">
+                        Communications
+                    </Typography>
+                    <Typography
+                        sx={sxHubText}
+                        variant="h1">
+                        Another Thing
+                    </Typography>
+                    <Typography
+                        sx={sxHubText}
+                        variant="h1">
+                        Something Else
+                    </Typography>
+                </Box>
+
 
             </Box>
         </motion.div>

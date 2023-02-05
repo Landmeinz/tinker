@@ -4,8 +4,17 @@ import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement
+} from 'chart.js';
+import { Doughnut, Bar, Line } from 'react-chartjs-2';
 
 
 // --- Components --- //
@@ -41,6 +50,7 @@ import {
   sxGoalCelebrateContent,
   sxColumnHeader,
   sxColumnText,
+  sxColumnContent,
 
   // sxBreaksH5,
 } from "../sxStyles";
@@ -103,7 +113,16 @@ function DisplayResults() {
   //   data: data,
   // };
 
-  ChartJS.register(ArcElement, Tooltip, Legend);
+  ChartJS.register(
+    ArcElement,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+  );
+  ChartJS.defaults.color = "hsla(330, 10%, 82%, 1)";
 
   // --- COMPLETED GOALS --- // 
   const goalsTrue = weeklyForm.filter(x => x.complete_goal === true);
@@ -139,59 +158,107 @@ function DisplayResults() {
           `${theme.palette.secondary.dark}`,
         ],
         borderColor: [
-          `${theme.palette.info.dark}`,
-          `${theme.palette.info.dark}`
+          `${theme.palette.primary.main}`,
+          `${theme.palette.secondary.dark}`,
         ],
         borderWidth: 1,
       },
     ],
   };
 
-    // --- WHO'S PRESENTING  --- // 
-    const presentTrue = weeklyForm.filter(x => x.present_items == true);
-    console.log('presentTrue', presentTrue);
-  
-    let presentTrueNames = []
-    presentTrue.forEach(x => {
-      presentTrueNames.push(x.name);
-    });
-    let presentTrueNamesString = presentTrueNames.join(', ')
-    console.log('presentTrueNamesString', presentTrueNamesString);
-  
-    const presentFalse = weeklyForm.filter(x => x.present_items == false);
-    console.log('presentFalse', presentFalse);
-  
-    let presentFalseNames = []
-    presentFalse.forEach(x => {
-      presentFalseNames.push(x.name);
-    });
-    let presentFalseNamesString = presentFalseNames.join(', ')
-    console.log('presentFalseNamesString', presentFalseNamesString);
-  
-    const dataPresent = {
-      labels: [presentTrueNamesString, presentFalseNamesString],
-      datasets: [
-        {
-          // label: 'Completed Goals',
-          data: [presentTrueNames.length, presentFalseNames.length],
-          backgroundColor: [
-            `${theme.palette.primary.main}`,
-            `${theme.palette.secondary.dark}`,
-          ],
-          borderColor: [
-            `${theme.palette.info.dark}`,
-            `${theme.palette.info.dark}`
-          ],
-          borderWidth: 1,
-        },
-      ],
-    };
-  
+  // --- WHO'S PRESENTING  --- // 
+  const presentTrue = weeklyForm.filter(x => x.present_items == true);
+  console.log('presentTrue', presentTrue);
+
+  let presentTrueNames = []
+  presentTrue.forEach(x => {
+    presentTrueNames.push(x.name);
+  });
+  let presentTrueNamesString = presentTrueNames.join(', ')
+  console.log('presentTrueNamesString', presentTrueNamesString);
+
+  const presentFalse = weeklyForm.filter(x => x.present_items == false);
+  console.log('presentFalse', presentFalse);
+
+  let presentFalseNames = []
+  presentFalse.forEach(x => {
+    presentFalseNames.push(x.name);
+  });
+  let presentFalseNamesString = presentFalseNames.join(', ')
+  console.log('presentFalseNamesString', presentFalseNamesString);
+
+  const dataPresent = {
+    labels: [presentTrueNamesString, presentFalseNamesString],
+    datasets: [
+      {
+        // label: 'Completed Goals',
+        data: [presentTrueNames.length, presentFalseNames.length],
+        backgroundColor: [
+          `${theme.palette.primary.main}`,
+          `${theme.palette.secondary.dark}`,
+        ],
+        borderColor: [
+          `${theme.palette.primary.main}`,
+          `${theme.palette.secondary.dark}`,
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Difficultly // Complexity of Goal',
+      },
+    },
+  };
+
+  let rating = []
+  weeklyForm.forEach(x => {
+    rating.push(x.difficultly);
+  });
+
+  let names = []
+  weeklyForm.forEach(x => {
+    names.push(x.name);
+  });
+  console.log('names', names);
+
+  const data = {
+    labels: names,
+    datasets: [
+      {
+        label: '',
+        data: rating,
+        backgroundColor: `${theme.palette.primary.main}`,
+      }
+    ],
+  };
+
   return (
     <Box sx={sxDisplayResultsContainer}>
+
+      <Box sx={sxColumnContainer}>
+        <Typography sx={sxColumnHeader} variant="h5">Submission Date</Typography>
+        <Box sx={sxColumnContent}>
+          {weeklyForm.map((form) => (
+            <Box key={form.id} sx={sxColumnText}>
+              <Typography color="primary.light" variant="body1">{form.name}:</Typography>
+              <Typography variant="body1">{form.date}</Typography>
+            </Box>
+          ))}
+        </Box>
+      </Box>
+
       <Box sx={sxDisplaySection1}>
         <Box sx={sxDoughnutContainer}>
-          <Typography variant="h6">{trueNames.length} People Completed Their Goal</Typography>
+          <Typography sx={{ fontWeight: "bold" }} variant="h6">{trueNames.length} People Completed Their Goal</Typography>
           <Doughnut data={dataGoals} />
           <Box sx={sxGoalCelebrateContent}>
             <Typography variant="h6">Let's Celebrate!</Typography>
@@ -200,7 +267,7 @@ function DisplayResults() {
         </Box>
 
         <Box sx={sxDoughnutContainer}>
-          <Typography variant="h6">{presentTrueNames.length} People Have Something To Share</Typography>
+          <Typography sx={{ fontWeight: "bold" }} variant="h6">{presentTrueNames.length} People Have Something To Share</Typography>
           <Doughnut data={dataPresent} />
           <Box sx={sxGoalCelebrateContent}>
             <Typography variant="h6">Let's Hear From</Typography>
@@ -211,82 +278,94 @@ function DisplayResults() {
 
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Items</Typography>
-        <Box sx={sxColumnText}>
+        <Box sx={sxColumnContent}>
           {weeklyForm.map((form) => (
-            <p key={form.id} variant="body1">{form.name}: {form.items}</p>
+            <Box key={form.id} sx={sxColumnText}>
+              <Typography color="primary.light" variant="body1">{form.name}:</Typography>
+              <Typography variant="body1">{form.items}</Typography>
+            </Box>
           ))}
         </Box>
       </Box>
 
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Ideas</Typography>
-        <Box sx={sxColumnText}>
+        <Box sx={sxColumnContent}>
           {weeklyForm.map((form) => (
-            <p key={form.id} variant="body1">{form.name}: {form.ideas}</p>
+            <Box key={form.id} sx={sxColumnText}>
+              <Typography color="primary.light" variant="body1">{form.name}:</Typography>
+              <Typography variant="body1">{form.ideas}</Typography>
+            </Box>
           ))}
         </Box>
       </Box>
 
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Research</Typography>
-        <Box sx={sxColumnText}>
+        <Box sx={sxColumnContent}>
           {weeklyForm.map((form) => (
-            <p key={form.id} variant="body1">{form.name}: {form.research}</p>
+            <Box key={form.id} sx={sxColumnText}>
+              <Typography color="primary.light" variant="body1">{form.name}:</Typography>
+              <Typography variant="body1">{form.research}</Typography>
+            </Box>
           ))}
         </Box>
       </Box>
 
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Tasks Completed</Typography>
-        <Box sx={sxColumnText}>
+        <Box sx={sxColumnContent}>
           {weeklyForm.map((form) => (
-            <p key={form.id} variant="body1">{form.name}: {form.tasks_completed}</p>
+            <Box key={form.id} sx={sxColumnText}>
+              <Typography color="primary.light" variant="body1">{form.name}:</Typography>
+              <Typography variant="body1">{form.tasks_completed}</Typography>
+            </Box>
           ))}
         </Box>
       </Box>
 
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Blockers</Typography>
-        <Box sx={sxColumnText}>
+        <Box sx={sxColumnContent}>
           {weeklyForm.map((form) => (
-            <p key={form.id} variant="body1">{form.name}: {form.blockers}</p>
+            <Box key={form.id} sx={sxColumnText}>
+              <Typography color="primary.light" variant="body1">{form.name}:</Typography>
+              <Typography variant="body1">{form.blockers}</Typography>
+            </Box>
           ))}
         </Box>
       </Box>
 
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Learned</Typography>
-        <Box sx={sxColumnText}>
+        <Box sx={sxColumnContent}>
           {weeklyForm.map((form) => (
-            <p key={form.id} variant="body1">{form.name}: {form.learned}</p>
+            <Box key={form.id} sx={sxColumnText}>
+              <Typography color="primary.light" variant="body1">{form.name}:</Typography>
+              <Typography variant="body1">{form.learned}</Typography>
+            </Box>
           ))}
         </Box>
       </Box>
 
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Next Goal</Typography>
-        <Box sx={sxColumnText}>
+        <Box sx={sxColumnContent}>
           {weeklyForm.map((form) => (
-            <p key={form.id} variant="body1">{form.name}: {form.next_goals}</p>
+            <Box key={form.id} sx={sxColumnText}>
+              <Typography color="primary.light" variant="body1">{form.name}:</Typography>
+              <Typography variant="body1">{form.next_goals}</Typography>
+            </Box>
           ))}
         </Box>
       </Box>
 
       <Box sx={sxColumnContainer}>
-        <Typography sx={sxColumnHeader} variant="h5">Difficultly</Typography>
-        <Box sx={sxColumnText}>
-          {weeklyForm.map((form) => (
-            <p key={form.id} variant="body1">{form.name}: {form.difficultly}</p>
-          ))}
-        </Box>
-      </Box>
+        <Typography sx={sxColumnHeader} variant="h5">Difficultly // Complexity</Typography>
+        {/* <Bar data={dataDifficult} /> */}
 
-      <Box sx={sxColumnContainer}>
-        <Typography sx={sxColumnHeader} variant="h5">Date</Typography>
-        <Box sx={sxColumnText}>
-          {weeklyForm.map((form) => (
-            <p key={form.id} variant="body1">{form.name}: {form.date}</p>
-          ))}
+        <Box sx={sxColumnContent}>
+          <Bar options={options} data={data} />
         </Box>
       </Box>
 

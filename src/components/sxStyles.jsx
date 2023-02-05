@@ -711,6 +711,43 @@ export const sxFooterContainer = {
 // ----- Footer ----- //
 // ----- Footer ----- //
 
+// ----- Hub Hub Hub ----- //
+// ----- Hub Hub Hub ----- //
+// ----- Hub Hub Hub ----- //
+
+export const sxHubText = {
+  color: "primary.light",
+  fontWeight: "bold", // normal, bold, light
+  textAlign: "center",
+  userSelect: "none",
+  cursor: "pointer",
+
+
+
+  [theme.breakpoints.down("xl")]: {
+    fontSize: "7.4rem",
+  },
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "6rem",
+  },
+  [theme.breakpoints.down("md")]: {
+    fontSize: "4rem",
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "3rem",
+  },
+
+  "&:hover": {
+    // color: "secondary.main",
+    transform: "scale(1.02)",
+    transition: ".2s",
+  },
+}
+
+// ----- Hub Hub Hub ----- //
+// ----- Hub Hub Hub ----- //
+// ----- Hub Hub Hub ----- //
+
 // ----- MessageBoard ----- //
 // ----- MessageBoard ----- //
 // ----- MessageBoard ----- //
@@ -1145,7 +1182,7 @@ export const sxSubmitButton = {
 // ----- WeeklyResults ----- //
 
 export const sxWeeklyResultsContainer = {
-  border: "2px solid purple",
+  // border: "2px solid purple",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -1156,7 +1193,7 @@ export const sxWeeklyResultsContainer = {
 }
 
 export const sxDisplayResultsContainer = {
-  border: "2px solid green",
+  // border: "2px solid green",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -1173,31 +1210,48 @@ export const sxDisplaySection1 = {
   justifyContent: "space-evenly",
   alignItems: "center",
   width: "100%",
-  // gap: 8,
+  borderRadius: 8,
+  boxShadow: 8,
+  p: 2,
 
 }
 
 export const sxColumnContainer = {
   // border: "2px solid blue",
-  boxShadow: 8,
-  borderRadius: 8,
   display: "flex",
   flexDirection: "row",
   justifyContent: "start",
   alignItems: "center",
   width: "100%",
   p: 2,
+  boxShadow: 8,
+  borderRadius: 8,
 
 }
 
 export const sxColumnHeader = {
-  border: "1px solid white",
+  // border: "1px solid white",
   width: "12%",
 
 }
 
 export const sxColumnText = {
-  border: "1px solid orange",
+  display: "flex",
+  flexDirection: "row",
+  gap: 2,
+  pl: 1,
+
+}
+
+export const sxColumnContent = {
+  // border: "1px solid orange",
+  display: "flex",
+  flexDirection: "column",
+  gap: 1,
+  lineHeight: .2,
+  // justifyContent: "start",
+  // alignItems: "center",
+  
   width: "88%",
 }
 
@@ -1211,6 +1265,13 @@ export const sxDoughnutContainer = {
   height: "100%",
   gap: 4,
   textAlign: "center",
+  color: "info.light",
+
+}
+
+export const sxDoughnut = {
+  border: "2px solid green",
+  color: "primary.main",
 
 }
 
