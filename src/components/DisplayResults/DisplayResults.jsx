@@ -67,52 +67,6 @@ function DisplayResults() {
     dispatch({ type: 'FETCH_WEEKLY_FORM' });
   }, [dispatch]);
 
-
-  // const handleNameChange = (event, property) => {
-  //     setNewMessage({
-  //         ...newMessage,
-  //         [property]: event.target.value,
-  //     });
-  // }; // handleNameChange
-
-  // const handleSubmit = (event) => {
-  //     event.preventDefault();
-  //     if (newMessage.name.length <= 1 || newMessage.message.length <= 3) {
-  //         return window.alert("Please be more descriptive");
-  //     } else {
-  //         postMessage(newMessage);
-  //         setNewMessage(messageTemplate);
-  //     }
-  // }; // handleSubmit
-
-  // const postMessage = (newMessage) => {
-  //     dispatch({ type: "POST_MESSAGE", payload: newMessage });
-  //     dispatch({ type: "FETCH_MESSAGES" });
-  // }; // postMessage
-
-  // const data = {
-  //   labels: [
-  //     'Red',
-  //     'Blue',
-  //     'Yellow'
-  //   ],
-  //   datasets: [{
-  //     label: 'My First Dataset',
-  //     data: [300, 50, 100],
-  //     backgroundColor: [
-  //       'rgb(255, 99, 132)',
-  //       'rgb(54, 162, 235)',
-  //       'rgb(255, 205, 86)'
-  //     ],
-  //     hoverOffset: 4
-  //   }]
-  // };
-
-  // const config = {
-  //   type: 'doughnut',
-  //   data: data,
-  // };
-
   ChartJS.register(
     ArcElement,
     CategoryScale,
@@ -214,7 +168,7 @@ function DisplayResults() {
       },
       title: {
         display: true,
-        text: 'Difficultly // Complexity of Goal',
+        text: 'Difficultly // Complexity of Next Goal',
       },
     },
   };
@@ -241,6 +195,20 @@ function DisplayResults() {
     ],
   };
 
+  let dateList = [];
+  weeklyForm.forEach(x => {
+    dateList.push(x.date);
+  });
+  // console.log('dateList', dateList);
+  let dateStringList = [];
+  dateList.forEach(x => {
+    dateStringList.push(`${x}`);
+  })
+  console.log('dateStringList', dateStringList);
+
+  // let splitDate = dateStringList[0].split('T')[0];
+  // console.log('splitDate', splitDate);
+
   return (
     <Box sx={sxDisplayResultsContainer}>
 
@@ -250,7 +218,7 @@ function DisplayResults() {
           {weeklyForm.map((form) => (
             <Box key={form.id} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
-              <Typography variant="body1">{form.date}</Typography>
+              <Typography variant="body1">{form.date.split('T')[0]} @ {form.date.split('T')[1].split('.')[0]}</Typography>
             </Box>
           ))}
         </Box>
