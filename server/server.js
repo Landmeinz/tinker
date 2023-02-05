@@ -24,10 +24,12 @@ app.use(sessionMiddleware);
 
 
 // ----- Routes ----- //
-const messageRouter = require('../server/routes/message.router');
-const currentDateRouter = require('../server/routes/current_date.router');
+const messageRouter = require('./routes/message.router');
+const currentDateRouter = require('./routes/current_date.router');
+const weeklyFormRouter = require('./routes/weeklyForm.router');
 app.use('/api/messages', messageRouter);
 app.use('/api/date', currentDateRouter);
+app.use('/api/weeklyForm', weeklyFormRouter);
 
 // App Set //
 app.set("port", process.env.PORT || 5050);

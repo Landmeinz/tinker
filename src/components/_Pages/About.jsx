@@ -68,6 +68,7 @@ function About() {
             </Typography>
           </Box>
           <CardAdditionalDetails title={addDetailsOne.title} />
+          <CardAdditionalDetails title={addDetailsThree.title} />
           <CardDefineRight
             title={DefineTextNoun.title}
             body={DefineTextNoun.body}
@@ -79,7 +80,6 @@ function About() {
             tag={DefineTextVerb.tag}
           />
           <CardAdditionalDetails title={addDetailsTwo.title} />
-          {/* <CardAdditionalDetails title={addDetailsThree.title} /> */}
           <ContactButton />
         </Box>
       </Box>

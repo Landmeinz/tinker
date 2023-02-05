@@ -29,6 +29,7 @@ function Nav() {
   return (
     <Box id="sxNavContainer" sx={sxNavContainer}>
       <Box id="sxTinkerNavTextAbout" sx={sxTinkerNavText}>
+      
         <Typography
           sx={sxBreaksH4}
           variant="h4"
@@ -39,6 +40,14 @@ function Nav() {
       </Box>
 
       <Box id="sxTinkerNavTextWork" sx={sxTinkerSubText}>
+      <Typography
+          sx={sxNavH6}
+          variant="h6"
+          onClick={() => handleNav("/hub")}
+        >
+          Hub
+        </Typography>
+        
         <Typography
           sx={sxNavH6}
           variant="h6"

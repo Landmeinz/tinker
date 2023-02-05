@@ -21,6 +21,9 @@ import About from "../_Pages/About";
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
 import Contact from "../_Pages/Contact";
+import Hub from "../_Pages/Hub";
+import WeeklyForm from "../_Pages/WeeklyForm";
+import WeeklyFormResults from "../_Pages/WeeklyFormResults";
 
 // --- MUI --- //
 import { Box } from "@mui/material";
@@ -91,7 +94,7 @@ function App() {
                     path="/crafts"
                     element={<Crafts />}
                   />
-                   {/* <Route
+                  {/* <Route
                     path="/products"
                     element={<Products />}
                   />
@@ -102,6 +105,18 @@ function App() {
                   <Route
                     path="/contact"
                     element={<Contact />}
+                  />
+                  <Route
+                    path="/hub"
+                    element={<Hub />}
+                  />
+                  <Route
+                    path="/weekly-form"
+                    element={<WeeklyForm />}
+                  />
+                  <Route
+                    path="/weekly-form/results"
+                    element={<WeeklyFormResults />}
                   />
                 </Routes>
               </motion.div>

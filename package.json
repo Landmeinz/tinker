@@ -18,6 +18,7 @@
     "animate-presence": "^0.2.1",
     "axios": "^0.27.2",
     "body-parser": "^1.20.0",
+    "chart.js": "^4.2.0",
     "connect-history-api-fallback": "^2.0.0",
     "cookie-parser": "^1.4.6",
     "cookie-session": "^2.0.0",

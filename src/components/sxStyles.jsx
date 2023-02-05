@@ -98,41 +98,41 @@ export const sxBreaksH5 = {
 };
 
 export const sxBreaksH6 = {
-    [theme.breakpoints.down("xl")]: {
-      fontSize: "1.5rem",
-    },
-    [theme.breakpoints.down("lg")]: {
-      fontSize: "1.35rem",
-    },
-    [theme.breakpoints.down("md")]: {
-      fontSize: "1.25rem",
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "1.15rem",
-    },
-  };
+  [theme.breakpoints.down("xl")]: {
+    fontSize: "1.5rem",
+  },
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "1.35rem",
+  },
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1.25rem",
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1.15rem",
+  },
+};
 
-  export const sxNavH6 = {
-    cursor: "pointer",
+export const sxNavH6 = {
+  cursor: "pointer",
 
-    "&:hover": {
-        color: "primary.light",
-        transform: "scale(1.05)",
-      },
+  "&:hover": {
+    color: "primary.light",
+    transform: "scale(1.05)",
+  },
 
-    [theme.breakpoints.down("xl")]: {
-        fontSize: "1.25rem",
-      },
-      [theme.breakpoints.down("lg")]: {
-        fontSize: "1.15rem",
-      },
-      [theme.breakpoints.down("md")]: {
-        fontSize: "1.05rem",
-      },
-      [theme.breakpoints.down("sm")]: {
-        fontSize: "1.05rem",
-      },
-  }
+  [theme.breakpoints.down("xl")]: {
+    fontSize: "1.25rem",
+  },
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "1.15rem",
+  },
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1.05rem",
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1.05rem",
+  },
+}
 // ----- App ----- //
 // ----- App ----- //
 // ----- App ----- //
@@ -164,11 +164,11 @@ export const sxTinkerNavText = {
 };
 
 export const sxTinkerSubText = {
-    display: "flex",
-    justifyContent: "center",
-    gap: "2vh",
-    color: "secondary.main",
-  };
+  display: "flex",
+  justifyContent: "center",
+  gap: "2vh",
+  color: "secondary.main",
+};
 // ----- Nav ----- //
 // ----- Nav ----- //
 // ----- Nav ----- //
@@ -181,13 +181,13 @@ export const sxHeroTextContent = {
 };
 
 export const sxContactTitle = {
-    cursor: "pointer",
+  cursor: "pointer",
 
-    "&:hover": {
-        color: "secondary.main",
-        transform: "scale(1.02)",
-        transition: ".2s",
-      },
+  "&:hover": {
+    color: "secondary.main",
+    transform: "scale(1.02)",
+    transition: ".2s",
+  },
 }
 // ----- Shared On All Pages ----- //
 // ----- Shared On All Pages ----- //
@@ -304,7 +304,7 @@ export const sxCardDefineLeftContainer = {
 // ----- CardDefineRight --- //
 // ----- CardDefineRight --- //
 export const sxCardDefineRightContainer = {
-//   border: '1px solid red',
+  //   border: '1px solid red',
   display: "flex",
   flexDirection: "row",
   justifyContent: "center",
@@ -339,7 +339,7 @@ export const sxCardDefineRightContainer = {
 // ----- CardDefine SHARED --- //
 // ----- CardDefine SHARED --- //
 export const sxTinkerDefined = {
-//   border: '1px solid green',
+  //   border: '1px solid green',
   px: 5,
   py: 3,
   display: "flex",
@@ -507,15 +507,15 @@ export const sxInputContainer = {
 };
 
 export const sxMessageButtonContainer = {
-    // border: "1px solid red",
-    display: "flex",
-    gap: 2,
+  // border: "1px solid red",
+  display: "flex",
+  gap: 2,
 }
 
 export const sxPostButton = {
   bgcolor: "secondary.main",
   color: "primary.light",
-//   width: "35vw",
+  //   width: "35vw",
   height: "8vh",
   border: 1,
   lineHeight: 1.1,
@@ -1003,5 +1003,157 @@ export const sxProjectDescriptionContent = {
 // ----- ProjectDescription ----- //
 // ----- ProjectDescription ----- //
 // ----- ProjectDescription ----- //
+
+// ----- WeeklyForm ----- //
+// ----- WeeklyForm ----- //
+// ----- WeeklyForm ----- //
+
+export const sxWeeklyFormDate = {
+  color: "primary.main",
+
+}
+
+export const sxWeeklyFormContainer = {
+  // border: '1px solid red',
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  mx: 25,
+  mt: 12,
+  gap: 4,
+
+  // color: "info.light",
+
+  [theme.breakpoints.down("xl")]: {
+
+  },
+  [theme.breakpoints.down("lg")]: {
+
+  },
+  [theme.breakpoints.down("md")]: {
+
+  },
+  [theme.breakpoints.down("sm")]: {
+
+  },
+}
+
+export const sxFormSectionOne = {
+  // border: "1px solid red",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  // alignItems: "space-between",
+  gap: 4,
+  width: "100%",
+  bgcolor: "info.light",
+  p: 2,
+  borderRadius: 4,
+}
+
+export const sxShareItemsContainer = {
+  // border: "1px solid red",
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  ml: -4,
+
+}
+
+export const sxInputTextWeekly = {
+  // border: "2px solid green",
+  bgcolor: "info.light",
+  color: "secondary.main",
+  borderRadius: 3,
+  width: "100%",
+  p: 2,
+}
+
+export const sxWeeklySliderContent = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  width: "100%",
+  gap: 2,
+  bgcolor: "info.light",
+  p: 2,
+  borderRadius: 4,
+
+}
+
+export const sxWeeklySlider = {
+  width: "100%",
+}
+
+export const sxSliderTextContent = {
+  // border: "1px solid red",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  width: "100%",
+}
+
+export const sxSliderText = {
+  color: "info.main",
+
+}
+
+export const sxSubmitButton = {
+  width: "100%",
+  bgcolor: "secondary.main",
+  color: "primary.light",
+  height: "8vh",
+  border: 1,
+  borderRadius: 15,
+  lineHeight: 1.1,
+  borderColor: "info.light",
+  fontWeight: "bold",
+  transition: ".25s",
+
+  "&:hover": {
+    bgcolor: "primary.light",
+    color: "secondary.main",
+    transform: "scale(1.05)",
+    transition: ".25s",
+  },
+
+  [theme.breakpoints.down("xl")]: {
+    fontSize: "1.5rem",
+    // width: "35vw",
+  },
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "1.25rem",
+    // width: "40vw",
+  },
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1rem",
+    // width: "80vw",
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1rem",
+    // width: "90vw",
+  },
+}
+
+// ----- WeeklyForm ----- //
+// ----- WeeklyForm ----- //
+// ----- WeeklyForm ----- //
+
+// ----- WeeklyResults ----- //
+// ----- WeeklyResults ----- //
+// ----- WeeklyResults ----- //
+
+export const sxWeeklyResultsContainer = {
+  display: "flex",
+  flexDirection: "colum",
+  justifyContent: "center",
+  mt: 12,
+  
+}
+
+// ----- WeeklyResults ----- //
+// ----- WeeklyResults ----- //
+// ----- WeeklyResults ----- //
 
 

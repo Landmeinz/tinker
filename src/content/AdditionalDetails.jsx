@@ -1,5 +1,5 @@
 export const addDetailsOne = {
-  title: `Tinker Group is a collection of people who work together to create new ideas and solve problems. Tinker Group members have very different skills, many with backgrounds in design and engineering. We help each other succeed, enjoy collaborating, and push each other to make our ideas a reality.`,
+  title: `Tinker Group is a creative collective dedicated to helping members bring their ideas to life. A place for people to get feedback on what they’re working on, show off their skills, and share their knowledge and experiences with others.`,
 };
 
 export const addDetailsTwo = {
@@ -7,5 +7,5 @@ export const addDetailsTwo = {
 };
 
 export const addDetailsThree = {
-  title: `Tinkering requires dreaming up some wild ideas, taking the time to prototype and test those ideas, while being willing to fail early and often.`,
+  title: `Tinker Group joins together weekly to give progress updates, motivate one another, and help hold each other accountable in a creative setting. Tinker Group provides a platform for brainstorming, collaboration, and constructive feedback to help members overcome obstacles and reach their goals. With regular meetings and a wealth of resources and support, tinkering provides motivation and inspiration to help members turn their ideas into reality.`,
 };
