@@ -131,7 +131,6 @@ function WeeklyForm() {
         <Typography sx={sxWeeklyFormDate} variant='h4'>Next Tinker Session in {nextMeetingInDays} days: {monthDayString}, {currentDate.year}</Typography>
       </Box>
 
-
       <form className="formPanel" onSubmit={handleSubmit}>
         <Box id="sxWeeklyFormContainer" sx={sxWeeklyFormContainer}>
           {/* <Typography sx={sxWeeklyFormDate} variant='h4'>{currentDate.current_date?.split('T')[0]}</Typography> */}
