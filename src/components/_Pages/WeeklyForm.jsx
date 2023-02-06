@@ -73,7 +73,7 @@ function WeeklyForm() {
     learned: "",
     nextGoals: "",
     difficultly: 25,
-    date: "CURRENT_TIMESTAMP",
+    date: "NOW()",
   };
 
   const [weeklyForm, setWeeklyForm] = useState(weeklyFormTemplate);

@@ -205,9 +205,10 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Submission Date</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form) => (
-            <Box key={form.id} sx={sxColumnText}>
+          {weeklyForm.map((form, i) => (
+            <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
+              {/* <Typography variant="body1">{form.date.split('T')[0]} @ {form.date.split('T')[1].split('.')[0]}</Typography> */}
               <Typography variant="body1">{form.date}</Typography>
             </Box>
           ))}
@@ -237,8 +238,8 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Items</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form) => (
-            <Box key={form.id} sx={sxColumnText}>
+          {weeklyForm.map((form, i) => (
+            <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
               <Typography variant="body1">{form.items}</Typography>
             </Box>
@@ -249,8 +250,8 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Ideas</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form) => (
-            <Box key={form.id} sx={sxColumnText}>
+          {weeklyForm.map((form, i) => (
+            <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
               <Typography variant="body1">{form.ideas}</Typography>
             </Box>
@@ -261,8 +262,8 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Research</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form) => (
-            <Box key={form.id} sx={sxColumnText}>
+          {weeklyForm.map((form, i) => (
+            <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
               <Typography variant="body1">{form.research}</Typography>
             </Box>
@@ -273,8 +274,8 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Tasks Completed</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form) => (
-            <Box key={form.id} sx={sxColumnText}>
+          {weeklyForm.map((form, i) => (
+            <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
               <Typography variant="body1">{form.tasks_completed}</Typography>
             </Box>
@@ -285,8 +286,8 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Blockers</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form) => (
-            <Box key={form.id} sx={sxColumnText}>
+          {weeklyForm.map((form, i) => (
+            <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
               <Typography variant="body1">{form.blockers}</Typography>
             </Box>
@@ -297,8 +298,8 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Learned</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form) => (
-            <Box key={form.id} sx={sxColumnText}>
+          {weeklyForm.map((form, i) => (
+            <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
               <Typography variant="body1">{form.learned}</Typography>
             </Box>
@@ -309,8 +310,8 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Next Goal</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form) => (
-            <Box key={form.id} sx={sxColumnText}>
+          {weeklyForm.map((form, i) => (
+            <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
               <Typography variant="body1">{form.next_goals}</Typography>
             </Box>
@@ -320,8 +321,6 @@ function DisplayResults() {
 
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Difficultly // Complexity</Typography>
-        {/* <Bar data={dataDifficult} /> */}
-
         <Box sx={sxColumnContent}>
           <Bar options={options} data={data} />
         </Box>
