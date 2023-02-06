@@ -1046,7 +1046,9 @@ export const sxProjectDescriptionContent = {
 // ----- WeeklyForm ----- //
 
 export const sxWeeklyFormDate = {
-  color: "primary.main",
+  color: "primary.light",
+  fontWeight: "bold",
+  
 
 }
 

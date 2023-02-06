@@ -9,13 +9,14 @@ router.get('/', (req, res) => {
   let queryText = `
     SELECT 	  name, complete_goal, present_items, items, ideas, research, tasks_completed, blockers, learned, next_goals, difficultly, to_char(date, 'yyyy-mm-dd @ hh:mi:ss') as date
     FROM 	    "weeklyform"
+    WHERE date > current_date - interval '7 days'
     ORDER BY  "date"; `;
 
   // let userId = [req.user.id];
 
   pool.query(queryText)
     .then(result => {
-      // console.log('--- router.GET /api/message result.rows', result.rows);
+      console.log('--- router.GET /api/message result.rows', result.rows);
       res.send(result.rows);
 
     }).catch(error => {

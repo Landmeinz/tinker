@@ -24,19 +24,6 @@ import { Doughnut, Bar, Line } from 'react-chartjs-2';
 import {
   Typography,
   Box,
-  Button,
-  TextField,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  RadioGroup,
-  FormControlLabel,
-  FormLabel,
-  Radio,
-  Slider,
-
 
 } from "@mui/material";
 
@@ -54,6 +41,7 @@ import {
 
   // sxBreaksH5,
 } from "../sxStyles";
+import zIndex from "@mui/material/styles/zIndex";
 
 function DisplayResults() {
 
@@ -150,6 +138,8 @@ function DisplayResults() {
     ],
   };
 
+
+
   const options = {
     responsive: true,
     plugins: {
@@ -196,8 +186,15 @@ function DisplayResults() {
   })
   console.log('dateStringList', dateStringList);
 
-  // let splitDate = dateStringList[0].split('T')[0];
-  // console.log('splitDate', splitDate);
+  
+
+  const filteredItemList = weeklyForm.filter(x => x.items != '');
+  const filteredIdeasList = weeklyForm.filter(x => x.ideas != '');
+  const filteredResearchList = weeklyForm.filter(x => x.research != '');
+  const filteredTasksList = weeklyForm.filter(x => x.tasks_completed != '');
+  const filteredBlockersList =  weeklyForm.filter(x => x.blockers != '');
+  const filteredLearnedList =  weeklyForm.filter(x => x.learned != '');
+  const filteredNextGoalsList =  weeklyForm.filter(x => x.next_goals != '');
 
   return (
     <Box sx={sxDisplayResultsContainer}>
@@ -208,7 +205,6 @@ function DisplayResults() {
           {weeklyForm.map((form, i) => (
             <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
-              {/* <Typography variant="body1">{form.date.split('T')[0]} @ {form.date.split('T')[1].split('.')[0]}</Typography> */}
               <Typography variant="body1">{form.date}</Typography>
             </Box>
           ))}
@@ -238,7 +234,7 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Items</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form, i) => (
+          {filteredItemList.map((form, i) => (
             <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
               <Typography variant="body1">{form.items}</Typography>
@@ -250,7 +246,7 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Ideas</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form, i) => (
+          {filteredIdeasList.map((form, i) => (
             <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
               <Typography variant="body1">{form.ideas}</Typography>
@@ -262,7 +258,7 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Research</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form, i) => (
+          {filteredResearchList.map((form, i) => (
             <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
               <Typography variant="body1">{form.research}</Typography>
@@ -274,7 +270,7 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Tasks Completed</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form, i) => (
+          {filteredTasksList.map((form, i) => (
             <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
               <Typography variant="body1">{form.tasks_completed}</Typography>
@@ -286,7 +282,7 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Blockers</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form, i) => (
+          {filteredBlockersList.map((form, i) => (
             <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
               <Typography variant="body1">{form.blockers}</Typography>
@@ -298,7 +294,7 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Learned</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form, i) => (
+          {filteredLearnedList.map((form, i) => (
             <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
               <Typography variant="body1">{form.learned}</Typography>
@@ -310,7 +306,7 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Next Goal</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form, i) => (
+          {filteredNextGoalsList.map((form, i) => (
             <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
               <Typography variant="body1">{form.next_goals}</Typography>

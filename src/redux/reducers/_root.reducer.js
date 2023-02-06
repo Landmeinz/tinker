@@ -5,6 +5,7 @@ import currentDate from './current_date.reducer';
 import messageList from './messages.reducer';
 import selectedProduct from './selectedProduct.reducer';
 import weeklyForm from './weeklyForm.reducer';
+import nextMeetingDay from './nextMeetingDay.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,8 @@ const rootReducer = combineReducers({
   messageList: messageList,
   selectedProduct: selectedProduct,
   weeklyForm: weeklyForm,
+  nextMeetingDay: nextMeetingDay,
+  
 });
 
 export default rootReducer;

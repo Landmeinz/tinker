@@ -3,6 +3,7 @@ import axios from "axios";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
 // --- Components --- //
 
@@ -13,11 +14,6 @@ import {
   Box,
   Button,
   TextField,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
   RadioGroup,
   FormControlLabel,
   FormLabel,
@@ -30,17 +26,6 @@ import {
 // --- Sx Styles --- //
 import {
   trans,
-  sxHeroTextContent,
-  sxContactSectionOne,
-  sxContactText,
-  sxMessageBoardContainer,
-  sxMessageBoardHeader,
-  sxBreaksH4,
-  sxContactTitle,
-  sxInputContainer,
-  sxInputText,
-  sxMessageButtonContainer,
-  sxPostButton,
   sxWeeklyFormContainer,
   sxFormSectionOne,
   sxInputTextWeekly,
@@ -57,9 +42,15 @@ import {
 } from "../sxStyles";
 
 function WeeklyForm() {
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const currentDate = useSelector((store) => store.currentDate);
+  const nextMeetingDay = useSelector((store) => store.nextMeetingDay);
+  const nextMeetingString = `${nextMeetingDay}`;
+  const index = nextMeetingString.lastIndexOf('2023');
+  const monthDayString = `${nextMeetingString.slice(0, index - 1)}`;
+  const nextMeetingInt = monthDayString.slice(-2);
+  const nextMeetingInDays = nextMeetingInt - currentDate.day;
 
   let weeklyFormTemplate = {
     name: "",
@@ -88,34 +79,19 @@ function WeeklyForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // if (weeklyForm.name.length <= 1 || weeklyForm.message.length <= 3) {
-    //   return window.alert("Please be more descriptive");
-    // } else {
-    //   postMessage(weeklyForm);
-    //   setWeeklyForm(weeklyFormTemplate);
-    // }
     postWeeklyForm(weeklyForm);
     setWeeklyForm(weeklyFormTemplate);
     console.log('weeklyForm submit', weeklyForm);
-
   }; // handleSubmit
 
   const postWeeklyForm = (weeklyForm) => {
     dispatch({ type: "POST_WEEKLY_FORM", payload: weeklyForm });
   }; // postWeeklyForm
 
-  function handleClick(input) {
-    // event.preventDefault();
-    // if (weeklyForm.name.length <= 1 || weeklyForm.message.length <= 3) {
-    //   return window.alert("Please be more descriptive");
-    // } else {
-    //   postMessage(weeklyForm);
-    //   setweeklyForm(messageTemplate);
-    // }
+  function handleRadioButton(input) {
     setShow(input);
     console.log(input);
-
-  }; // handleClcik
+  }; // handleRadioButton
 
   const marks = [
     {
@@ -126,6 +102,11 @@ function WeeklyForm() {
     },
   ];
 
+  function handleNav(path) {
+    navigate(path);
+    window.scrollTo(0, 0);
+  } // handleNav
+
   return (
     <motion.div
       initial={trans.initial}
@@ -135,9 +116,25 @@ function WeeklyForm() {
       transition={trans.time}
     >
 
+      <Box sx={sxWeeklyFormContainer}>
+        <Button 
+          sx={sxSubmitButton} 
+          type="button" 
+          size="large"
+          onClick={() => handleNav('/weekly-form/results')}
+          >
+          See The Results
+        </Button>
+      </Box>
+
+      <Box sx={sxWeeklyFormContainer}>
+        <Typography sx={sxWeeklyFormDate} variant='h4'>Next Tinker Session in {nextMeetingInDays} days: {monthDayString}, {currentDate.year}</Typography>
+      </Box>
+
+
       <form className="formPanel" onSubmit={handleSubmit}>
         <Box id="sxWeeklyFormContainer" sx={sxWeeklyFormContainer}>
-          <Typography sx={sxWeeklyFormDate} variant='h4'>{currentDate.current_date?.split('T')[0]}</Typography>
+          {/* <Typography sx={sxWeeklyFormDate} variant='h4'>{currentDate.current_date?.split('T')[0]}</Typography> */}
           <TextField
             sx={sxInputTextWeekly}
             id="filled-static"
@@ -179,14 +176,14 @@ function WeeklyForm() {
                 name="radio-buttons-group"
               >
                 <FormControlLabel
-                  onClick={() => handleClick(true)}
+                  onClick={() => handleRadioButton(true)}
                   value="true"
                   control={<Radio />}
                   label="Yesser!"
                   onChange={(event) => handleNameChange(event, "presentItems")}
                 />
                 <FormControlLabel
-                  onClick={() => handleClick(false)}
+                  onClick={() => handleRadioButton(false)}
                   value="false"
                   control={<Radio />}
                   label="Here for the discussion"

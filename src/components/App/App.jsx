@@ -34,25 +34,23 @@ import { theme, transApp, sxApp, sxAppContainer } from "../sxStyles";
 function App() {
 
   const dispatch = useDispatch();
-  // const currentDate = useSelector((store) => store.currentDate);
+  const currentDate = useSelector((store) => store.currentDate);
 
   useEffect(() => {
-    // fetchCurrentDate();
     dispatch({ type: 'FETCH_CURRENT_DATE' });
     dispatch({ type: 'FETCH_MESSAGES' });
+    getNextMeetingDay(currentDate.current_date)
   }, [dispatch]);
 
-  // const fetchCurrentDate = () => {
-  //   axios
-  //     .get("/api/date")
-  //     .then((response) => {
-  //       // console.log('GET /api/date RESPONSE', response);
-  //       setCurrentDate(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log("GET /api/date ERROR", error);
-  //     });
-  // };
+  function getNextMeetingDay(date = new Date()) {
+    const dateCopy = new Date(date.getTime());
+    const nextMeeting = new Date(
+      dateCopy.setDate(
+        dateCopy.getDate() + ((7 - dateCopy.getDay() + 2) % 7 || 7),
+      ),
+    );
+    return dispatch({ type: 'SET_NEXT_MEETING_DAY', payload: nextMeeting });;    
+  }
 
   return (
     <ThemeProvider theme={theme}>
