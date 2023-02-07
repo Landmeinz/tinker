@@ -748,6 +748,184 @@ export const sxHubText = {
 // ----- Hub Hub Hub ----- //
 // ----- Hub Hub Hub ----- //
 
+// ----- Login ----- //
+// ----- Login ----- //
+// ----- Login ----- //
+
+export const sxLoginPageContainer = {
+  border: '1px solid green',
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  // width: "100%",
+  mt: 12,
+  gap: 6,
+  mx: "10vw", 
+
+}
+
+export const sxLoginContent = {
+  border: '1px solid blue',
+  display: "flex",
+  gap: 8,
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+
+}
+
+export const sxLoginTitle = {
+
+}
+
+export const sxLoginText = {
+  color: "primary.light",
+  fontWeight: "bold", // normal, bold, light
+  textAlign: "center",
+  userSelect: "none",
+
+  [theme.breakpoints.down("xl")]: {
+    fontSize: "7.4rem",
+  },
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "6rem",
+  },
+  [theme.breakpoints.down("md")]: {
+    fontSize: "4rem",
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "3rem",
+  },
+}
+
+export const sxRegisterFormBtn = {
+
+  bgcolor: "secondary.main",
+  color: "primary.light",
+  height: 60,
+  border: 1,
+  borderRadius: 3,
+  lineHeight: 1.1,
+  borderColor: "info.light",
+  fontWeight: "bold",
+  transition: ".25s",
+  px: 10,
+
+  "&:hover": {
+    bgcolor: "primary.light",
+    color: "secondary.main",
+    transform: "scale(1.05)",
+    transition: ".25s",
+  },
+
+  [theme.breakpoints.down("xl")]: {
+    fontSize: "1.5rem",
+    // width: "35vw",
+  },
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "1.25rem",
+    // width: "40vw",
+  },
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1rem",
+    // width: "80vw",
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1rem",
+    // width: "90vw",
+  },
+}
+
+// ----- Login ----- //
+// ----- Login ----- //
+// ----- Login ----- //
+
+// ----- LoginForm ----- //
+// ----- LoginForm ----- //
+// ----- LoginForm ----- //
+
+export const sxLoginFormContainer = {
+  border: '1px solid blue',
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  width: "100%",
+  gap: 4,
+
+}
+
+export const sxLoginFormContent = {
+  // border: '1px solid blue',
+  display: 'flex',
+  flexDirection: 'row',
+  gap: 6,
+  mx: 'auto',
+  width: '100%',
+}
+
+export const sxUserNameContent = {
+  display: "flex",
+  flexDirection: "column",
+  gap: 1,
+}
+
+export const sxLoginInput = {
+  bgcolor: "info.light",
+  color: "info.dark",
+  width: "28vw",
+  borderRadius: 4,
+
+}
+
+export const sxLoginButton = {
+  width: "96%",
+  bgcolor: "secondary.main",
+  color: "primary.light",
+  height: "8vh",
+  border: 1,
+  borderRadius: 15,
+  lineHeight: 1.1,
+  borderColor: "info.light",
+  fontWeight: "bold",
+  transition: ".25s",
+
+  "&:hover": {
+    bgcolor: "primary.light",
+    color: "secondary.main",
+    transform: "scale(1.05)",
+    transition: ".25s",
+  },
+
+  [theme.breakpoints.down("xl")]: {
+    fontSize: "1.5rem",
+    // width: "35vw",
+  },
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "1.25rem",
+    // width: "40vw",
+  },
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1rem",
+    // width: "80vw",
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1rem",
+    // width: "90vw",
+  },
+}
+
+export const sxLoginHeader = {
+  color: "primary.light",
+
+}
+// ----- LoginForm ----- //
+// ----- LoginForm ----- //
+// ----- LoginForm ----- //
+
+
+
 // ----- MessageBoard ----- //
 // ----- MessageBoard ----- //
 // ----- MessageBoard ----- //
@@ -1041,6 +1219,29 @@ export const sxProjectDescriptionContent = {
 // ----- ProjectDescription ----- //
 // ----- ProjectDescription ----- //
 
+// ----- RegisterForm ----- //
+// ----- RegisterForm ----- //
+// ----- RegisterForm ----- //
+
+export const sxRegisterFormContainer = {
+  // border: '1px solid red',
+  display: 'flex',
+  flexDirection: 'column',
+}
+
+export const sxRegisterFormContent = {
+  // border: '1px solid blue',
+  display: 'flex',
+  flexDirection: 'column',
+  mx: 'auto',
+  width: '100%',
+}
+
+// ----- RegisterForm ----- //
+// ----- RegisterForm ----- //
+// ----- RegisterForm ----- //
+
+
 // ----- WeeklyForm ----- //
 // ----- WeeklyForm ----- //
 // ----- WeeklyForm ----- //
@@ -1048,7 +1249,7 @@ export const sxProjectDescriptionContent = {
 export const sxWeeklyFormDate = {
   color: "primary.light",
   fontWeight: "bold",
-  
+
 
 }
 
@@ -1201,7 +1402,7 @@ export const sxDisplayResultsContainer = {
   justifyContent: "center",
   alignItems: "center",
   color: "info.light",
-  gap: 8, 
+  gap: 8,
 
 }
 
@@ -1253,7 +1454,7 @@ export const sxColumnContent = {
   lineHeight: .2,
   // justifyContent: "start",
   // alignItems: "center",
-  
+
   width: "88%",
 }
 
@@ -1272,7 +1473,7 @@ export const sxDoughnutContainer = {
 }
 
 export const sxDoughnut = {
-  border: "2px solid green",
+  // border: "2px solid green",
   color: "primary.main",
 
 }

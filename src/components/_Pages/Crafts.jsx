@@ -23,7 +23,7 @@ import {
   sxHeroTextContent,
 } from "../sxStyles";
 
-function Work({ currentDate }) {
+function Crafts({ currentDate }) {
   return (
     <motion.div
       initial={trans.initial}
@@ -65,4 +65,4 @@ function Work({ currentDate }) {
     </motion.div>
   );
 }
-export default Work;
+export default Crafts;

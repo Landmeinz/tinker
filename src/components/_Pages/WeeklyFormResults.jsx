@@ -59,7 +59,7 @@ import {
     // sxBreaksH5,
 } from "../sxStyles";
 
-function WeeklyForm() {
+function WeeklyFormResults() {
 
     const dispatch = useDispatch();
     const currentDate = useSelector((store) => store.currentDate);
@@ -131,4 +131,4 @@ function WeeklyForm() {
         </motion.div>
     );
 }
-export default WeeklyForm;
+export default WeeklyFormResults;

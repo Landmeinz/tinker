@@ -24,6 +24,7 @@ import Contact from "../_Pages/Contact";
 import Hub from "../_Pages/Hub";
 import WeeklyForm from "../_Pages/WeeklyForm";
 import WeeklyFormResults from "../_Pages/WeeklyFormResults";
+import LoginPage from "../_Pages/LoginPage";
 
 // --- MUI --- //
 import { Box } from "@mui/material";
@@ -49,7 +50,7 @@ function App() {
         dateCopy.getDate() + ((7 - dateCopy.getDay() + 2) % 7 || 7),
       ),
     );
-    return dispatch({ type: 'SET_NEXT_MEETING_DAY', payload: nextMeeting });;    
+    return dispatch({ type: 'SET_NEXT_MEETING_DAY', payload: nextMeeting });;
   }
 
   return (
@@ -116,6 +117,35 @@ function App() {
                     path="/weekly-form/results"
                     element={<WeeklyFormResults />}
                   />
+                  
+                  <Route
+                    path="/login"
+                    element={<LoginPage />}
+                  />
+                  
+
+                  {/* --- LOGIN vs REGISTER --- */}
+                  {/* <Route
+                    exact
+                    path="/login"
+                    element={<WeeklyFormResults />}
+                  >
+                    {user.id ?
+                      // If the user is already logged in, 
+                      // redirect to the /home page
+                      <Redirect to="/home" />
+                      :
+                      // Otherwise, show the login page
+                      <LoginPage />
+                    }
+                  </Route>
+
+                  If none of the other routes matched, we will show a 404.
+                  <Route>
+                    <br />
+                    <Typography variant="h1" sx={sxCenterText}>404</Typography>
+                  </Route> */}
+
                 </Routes>
               </motion.div>
             </AnimatePresence>

@@ -23,7 +23,7 @@ import {
   sxHeroTextContent,
 } from "../sxStyles";
 
-function Work() {
+function Products() {
   return (
     <motion.div
       initial={trans.initial}
@@ -67,4 +67,4 @@ function Work() {
     </motion.div>
   );
 }
-export default Work;
+export default Products;

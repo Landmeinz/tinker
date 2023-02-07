@@ -1,10 +1,11 @@
 const express = require('express');
 const pool = require('../modules/pool.js');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
 // ----- GET ----- //
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
 
   let queryText = `
     SELECT 	  *
@@ -26,7 +27,7 @@ router.get('/', (req, res) => {
 
 
 // ----- POST ----- //
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
 
   const newMessage = req.body;
 

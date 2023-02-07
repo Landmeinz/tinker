@@ -25,7 +25,7 @@ import {
   sxCardProductDetail,
 } from "../sxStyles";
 
-function Work() {
+function ProductDetails() {
 
   const selectedProduct = useSelector((store) => store.selectedProduct);
   console.log("--- selectedProductContent from ProductDetails: ", selectedProduct);
@@ -71,4 +71,4 @@ function Work() {
     </motion.div>
   );
 }
-export default Work;
+export default ProductDetails;
