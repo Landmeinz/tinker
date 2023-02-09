@@ -141,7 +141,7 @@ export const sxNavH6 = {
 // ----- Nav ----- //
 // ----- Nav ----- //
 export const sxNavContainer = {
-  // border: '1px solid red',
+  // border: "1px solid red",
   py: 2,
   px: 2,
   display: "flex",
@@ -197,10 +197,10 @@ export const sxContactTitle = {
 // ----- About ----- //
 // ----- About ----- //
 export const sxAboutSectionOne = {
-  // border: '1px solid red',
+  // border: "1px solid red",
   display: "flex",
   flexDirection: "column",
-  // alignItems: 'center',`
+  alignItems: "center",
   justifyContent: "center",
   gap: 17,
   mt: 12,
@@ -224,6 +224,44 @@ export const sxHeroText = {
     fontSize: "4rem",
   },
 };
+
+export const sxNavLoginPage = {
+  width: "50%",
+  bgcolor: "secondary.main",
+  color: "primary.light",
+  height: "8vh",
+  border: 1,
+  borderRadius: 15,
+  lineHeight: 1.1,
+  borderColor: "info.light",
+  fontWeight: "bold",
+  transition: ".25s",
+
+  "&:hover": {
+    bgcolor: "primary.light",
+    color: "secondary.main",
+    transform: "scale(1.05)",
+    transition: ".25s",
+  },
+
+  [theme.breakpoints.down("xl")]: {
+    fontSize: "1.5rem",
+    // width: "35vw",
+  },
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "1.25rem",
+    // width: "40vw",
+  },
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1rem",
+    // width: "80vw",
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1rem",
+    // width: "90vw",
+  },
+
+}
 // ----- About ----- //
 // ----- About ----- //
 // ----- About ----- //
@@ -232,7 +270,7 @@ export const sxHeroText = {
 // ----- CardsAdditionalDetails ----- //
 // ----- CardsAdditionalDetails ----- //
 export const sxAdditionalDetailsTitle = {
-  // border: '1px solid red',
+  // border: "1px solid red",
   textAlign: "center",
   mx: 21,
   lineHeight: "1",
@@ -268,7 +306,7 @@ export const sxDetailsContainer = {
 // ----- CardDefineLeft --- //
 // ----- CardDefineLeft --- //
 export const sxCardDefineLeftContainer = {
-  // border: '1px solid red',
+  // border: "1px solid red",
   display: "flex",
   flexDirection: "row",
   justifyContent: "center",
@@ -304,7 +342,7 @@ export const sxCardDefineLeftContainer = {
 // ----- CardDefineRight --- //
 // ----- CardDefineRight --- //
 export const sxCardDefineRightContainer = {
-  //   border: '1px solid red',
+  //   border: "1px solid red",
   display: "flex",
   flexDirection: "row",
   justifyContent: "center",
@@ -339,7 +377,7 @@ export const sxCardDefineRightContainer = {
 // ----- CardDefine SHARED --- //
 // ----- CardDefine SHARED --- //
 export const sxTinkerDefined = {
-  //   border: '1px solid green',
+  //   border: "1px solid green",
   px: 5,
   py: 3,
   display: "flex",
@@ -383,7 +421,7 @@ export const sxCardDefineBody = {
 };
 
 export const sxBoxColor = {
-  // border: '1px solid purple',
+  // border: "1px solid purple",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -449,7 +487,7 @@ export const sxImageCaption = {
 export const sxContactSectionOne = {
   display: "flex",
   flexDirection: "column",
-  // alignItems: 'center',`
+  // alignItems: "center",`
   justifyContent: "center",
   alignItems: "center",
   gap: 17,
@@ -477,7 +515,7 @@ export const sxContactText = {
 };
 
 export const sxInputText = {
-  // border: '1px solid red',
+  // border: "1px solid red",
   bgcolor: "info.light",
   color: "secondary.main",
   borderRadius: 3,
@@ -549,7 +587,7 @@ export const sxPostButton = {
 };
 
 export const sxMessageBoardContainer = {
-  // border: '1px solid red',
+  // border: "1px solid red",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -557,7 +595,7 @@ export const sxMessageBoardContainer = {
 };
 
 export const sxMessageBoardHeader = {
-  // border: '1px solid green',
+  // border: "1px solid green",
   display: "flex",
   flexDirection: "row",
   justifyContent: "center",
@@ -573,6 +611,7 @@ export const sxMessageBoardHeader = {
 export const sxContactButtonContainer = {
   display: "flex",
   justifyContent: "center",
+
 };
 
 export const sxContactButton = {
@@ -584,6 +623,8 @@ export const sxContactButton = {
   borderColor: "info.light",
   fontWeight: "bold",
   transition: ".25s",
+  borderRadius: 15,
+
 
   "&:hover": {
     bgcolor: "primary.light",
@@ -617,10 +658,10 @@ export const sxContactButton = {
 // ----- Crafts ----- //
 // ----- Crafts ----- //
 export const sxCraftsSectionOne = {
-  // border: '1px solid red',
+  // border: "1px solid red",
   display: "flex",
   flexDirection: "column",
-  // alignItems: 'center',
+  // alignItems: "center",
   justifyContent: "center",
   gap: 17,
   mt: 12,
@@ -647,7 +688,7 @@ export const sxCraftsHeroText = {
 };
 
 export const sxProjectContainer = {
-  // border: '1px solid blue',
+  // border: "1px solid blue",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -698,7 +739,7 @@ export const sxCardProjectGallery = {
 // ----- Footer ----- //
 // ----- Footer ----- //
 export const sxFooterContainer = {
-  // border: '1px solid red',
+  // border: "1px solid red",
   height: "1.5rem",
   display: "flex",
   alignItems: "center",
@@ -753,7 +794,7 @@ export const sxHubText = {
 // ----- Login ----- //
 
 export const sxLoginPageContainer = {
-  border: '1px solid green',
+  border: "1px solid green",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -761,12 +802,12 @@ export const sxLoginPageContainer = {
   // width: "100%",
   mt: 12,
   gap: 6,
-  mx: "10vw", 
+  mx: "10vw",
 
 }
 
 export const sxLoginContent = {
-  border: '1px solid blue',
+  // border: "1px solid blue",
   display: "flex",
   gap: 8,
   flexDirection: "column",
@@ -846,7 +887,7 @@ export const sxRegisterFormBtn = {
 // ----- LoginForm ----- //
 
 export const sxLoginFormContainer = {
-  border: '1px solid blue',
+  // border: "1px solid blue",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -857,12 +898,12 @@ export const sxLoginFormContainer = {
 }
 
 export const sxLoginFormContent = {
-  // border: '1px solid blue',
-  display: 'flex',
-  flexDirection: 'row',
+  // border: "1px solid blue",
+  display: "flex",
+  flexDirection: "row",
   gap: 6,
-  mx: 'auto',
-  width: '100%',
+  mx: "auto",
+  width: "100%",
 }
 
 export const sxUserNameContent = {
@@ -874,13 +915,13 @@ export const sxUserNameContent = {
 export const sxLoginInput = {
   bgcolor: "info.light",
   color: "info.dark",
-  width: "28vw",
+  width: "30vw",
   borderRadius: 4,
 
 }
 
 export const sxLoginButton = {
-  width: "96%",
+  width: "75%",
   bgcolor: "secondary.main",
   color: "primary.light",
   height: "8vh",
@@ -930,7 +971,7 @@ export const sxLoginHeader = {
 // ----- MessageBoard ----- //
 // ----- MessageBoard ----- //
 export const sxMessageBoardContent = {
-  // border: '1px solid blue',
+  // border: "1px solid blue",
   display: "flex",
   flexDirection: "column",
   gap: 2,
@@ -961,7 +1002,7 @@ export const sxMessageBoardText = {
 };
 
 export const sxMsgBoardCardHeader = {
-  // border: '1px solid green',
+  // border: "1px solid green",
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
@@ -998,10 +1039,10 @@ export const sxMsgBoardCardBodyText = {
 // ----- Products ----- //
 // ----- Products ----- //
 export const sxProductSectionOne = {
-  // border: '1px solid red',
+  // border: "1px solid red",
   display: "flex",
   flexDirection: "column",
-  // alignItems: 'center',
+  // alignItems: "center",
   justifyContent: "center",
   gap: 17,
   mt: 12,
@@ -1028,7 +1069,7 @@ export const sxProductHeroText = {
 };
 
 export const sxProductContainer = {
-  // border: '1px solid blue',
+  // border: "1px solid blue",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -1119,7 +1160,7 @@ export const sxCardProductDetail = {
 // ----- ProductDescription ----- //
 // ----- ProductDescription ----- //
 export const sxProductDescriptionTitle = {
-  // border: '1px solid red',
+  // border: "1px solid red",
   display: "flex",
   justifyContent: "center",
   textAlign: "center",
@@ -1142,7 +1183,7 @@ export const sxProductDescriptionTitle = {
 };
 
 export const sxProductDescriptionContent = {
-  // border: '1px solid red',
+  // border: "1px solid red",
   display: "flex",
   flexDirection: "column",
   gap: 1,
@@ -1171,7 +1212,7 @@ export const sxProductDescriptionContent = {
 // ----- ProjectDescription ----- //
 // ----- ProjectDescription ----- //
 export const sxProjectDescriptionTitle = {
-  // border: '1px solid red',
+  // border: "1px solid red",
   display: "flex",
   justifyContent: "center",
   textAlign: "center",
@@ -1194,7 +1235,7 @@ export const sxProjectDescriptionTitle = {
 };
 
 export const sxProjectDescriptionContent = {
-  // border: '1px solid red',
+  // border: "1px solid red",
   display: "flex",
   flexDirection: "column",
   gap: 1,
@@ -1224,17 +1265,57 @@ export const sxProjectDescriptionContent = {
 // ----- RegisterForm ----- //
 
 export const sxRegisterFormContainer = {
-  // border: '1px solid red',
-  display: 'flex',
-  flexDirection: 'column',
+  // border: "1px solid red",
+  display: "flex",
+  flexDirection: "column",
 }
 
 export const sxRegisterFormContent = {
-  // border: '1px solid blue',
-  display: 'flex',
-  flexDirection: 'column',
-  mx: 'auto',
-  width: '100%',
+  border: "1px solid blue",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  mx: "auto",
+  width: "100%",
+  gap: 4,
+}
+
+export const sxRegisterNewUserButton = {
+  bgcolor: "secondary.main",
+  color: "primary.light",
+  height: 60,
+  border: 1,
+  borderRadius: 15,
+  lineHeight: 1.1,
+  borderColor: "info.light",
+  fontWeight: "bold",
+  transition: ".25s",
+  px: 10,
+
+  "&:hover": {
+    bgcolor: "primary.light",
+    color: "secondary.main",
+    transform: "scale(1.05)",
+    transition: ".25s",
+  },
+
+  [theme.breakpoints.down("xl")]: {
+    fontSize: "1.5rem",
+    // width: "35vw",
+  },
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "1.25rem",
+    // width: "40vw",
+  },
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1rem",
+    // width: "80vw",
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1rem",
+    // width: "90vw",
+  },
 }
 
 // ----- RegisterForm ----- //
@@ -1254,7 +1335,7 @@ export const sxWeeklyFormDate = {
 }
 
 export const sxWeeklyFormContainer = {
-  // border: '1px solid red',
+  // border: "1px solid red",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",

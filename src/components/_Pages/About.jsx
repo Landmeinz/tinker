@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
 // --- Components --- //
 import CardDefineRight from "../CardDefineRight/CardDefineRight";
@@ -19,7 +20,7 @@ import {
 } from "../../content/AdditionalDetails";
 
 // --- MUI --- //
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Button } from "@mui/material";
 
 // --- Sx Styles --- //
 import {
@@ -27,11 +28,21 @@ import {
   sxAboutSectionOne,
   sxHeroTextContent,
   sxHeroText,
+  sxNavLoginPage,
+
 } from "../sxStyles";
 
 function About() {
+  const navigate = useNavigate();
+
   const currentDate = useSelector((store) => store.currentDate);
   console.log("--- About currentDate", currentDate.currentDate);
+
+
+  function handleNav(path) {
+    navigate(path);
+    window.scrollTo(0, 0);
+  } // handleNav
 
   return (
     <motion.div
@@ -67,6 +78,14 @@ function About() {
               We Tinker
             </Typography>
           </Box>
+          <Button
+            sx={sxNavLoginPage}
+            size="large"
+            variant="contained"
+            onClick={() => handleNav("/login")}
+          >
+            Go To Login
+          </Button>
           <CardAdditionalDetails title={addDetailsOne.title} />
           <CardAdditionalDetails title={addDetailsThree.title} />
           <CardDefineRight

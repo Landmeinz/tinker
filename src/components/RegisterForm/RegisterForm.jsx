@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
+import validator from 'validator';
+import { useNavigate } from "react-router-dom";
 
 
 // --- MUI --- //
@@ -28,82 +30,74 @@ import {
   sxLoginHeader,
   sxRegisterFormContainer,
   sxRegisterFormContent,
-
+  sxRegisterFormBtn,
+  sxRegisterNewUserButton,
 
   // sxBreaksH5,
 } from "../sxStyles";
 
 function RegisterForm() {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
+  const navigate = useNavigate();
 
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const [bio, setBio] = useState('');
-  const [pic, setPic] = useState('');
-  const [location, setLocation] = useState('')
-  const [birthday, setBirthday] = useState(null);
-  const [gender, setGender] = useState(null);
-  const [maritalStatus, setMaritalStatus] = useState(null);
-  const [familySize, setFamilySize] = useState(null);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [emailStatus, setEmailStatus] = useState(true);
+  const [nameStatus, setNameStatus] = useState(true);
+  const [passwordStatus, setPasswordStatus] = useState(true);
 
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
-  // const history = useHistory();
 
   const registerUser = (event) => {
     event.preventDefault();
+
+    if (emailStatus || nameStatus || passwordStatus) {
+      return alert("No pressure, but we need to make this happen, give it another try!")
+    }
 
     if (password === confirmPassword) {
       dispatch({
         type: 'REGISTER',
         payload: {
-          username: username,
           email: email,
+          name: name,
           password: password,
-          bio: bio,
-          pic: pic,
-          location: location,
-          birthday: birthday,
-          gender: gender,
-          maritalStatus: maritalStatus,
-          familySize: familySize,
-          isAdmin: isAdmin,
-        },
+        }
       });
-      alert("Friendly reminder to REMEMBER YOUR PASSWORD! Warning: Password Recovery is not currently available")
-      // history.push('/home')
+      navigate('/hub');
+      window.scrollTo(0, 0);
     } else {
-      alert("Error: Email or Passwords Don't Match")
+      alert("No pressure, but we need to make this happen, give it another try!")
     }
-
-
   }; // registerUser
 
 
-  // INPUT text styles
-  const sxInput = {
-    mb: 1,
-  }
+  let test;
 
-  // FORM CONTAINER holds all the page content
-  const sxFormContainer = {
-    // border: '1px solid red',
-    display: 'flex',
-    flexDirection: 'column',
-  }
+  function handleCheck(type) {
+    switch (type) {
+      case 'email':
+        console.log('email');
+        validator.isEmail(email) ? setEmailStatus(false) : setEmailStatus(true);
+        break;
 
-  // FORM CONTENT holds the "register new user" title and all of the input boxes
-  const sxFormContent = {
-    // border: '1px solid blue',
-    display: 'flex',
-    flexDirection: 'column',
-    mx: 'auto',
-    width: '100%',
-  }
+      case 'name':
+        name.length > 1 ? setNameStatus(false) : setNameStatus(true);
+        break;
 
+      case 'password':
+        if (password.length > 1) {
+          password === confirmPassword ? setPasswordStatus(false) : setPasswordStatus(true);
+        }
+        break;
+
+      default:
+        break;
+    }
+  }
 
   return (
 
@@ -119,135 +113,84 @@ function RegisterForm() {
 
           {/* EMAIL */}
           <Box sx={sxUserNameContent}>
-            <Typography sx={sxLoginHeader} variant='h5'>Email</Typography>
+            <Box sx={{ display: "flex", flexDirection: "row" }}>
+              <Typography sx={sxLoginHeader} variant='h6'>Email</Typography>
+              {emailStatus &&
+                <Typography sx={{ fontWeight: 'bold' }} color='error' variant='h5'>*</Typography>}
+            </Box>
             <TextField sx={sxLoginInput}
               id="email"
               required
-              value={username}
-              autocomplete="off"
-              onChange={(event) => setUsername(event.target.value)}
+              // label="Email"
+              value={email}
+              autoComplete="off"
+              onChange={(event) => setEmail(event.target.value)}
+              onKeyUp={() => handleCheck('email')}
             />
           </Box>
 
-
-          {/* FIRST NAME */}
+          {/* NAME */}
           <Box sx={sxUserNameContent}>
-            <Typography sx={sxLoginHeader} variant='h5'>First Name</Typography>
+            <Box sx={{ display: "flex", flexDirection: "row" }}>
+              <Typography sx={sxLoginHeader} variant='h6'>Name</Typography>
+              {nameStatus &&
+                <Typography sx={{ fontWeight: 'bold' }} color='error' variant='h5'>*</Typography>}
+            </Box>
             <TextField sx={sxLoginInput}
-            id="firstName"
-            required
-            value={email}
-            autocomplete="off"
-            onChange={(event) => setEmail(event.target.value)}
-          // placeholder="Username"
-          />
+              id="name"
+              required
+              // label="Email"
+              value={name}
+              autoComplete="off"
+              onChange={(event) => setName(event.target.value)}
+              onKeyUp={() => handleCheck('name')}
+            />
           </Box>
- 
-
-          {/* BIO */}
-          <TextField sx={sxLoginInput}
-            id="bio"
-            label="Bio"
-            value={bio}
-            onChange={(event) => setBio(event.target.value)}
-          />
-
-          {/* PIC URL */}
-          <TextField sx={sxLoginInput}
-            id="pic"
-            label="Profile Image URL"
-            value={pic}
-            onChange={(event) => setPic(event.target.value)}
-          />
-
-          {/* LOCATION */}
-          <TextField sx={sxLoginInput}
-            id="location"
-            label="Location"
-            value={location}
-            onChange={(event) => setLocation(event.target.value)}
-          />
-
-          {/* BIRTHDAY */}
-          <TextField ssx={sxLoginInput}
-            type="date"
-            id="birthday"
-            label="Birthday"
-            value={birthday}
-            onChange={(event) => setBirthday(event.target.value)}
-            InputLabelProps={{ shrink: true }}
-          />
-
-          {/* GENDER SELECTION */}
-          <FormControl>
-            <InputLabel id="gender">Gender</InputLabel>
-            <Select sx={sxInput} variant="outlined"
-              labelId="gender"
-              id="gender"
-              name="gender"
-              value={gender}
-              onChange={(event) => setGender(event.target.value)}
-            >
-              <MenuItem value={'Female'}>Female</MenuItem>
-              <MenuItem value={'Male'}>Male</MenuItem>
-              <MenuItem value={'Other'}>Other</MenuItem>
-              <MenuItem value={'Prefer not to answer'}>Prefer not to answer</MenuItem>
-            </Select>
-          </FormControl>
-
-          {/* FAMILY SIZE */}
-          <TextField sx={sxInput}
-            type="number"
-            id="familySize"
-            label="Family size"
-            value={familySize}
-            onChange={(event) => setFamilySize(event.target.value)}
-          />
-
-          {/* RELATIONSHIP SELECTION */}
-          <FormControl>
-            <InputLabel id="">Marital Status</InputLabel>
-            <Select sx={sxInput} variant="outlined"
-              labelId="maritalStatusId"
-              label="maritalStatus"
-              id="maritalStatus"
-              name="Marital status"
-              value={maritalStatus}
-              onChange={(event) => setMaritalStatus(event.target.value)}
-            >
-              <MenuItem value={'Single'}>Single</MenuItem>
-              <MenuItem value={'Married'}>Married</MenuItem>
-              <MenuItem value={'Partnership'}>Partnership</MenuItem>
-              <MenuItem hidden value={'Prefer not to answer'}>Prefer not to answer</MenuItem>
-            </Select>
-          </FormControl>
 
           {/* PASSWORD */}
-          <TextField sx={sxInput}
-            id="registerPassword"
-            type="password"
-            required
-            label="Password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
+          <Box sx={sxUserNameContent}>
+            <Box sx={{ display: "flex", flexDirection: "row" }}>
+              <Typography sx={sxLoginHeader} variant='h6'>Password</Typography>
+              {passwordStatus &&
+                <Typography sx={{ fontWeight: 'bold' }} color='error' variant='h5'>*</Typography>}
+            </Box>
+            <TextField sx={sxLoginInput}
+              id="registerPassword"
+              type="password"
+              required
+              // label="Password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              onKeyUp={() => handleCheck('password')}
+            />
+          </Box>
 
           {/* CONFIRM PASSWORD */}
-          <TextField sx={sxInput}
-            id="confirmPassword"
-            type="password"
-            required
-            label="Confirm Password"
-            value={confirmPassword}
-            onChange={(event) => setConfirmPassword(event.target.value)}
-          />
+          <Box sx={sxUserNameContent}>
+            <Box sx={{ display: "flex", flexDirection: "row" }}>
+              <Typography sx={sxLoginHeader} variant='h6'>Confirm Password</Typography>
+              {passwordStatus &&
+                <Typography sx={{ fontWeight: 'bold' }} color='error' variant='h5'>*</Typography>}
+            </Box>
+            <TextField sx={sxLoginInput}
+              id="confirmPassword"
+              type="password"
+              required
+              // label="Confirm Password"
+              value={confirmPassword}
+              onChange={(event) => setConfirmPassword(event.target.value)}
+              onKeyUp={() => handleCheck('password')}
+            />
+          </Box>
 
-          {/* LET'S START COOKING */}
-          <Button type="submit" size="large" variant="contained" color="primary">Register & Login</Button>
+          {/* REGISTER THIS TINK */}
+          <Button type="submit" sx={sxRegisterNewUserButton}>
+            Register & Login
+          </Button>
 
         </Box>
       </Box>
-    </form>
+    </form >
   );
 }
 
