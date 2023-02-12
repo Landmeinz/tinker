@@ -1,11 +1,11 @@
 const express = require('express');
 const pool = require('../modules/pool.js');
 const router = express.Router();
-const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
 // ----- GET ----- //
-router.get('/', rejectUnauthenticated, (req, res) => {
+router.get('/', (req, res) => {
+  console.log('in message.router');
 
   let queryText = `
     SELECT 	  *
@@ -16,7 +16,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
   pool.query(queryText)
     .then(result => {
-      // console.log('--- router.GET /api/message result.rows', result.rows);
+      console.log('--- router.GET /api/message result.rows', result.rows);
       res.send(result.rows);
 
     }).catch(error => {
@@ -27,7 +27,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 
 // ----- POST ----- //
-router.post('/', rejectUnauthenticated, (req, res) => {
+router.post('/', (req, res) => {
 
   const newMessage = req.body;
 
@@ -36,11 +36,11 @@ router.post('/', rejectUnauthenticated, (req, res) => {
       (name, message, date)
       VALUES ($1, $2, $3)`;
 
-    let values = [newMessage.name, newMessage.message, newMessage.date];
+  let values = [newMessage.name, newMessage.message, newMessage.date];
 
   pool
     .query(sqlText, values)
-    .then((response) => {      
+    .then((response) => {
       res.sendStatus(201);
 
     })

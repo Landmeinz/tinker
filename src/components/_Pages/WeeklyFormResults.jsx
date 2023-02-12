@@ -63,12 +63,10 @@ function WeeklyFormResults() {
 
     const dispatch = useDispatch();
     const currentDate = useSelector((store) => store.currentDate);
-    const weeklyForm = useSelector((store) => store.weeklyForm);
-    console.log('weeklyform', weeklyForm);
     console.log('currentDate', currentDate);
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_WEEKLY_FORM' });
+        dispatch({ type: 'FETCH_WEEKLY_FORMS' });
     }, [dispatch]);
 
     let messageTemplate = {

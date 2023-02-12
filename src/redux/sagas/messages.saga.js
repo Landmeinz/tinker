@@ -1,10 +1,11 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
+const axios = require('axios');
 
 // --- GET ALL MESSAGES --- //
-function* fetchMessages() {
-    try {
-        const response = yield axios.get('/api/messages')
+function* fetchMessages() {    
+    try {        
+        const response = yield axios.get('http://localhost:5050/api/messages')
         yield put({ type: 'SET_MESSAGES', payload: response.data })
     } catch (error) {
         console.log('ERROR fetchMessages Saga', error);
@@ -14,7 +15,7 @@ function* fetchMessages() {
 // --- POST NEW MESSAGE --- //
 function* postMessage(action) {
     try {
-        yield axios.post('/api/messages', action.payload)
+        yield axios.post('http://localhost:5050/api/messages', action.payload)
         yield put({ type: 'FETCH_MESSAGES' })
     } catch (error) {
         console.log('ERROR', error);

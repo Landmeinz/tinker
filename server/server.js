@@ -2,16 +2,25 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const sessionMiddleware = require('./modules/session-middleware');
-const passport = require('./strategies/user.strategy');
+
+// const passport = require('./strategies/user.strategy');
 const app = express();
+
+// ----- Routes ----- //
+const userRouter = require('./routes/user.router');
+const messagesRouter = require('./routes/messages.router');
+const currentDateRouter = require('./routes/currentDate.router');
+const weeklyFormsRouter = require('./routes/weeklyForms.router');
+
+const sessionMiddleware = require('./modules/sessionMiddleware');
+app.use(sessionMiddleware);
 
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Passport Session Configuration //
-app.use(sessionMiddleware);
+// app.use(sessionMiddleware);
 
 // start up passport sessions
 // app.use(passport.initialize());
@@ -20,21 +29,17 @@ app.use(sessionMiddleware);
 // fucking cors //
 app.use(cors());
 app.options('*', cors());
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
 // ----- Routes ----- //
-// const userRouter = require('./routes/user.router');
-const messageRouter = require('./routes/message.router');
-const currentDateRouter = require('./routes/current_date.router');
-const weeklyFormRouter = require('./routes/weeklyForm.router');
-// app.use('/api/user', userRouter);
-app.use('/api/messages', messageRouter);
+app.use('/api/user', userRouter);
+app.use('/api/messages', messagesRouter);
 app.use('/api/date', currentDateRouter);
-app.use('/api/weeklyForm', weeklyFormRouter);
+app.use('/api/weeklyForms', weeklyFormsRouter);
 
 // App Set //
 app.set("port", process.env.PORT || 5050);

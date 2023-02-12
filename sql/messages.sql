@@ -1,10 +1,8 @@
-
-CREATE TABLE messages (
-	id          SERIAL PRIMARY KEY,
+CREATE TABLE "messages" (
+	"id" SERIAL PRIMARY KEY,
 	"name"      varchar(255),
-    "message"   text,
-    "date"      DATE,
-    "likes"     SMALLINT DEFAULT 0 
+    "message"   varchar(255),
+    "date"      TIMESTAMP WITH TIME ZONE
 );
 
 INSERT INTO messages (name, message, date)

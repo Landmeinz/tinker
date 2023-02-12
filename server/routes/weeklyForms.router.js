@@ -5,10 +5,11 @@ const router = express.Router();
 
 // ----- GET ----- //
 router.get('/', (req, res) => {
+  console.log('--- hit weeklyForm router.js');
 
   let queryText = `
-    SELECT 	  name, complete_goal, present_items, items, ideas, research, tasks_completed, blockers, learned, next_goals, difficultly, to_char(date, 'yyyy-mm-dd @ hh:mi:ss') as date
-    FROM 	    "weeklyform"
+    SELECT 	  user_id, name, complete_goal, present_items, items, ideas, research, tasks_completed, blockers, learned, next_goals, difficultly, to_char(date, 'yyyy-mm-dd @ hh:mi:ss') as date
+    FROM 	    "weeklyforms"
     WHERE date > current_date - interval '7 days'
     ORDER BY  "date"; `;
 
@@ -16,11 +17,11 @@ router.get('/', (req, res) => {
 
   pool.query(queryText)
     .then(result => {
-      console.log('--- router.GET /api/message result.rows', result.rows);
+      console.log('--- weeklyForms.router.js query result:', result.rows);
       res.send(result.rows);
 
     }).catch(error => {
-      console.log('ERROR router.GET /api/weeklyForm', error);
+      console.log('ERROR router.GET /api/weeklyForms', error);
       res.sendStatus(500);
     });
 });
@@ -34,11 +35,11 @@ router.post('/', (req, res) => {
   const form = req.body;
 
   const sqlText = `
-      INSERT INTO weeklyform
-      (name, complete_goal, present_items, items, ideas, research, tasks_completed, blockers, learned, next_goals, difficultly, date)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`;
+      INSERT INTO weeklyforms
+      (user_id, name, complete_goal, present_items, items, ideas, research, tasks_completed, blockers, learned, next_goals, difficultly, date)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)`;
 
-  let values = [form.name, form.completeGoal, form.presentItems, form.items, form.ideas, form.research, form.tasksCompleted, form.blockers, form.learned, form.nextGoals, form.difficultly, form.date ];
+  let values = [1, form.name, form.completeGoal, form.presentItems, form.items, form.ideas, form.research, form.tasksCompleted, form.blockers, form.learned, form.nextGoals, form.difficultly, form.date ];
 
   pool
     .query(sqlText, values)

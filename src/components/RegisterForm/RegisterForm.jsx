@@ -74,9 +74,6 @@ function RegisterForm() {
     }
   }; // registerUser
 
-
-  let test;
-
   function handleCheck(type) {
     switch (type) {
       case 'email':

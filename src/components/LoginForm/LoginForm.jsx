@@ -39,7 +39,8 @@ function LoginForm() {
 
   const login = (event) => {
     event.preventDefault();
-    // history.push('/home')
+    console.log('--- hit login button ---');
+    
     if (username && password) {
       dispatch({
         type: 'LOGIN',
@@ -69,7 +70,7 @@ function LoginForm() {
             <Typography sx={sxLoginHeader} variant='h5'>Tinker Email</Typography>
             <TextField sx={sxLoginInput}
               type="email"
-              id="loginUsername"
+              id="loginEmail"
               required
               autoComplete="new-password"
               value={username}

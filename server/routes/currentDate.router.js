@@ -1,11 +1,10 @@
 const express = require('express');
 const pool = require('../modules/pool.js');
 const router = express.Router();
-const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 // GO GET THE CURRENT DATE FROM THE SERVER // 
 
-router.get('/', rejectUnauthenticated, (req, res) => {
+router.get('/', (req, res) => {
     // GET route code here
     // console.log('--- in router.GET /api/date');
 

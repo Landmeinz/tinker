@@ -44,7 +44,7 @@ function Agenda() {
   console.log('currentDate', currentDate);
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_WEEKLY_FORM' });
+    dispatch({ type: 'FETCH_WEEKLY_FORMS' });
   }, [dispatch]);
 
   // const handleNameChange = (event, property) => {

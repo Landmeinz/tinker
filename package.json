@@ -48,6 +48,7 @@
     "react-scripts": "^5.0.1",
     "react-store-provider": "^0.1.0",
     "redux": "^4.2.0",
+    "redux-batched-subscribe": "^0.1.6",
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.2.1",
     "validator": "^13.9.0",

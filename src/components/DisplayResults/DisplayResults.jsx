@@ -47,12 +47,12 @@ function DisplayResults() {
 
   const dispatch = useDispatch();
   const currentDate = useSelector((store) => store.currentDate);
-  const weeklyForm = useSelector((store) => store.weeklyForm);
-  console.log('weeklyform', weeklyForm);
+  const weeklyForms = useSelector((store) => store.weeklyForms);
+  console.log('weeklyForms', weeklyForms);
   console.log('currentDate', currentDate);
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_WEEKLY_FORM' });
+    dispatch({ type: 'FETCH_WEEKLY_FORMS' });
   }, [dispatch]);
 
   ChartJS.register(
@@ -67,7 +67,7 @@ function DisplayResults() {
   ChartJS.defaults.color = "hsla(330, 10%, 82%, 1)";
 
   // --- COMPLETED GOALS --- // 
-  const goalsTrue = weeklyForm.filter(x => x.complete_goal === true);
+  const goalsTrue = weeklyForms.filter(x => x.complete_goal === true);
 
   let trueNames = []
   goalsTrue.forEach(x => {
@@ -75,7 +75,7 @@ function DisplayResults() {
   });
   let trueNameString = trueNames.join(', ')
 
-  const goalsFalse = weeklyForm.filter(x => x.complete_goal === false);
+  const goalsFalse = weeklyForms.filter(x => x.complete_goal === false);
 
   let falseNames = []
   goalsFalse.forEach(x => {
@@ -103,7 +103,7 @@ function DisplayResults() {
   };
 
   // --- WHO'S PRESENTING  --- // 
-  const presentTrue = weeklyForm.filter(x => x.present_items == true);
+  const presentTrue = weeklyForms.filter(x => x.present_items == true);
 
   let presentTrueNames = []
   presentTrue.forEach(x => {
@@ -111,7 +111,7 @@ function DisplayResults() {
   });
   let presentTrueNamesString = presentTrueNames.join(', ')
 
-  const presentFalse = weeklyForm.filter(x => x.present_items == false);
+  const presentFalse = weeklyForms.filter(x => x.present_items == false);
 
   let presentFalseNames = []
   presentFalse.forEach(x => {
@@ -154,12 +154,12 @@ function DisplayResults() {
   };
 
   let rating = []
-  weeklyForm.forEach(x => {
+  weeklyForms.forEach(x => {
     rating.push(x.difficultly);
   });
 
   let names = []
-  weeklyForm.forEach(x => {
+  weeklyForms.forEach(x => {
     names.push(x.name);
   });
   console.log('names', names);
@@ -176,7 +176,7 @@ function DisplayResults() {
   };
 
   let dateList = [];
-  weeklyForm.forEach(x => {
+  weeklyForms.forEach(x => {
     dateList.push(x.date);
   });
   // console.log('dateList', dateList);
@@ -188,13 +188,13 @@ function DisplayResults() {
 
   
 
-  const filteredItemList = weeklyForm.filter(x => x.items != '');
-  const filteredIdeasList = weeklyForm.filter(x => x.ideas != '');
-  const filteredResearchList = weeklyForm.filter(x => x.research != '');
-  const filteredTasksList = weeklyForm.filter(x => x.tasks_completed != '');
-  const filteredBlockersList =  weeklyForm.filter(x => x.blockers != '');
-  const filteredLearnedList =  weeklyForm.filter(x => x.learned != '');
-  const filteredNextGoalsList =  weeklyForm.filter(x => x.next_goals != '');
+  const filteredItemList = weeklyForms.filter(x => x.items != '');
+  const filteredIdeasList = weeklyForms.filter(x => x.ideas != '');
+  const filteredResearchList = weeklyForms.filter(x => x.research != '');
+  const filteredTasksList = weeklyForms.filter(x => x.tasks_completed != '');
+  const filteredBlockersList =  weeklyForms.filter(x => x.blockers != '');
+  const filteredLearnedList =  weeklyForms.filter(x => x.learned != '');
+  const filteredNextGoalsList =  weeklyForms.filter(x => x.next_goals != '');
 
   return (
     <Box sx={sxDisplayResultsContainer}>
@@ -202,7 +202,7 @@ function DisplayResults() {
       <Box sx={sxColumnContainer}>
         <Typography sx={sxColumnHeader} variant="h5">Submission Date</Typography>
         <Box sx={sxColumnContent}>
-          {weeklyForm.map((form, i) => (
+          {weeklyForms.map((form, i) => (
             <Box key={i} sx={sxColumnText}>
               <Typography color="primary.light" variant="body1">{form.name}:</Typography>
               <Typography variant="body1">{form.date}</Typography>

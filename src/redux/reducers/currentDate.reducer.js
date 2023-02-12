@@ -1,4 +1,6 @@
 const currentDateReducer = (state = [], action) => {
+    console.log('--- hit currentDateReducer ---');
+    
     switch (action.type) {
         case 'SET_CURRENT_DATE':
             console.log('this is the SET_CURRENT_DATE reducer action.payload', action.payload);
