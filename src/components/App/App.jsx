@@ -40,7 +40,7 @@ function App() {
   useEffect(() => {
     dispatch({ type: 'FETCH_CURRENT_DATE' });
     dispatch({ type: 'FETCH_MESSAGES' });
-    // dispatch({ type: 'FETCH_USER' });
+    dispatch({ type: 'FETCH_USER' });
     dispatch({ type: 'FETCH_ALL_USERS' });
     getNextMeetingDay(currentDate.current_date)
   }, [dispatch]);

@@ -38,6 +38,8 @@ import {
 
 function Hub() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const user = useSelector(store => store.user);
 
     function handleNav(path) {
         navigate(path);
@@ -75,6 +77,17 @@ function Hub() {
                 </Helmet>
 
                 <Box sx={sxHeroTextContent}>
+                    <Box sx={{display: "flex", flexDirection: "row", justifyContent: "center", gap: 4}}>
+                        <Typography
+                            sx={sxHubText}
+                            variant="h1"
+                            // onClick={() => handleNav("/weekly-form")}
+                        >
+                            {user.name}
+                        </Typography>
+                        <Button onClick={() => dispatch({ type: 'LOGOUT' })} variant="contained" color="primary">Logout</Button>
+                    </Box>
+
                     <Typography
                         sx={sxHubText}
                         variant="h1"

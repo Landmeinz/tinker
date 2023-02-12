@@ -25,6 +25,7 @@ const serverSessionSecret = () => {
 };
 
 module.exports = cookieSession({
+  name: 'session',
   secret: serverSessionSecret() || 'secret', // please set this in your .env file
   key: 'user', // this is the name of the req.variable. 'user' is convention, but not required
   resave: 'false',

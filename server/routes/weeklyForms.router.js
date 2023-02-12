@@ -1,11 +1,12 @@
 const express = require('express');
 const pool = require('../modules/pool.js');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
 // ----- GET ----- //
-router.get('/', (req, res) => {
-  console.log('--- hit weeklyForm router.js');
+router.get('/', rejectUnauthenticated, (req, res) => {
+  console.log('--- hit weeklyForm.router.js');
 
   let queryText = `
     SELECT 	  user_id, name, complete_goal, present_items, items, ideas, research, tasks_completed, blockers, learned, next_goals, difficultly, to_char(date, 'yyyy-mm-dd @ hh:mi:ss') as date
@@ -17,7 +18,7 @@ router.get('/', (req, res) => {
 
   pool.query(queryText)
     .then(result => {
-      console.log('--- weeklyForms.router.js query result:', result.rows);
+      // console.log('--- weeklyForms.router.js query result:', result.rows);
       res.send(result.rows);
 
     }).catch(error => {
@@ -28,7 +29,7 @@ router.get('/', (req, res) => {
 
 
 // ----- POST ----- //
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
 
   console.log('hit post route in form.router.js');
   

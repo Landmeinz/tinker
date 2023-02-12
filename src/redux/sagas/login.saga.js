@@ -3,10 +3,11 @@ import axios from 'axios';
 
 // worker Saga: will be fired on "LOGIN" actions
 function* loginUser(action) {
-  console.log('--- hit loginUser() ---');
+  console.log('--- hit loginUser() login.saga.js ---');
   try {
     // clear any existing error on the login page
     yield put({ type: 'CLEAR_LOGIN_ERROR' });
+    console.log('--- CLEAR_LOGIN_ERROR login.saga.js ---');
 
     const config = {
       headers: { 'Content-Type': 'application/json' },
@@ -16,13 +17,16 @@ function* loginUser(action) {
     // send the action.payload as the body
     // the config includes credentials which
     // allow the server session to recognize the user
-    yield axios.post('/api/user/login', action.payload, config);
+    console.log('--- login.saga.js payload', action.payload);
+    
+    yield axios.post('http://localhost:5050/api/user/login', action.payload, config);
+    console.log('--- post /api/user/login ---');
 
     // after the user has logged in
     // get the user information from the server
     yield put({ type: 'FETCH_USER' });
   } catch (error) {
-    // console.log('Error with user login:', error);
+    console.log('Error with user login:', error);
     if (error.response.status === 401) {
       // The 401 is the error status sent from passport
       // if user isn't in the database or
@@ -48,7 +52,7 @@ function* logoutUser(action) {
     // allow the server session to recognize the user
     // when the server recognizes the user session
     // it will end the session
-    yield axios.post('/api/user/logout', config);
+    yield axios.post('http://localhost:5050/api/user/logout', config);
 
     // now that the session has ended on the server
     // remove the client-side user object to let

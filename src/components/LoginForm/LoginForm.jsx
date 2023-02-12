@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-// import { useHistory } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 // --- MUI --- //
 import {
@@ -34,6 +34,7 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const errors = useSelector(store => store.errors);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   // const history = useHistory();
 
 
@@ -49,6 +50,8 @@ function LoginForm() {
           password: password,
         },
       });
+      navigate('/hub');
+      window.scrollTo(0, 0);
     } else {
       dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }

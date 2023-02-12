@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-// const passport = require('./strategies/user.strategy');
+const passport = require('./strategies/user.strategy');
 const app = express();
 
 // ----- Routes ----- //
@@ -15,19 +15,21 @@ const weeklyFormsRouter = require('./routes/weeklyForms.router');
 const sessionMiddleware = require('./modules/sessionMiddleware');
 app.use(sessionMiddleware);
 
-// Body parser middleware
+// Body parser middleware //
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Passport Session Configuration //
-// app.use(sessionMiddleware);
+app.use(sessionMiddleware);
 
-// start up passport sessions
-// app.use(passport.initialize());
-// app.use(passport.session());
+// start up passport sessions //
+app.use(passport.initialize());
+app.use(passport.session());
+
+// http://localhost:3000
 
 // fucking cors //
-app.use(cors());
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 app.options('*', cors());
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin"); // update to match the domain you will make the request from

@@ -4,7 +4,11 @@ import { put, takeLatest } from 'redux-saga/effects';
 // --- GET ALL MESSAGES --- //
 function* fetchWeeklyForms() {
     try {
-        const response = yield axios.get('http://localhost:5050/api/weeklyForms')
+        const config = {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+          };
+        const response = yield axios.get('http://localhost:5050/api/weeklyForms', config)
         yield put({ type: 'SET_WEEKLY_FORMS', payload: response.data })
     } catch (error) {
         console.log('ERROR fetchMessages Saga', error);
@@ -14,7 +18,7 @@ function* fetchWeeklyForms() {
 // --- POST NEW WEEKLY --- //
 function* postWeeklyForm(action) {
     console.log('hit postWeeklyForm in saga.js');
-    
+
     try {
         yield axios.post('http://localhost:5050/api/weeklyForms', action.payload)
         yield put({ type: 'FETCH_WEEKLY_FORMS' })

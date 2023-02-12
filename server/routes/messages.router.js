@@ -5,7 +5,7 @@ const router = express.Router();
 
 // ----- GET ----- //
 router.get('/', (req, res) => {
-  console.log('in message.router');
+  // console.log('in message.router');
 
   let queryText = `
     SELECT 	  *
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 
   pool.query(queryText)
     .then(result => {
-      console.log('--- router.GET /api/message result.rows', result.rows);
+      // console.log('--- router.GET /api/message result.rows', result.rows);
       res.send(result.rows);
 
     }).catch(error => {

@@ -2,7 +2,7 @@
   "name": "tinker",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "http://localhost:5050",
   "dependencies": {
     "@adobe/redux-saga-promise": "^1.1.1",
     "@emailjs/browser": "^3.9.1",
@@ -32,7 +32,7 @@
     "nodemon": "^2.0.19",
     "nth-check": "^2.1.1",
     "parse-database-url": "^0.3.0",
-    "passport": "^0.6.0",
+    "passport": "^0.5.3",
     "passport-local": "^1.0.0",
     "pg": "^8.7.3",
     "pg-pool": "^3.5.1",

@@ -1,15 +1,13 @@
 const express = require('express');
-// const {
-//   rejectUnauthenticated,
-// } = require('../modules/authentication-middleware');
-// const encryptLib = require('../modules/encryption');
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
+const encryptLib = require('../modules/encryption');
 const pool = require('../modules/pool');
-// const userStrategy = require('../strategies/user.strategy');
+const userStrategy = require('../strategies/user.strategy');
 
 const router = express.Router();
 
 // Handles Ajax request for user information if user is authenticated
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('--- hit get user.router.js ---');
   // Send back user object from the session (previously queried from the database)
   res.send(req.user);
@@ -17,8 +15,8 @@ router.get('/', (req, res) => {
 
 // WHERE 	"is_admin" = false 
 // lets get all users
-router.get('/all', (req, res) => {
-  console.log('--- hit get api/user/all user.router ---');
+router.get('/all', rejectUnauthenticated, (req, res) => {
+  // console.log('--- hit get api/user/all user.router ---');
   const queryText = `
       SELECT 	*
       FROM 	  "user"
@@ -37,59 +35,59 @@ router.get('/all', (req, res) => {
 });
 
 
-// // Handles POST request with new user data;
-// // The password gets encrypted before being inserted;
-// router.post('/register', (req, res) => {
+// Handles POST request with new user data;
+// The password gets encrypted before being inserted;
+router.post('/register', (req, res) => {
 
-//   console.log('--- hit /register in user.router.js');
+  console.log('--- hit /register in user.router.js');
 
-//   const email = req.body.email
-//   const name = req.body.name
-//   const password = encryptLib.encryptPassword(req.body.password);
-//   const profession = '';
-//   const interests = '';
-//   const location = '';
-//   const activeMember = false;
-//   const activeDate = false;
-//   const admin = false;
+  const email = req.body.email
+  const name = req.body.name
+  const password = encryptLib.encryptPassword(req.body.password);
+  const profession = '';
+  const interests = '';
+  const location = '';
+  const activeMember = true;
+  const activeDate = 'NOW()';
+  const admin = false;
 
-//   const sqlText = `
-//     INSERT INTO   "user" 
-//       ("email", "name", "password", "profession", "interests", "location", "active_date", "active_member", "admin")
-//     VALUES 
-//       ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11); `;
+  const sqlText = `
+    INSERT INTO   "user" 
+      ("email", "name", "password", "profession", "interests", "location", "active_date", "active_member", "admin")
+    VALUES 
+      ($1, $2, $3, $4, $5, $6, $7, $8, $9); `;
 
-//   let values = [email, name, password, profession, interests, location, activeDate, activeMember, admin]
+  let values = [email, name, password, profession, interests, location, activeDate, activeMember, admin]
 
-//   pool
-//     .query(sqlText, values)
-//     .then((response) => {
-//       res.sendStatus(201);
+  pool
+    .query(sqlText, values)
+    .then((response) => {
+      res.sendStatus(201);
 
-//     })
-//     .catch((error) => {
-//       console.log(`POST Error  to database: ${sqlText}`, error);
-//       res.sendStatus(500);
-//     });
-// });
-
-
-// // Handles login form authenticate/login POST
-// // userStrategy.authenticate('local') is middleware that we run on this route
-// // this middleware will run our POST if successful
-// // this middleware will send a 404 if not successful
-// router.post('/login', userStrategy.authenticate('local'), (req, res) => {
-//   console.log('--- hit /login in user.route ---');
-//   res.sendStatus(200);
-// });
+    })
+    .catch((error) => {
+      console.log(`POST Error  to database: ${sqlText}`, error);
+      res.sendStatus(500);
+    });
+});
 
 
-// // clear all server session information about this user
-// router.post('/logout', (req, res) => {
-//   console.log('--- hit /logout in user.route ---');
-//   // Use passport's built-in method to log out the user
-//   req.logout();
-//   res.sendStatus(200);
-// });
+// Handles login form authenticate/login POST
+// userStrategy.authenticate('local') is middleware that we run on this route
+// this middleware will run our POST if successful
+// this middleware will send a 404 if not successful
+router.post('/login', userStrategy.authenticate('local'), (req, res) => {
+  console.log('--- hit /login in user.route.js ---');
+  res.sendStatus(200);
+});
+
+
+// clear all server session information about this user
+router.post('/logout', (req, res) => {
+  console.log('--- hit /logout in user.route ---');
+  // Use passport's built-in method to log out the user
+  req.logout();
+  res.sendStatus(200);
+});
 
 module.exports = router;
