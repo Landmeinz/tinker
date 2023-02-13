@@ -3,10 +3,9 @@
 const allUsersReducer = (state = {}, action) => {
     switch (action.type) {
       case 'SET_ALL_USERS':
-        return action.payload;
-        
-      case 'UNSET_USER':
-        return {};
+        return action.payload;       
+      // case 'UNSET_ALL_USERS':
+      //   return {};
       case 'LOGOUT':
             return {};
       default:

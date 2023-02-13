@@ -51,6 +51,11 @@ function Hub() {
     // const currentDate = useSelector((store) => store.currentDate);
     // const messageList = useSelector((store) => store.messageList);
 
+    function handleLogout(){
+        dispatch({ type: 'LOGOUT' })
+        handleNav('/about');
+    }
+
     return (
         <motion.div
             initial={trans.initial}
@@ -85,7 +90,7 @@ function Hub() {
                         >
                             {user.name}
                         </Typography>
-                        <Button onClick={() => dispatch({ type: 'LOGOUT' })} variant="contained" color="primary">Logout</Button>
+                        <Button onClick={() => handleLogout()} variant="contained" color="primary">Logout</Button>
                     </Box>
 
                     <Typography

@@ -36,6 +36,7 @@ function App() {
 
   const dispatch = useDispatch();
   const currentDate = useSelector((store) => store.currentDate);
+  const user = useSelector((store) => store.user);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_CURRENT_DATE' });
@@ -86,12 +87,19 @@ function App() {
               >
                 <Nav />
                 <Routes>
-                  <Route path="/" element={<Navigate to="/about" />} />
+                  <Route path='*' element={<Navigate to='/about' />} />
                   <Route
+                    exact
+                    path="/"
+                    element={<Navigate replace to="/about" />}
+                  />
+                  <Route
+                    exact
                     path="/about"
                     element={<About />}
                   />
                   <Route
+                    exact
                     path="/crafts"
                     element={<Crafts />}
                   />
@@ -104,27 +112,34 @@ function App() {
                     element={<ProductDetails />}
                   /> */}
                   <Route
+                    exact
                     path="/contact"
                     element={<Contact />}
                   />
+                  {user.id &&
+                    <Route
+                      exact
+                      path="/hub"
+                      element={<Hub />}
+                    />
+                  }
                   <Route
-                    path="/hub"
-                    element={<Hub />}
-                  />
-                  <Route
+                    exact
                     path="/weekly-form"
                     element={<WeeklyForm />}
                   />
                   <Route
+                    exact
                     path="/weekly-form/results"
                     element={<WeeklyFormResults />}
                   />
-                  
+
                   <Route
+                    exact
                     path="/login"
                     element={<LoginPage />}
                   />
-                  
+
 
                   {/* --- LOGIN vs REGISTER --- */}
                   {/* <Route

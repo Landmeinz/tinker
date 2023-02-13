@@ -36,8 +36,6 @@ function About() {
   const navigate = useNavigate();
 
   const currentDate = useSelector((store) => store.currentDate);
-  console.log("--- About currentDate", currentDate.currentDate);
-
 
   function handleNav(path) {
     navigate(path);

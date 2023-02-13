@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
 
 // --- MUI --- //
 import { Typography, Box } from "@mui/material";
@@ -21,6 +22,8 @@ import {
 function Nav() {
   const navigate = useNavigate();
 
+  const user = useSelector(store => store.user);
+
   function handleNav(path) {
     navigate(path);
     window.scrollTo(0, 0);
@@ -29,7 +32,7 @@ function Nav() {
   return (
     <Box id="sxNavContainer" sx={sxNavContainer}>
       <Box id="sxTinkerNavTextAbout" sx={sxTinkerNavText}>
-      
+
         <Typography
           sx={sxBreaksH4}
           variant="h4"
@@ -40,18 +43,20 @@ function Nav() {
       </Box>
 
       <Box id="sxTinkerNavTextWork" sx={sxTinkerSubText}>
-      <Typography
-          sx={sxNavH6}
-          variant="h6"
-          onClick={() => handleNav("/hub")}
-        >
-          Hub
-        </Typography>
-        
+        {user.id &&
+          <Typography
+            sx={sxNavH6}
+            variant="h6"
+            onClick={() => handleNav("/hub")}
+          >
+            Hub
+          </Typography>
+        }
+
         <Typography
           sx={sxNavH6}
           variant="h6"
-          onClick={() => handleNav("/crafts ")}
+          onClick={() => handleNav("/crafts")}
         >
           Crafts
         </Typography>

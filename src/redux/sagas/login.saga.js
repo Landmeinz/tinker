@@ -41,7 +41,7 @@ function* loginUser(action) {
 }
 
 // worker Saga: will be fired on "LOGOUT" actions
-function* logoutUser(action) {
+function* logoutUser(action) {  
   try {
     const config = {
       headers: { 'Content-Type': 'application/json' },
@@ -57,7 +57,9 @@ function* logoutUser(action) {
     // now that the session has ended on the server
     // remove the client-side user object to let
     // the client-side code know the user is logged out
-    yield put({ type: 'UNSET_USER' });
+    // yield put({ type: 'UNSET_USER' });
+    // yield put({ type: 'UNSET_ALL_USERS' });
+    console.log('--- LOGOUT -- UNSET USER ---');
   } catch (error) {
     // console.log('Error with user logout:', error);
   }
