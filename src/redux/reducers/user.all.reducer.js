@@ -8,7 +8,6 @@ const allUsersReducer = (state = {}, action) => {
     //   return {};
     // override case // logs out individual user also
     case 'LOGOUT':
-      sessionStorage.setItem('isLoggedIn', 'false');
       return {};
     default:
       return state;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
+import { useSelector } from 'react-redux';
 
 // --- Components --- //
 import Product from "../Product/Product"
@@ -35,18 +36,17 @@ import {
 
 function LoginPage() {
     // const history = useHistory();
-
     const [registerFormStatus, setRegisterFormStatus] = useState(false);
 
     function handleRegistrationReveal() {
         console.log('--- registerFormStatus:', registerFormStatus);
-        
+
         if (!registerFormStatus) {
             console.log('--- registerFormStatus:', registerFormStatus);
             setRegisterFormStatus(true);
             window.scrollTo(0, 250);
             console.log('---    window.scrollTo(0, 200) ---');
-            return 
+            return
         }
         setRegisterFormStatus(false);
         window.scrollTo(0, 0);

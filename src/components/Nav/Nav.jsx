@@ -21,8 +21,11 @@ import {
 
 function Nav() {
   const navigate = useNavigate();
-
   const user = useSelector(store => store.user);
+  const userState = sessionStorage.getItem('isLoggedIn');
+  const hubLogin = userState == 'true' && user.id != null ? '/hub' : '/login'
+
+
 
   function handleNav(path) {
     navigate(path);
@@ -42,16 +45,15 @@ function Nav() {
         </Typography>
       </Box>
 
+
       <Box id="sxTinkerNavTextWork" sx={sxTinkerSubText}>
-        {user.id &&
           <Typography
             sx={sxNavH6}
             variant="h6"
-            onClick={() => handleNav("/hub")}
+            onClick={() => handleNav(hubLogin)}
           >
             Hub
           </Typography>
-        }
 
         <Typography
           sx={sxNavH6}

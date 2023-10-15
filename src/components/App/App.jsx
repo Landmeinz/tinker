@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component} from "react";
+import React, { useState, useEffect, Component } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet";
@@ -35,45 +35,33 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    checkLoginStatus();
     dispatch({ type: 'FETCH_CURRENT_DATE' });
     dispatch({ type: 'FETCH_MESSAGES' });
-    dispatch({ type: 'FETCH_USER' });
     dispatch({ type: 'FETCH_ALL_USERS' });
     // getNextMeetingDay(currentDate.current_date)
-    console.log(`--- SESSION: ${sessionStorage.getItem('isLoggedIn')}`);
-    checkUserAuthentication();
   }, [dispatch]);
 
-  
+
   const currentDate = useSelector((store) => store.currentDate);
   const user = useSelector((store) => store.user);
 
-  async function checkUserAuthentication() {
-    // if (user == null && user.name == null) {
-    //   return false;
-    // }
-    // return true;
-    console.log('--- checkUserAuthentication');
-    
+  function checkLoginStatus() {
+    console.log('--- checkLoginStatus');
+    console.log('--- session storage useEffect App.js:', sessionStorage.getItem('isLoggedIn'));
+
     if (sessionStorage.getItem('isLoggedIn') == 'true') {
       console.log('--- storage user true');
-      
+      dispatch({ type: 'FETCH_USER' });
     }
-    else{
+    else {
       console.log('--- storage user false');
       dispatch({ type: 'LOGOUT' })
     }
-  }
 
-  // async function checkLoginStatus() {
-  //   try {
-  //     const isAuthenticated = await checkUserAuthentication();
-  //     setIsLoggedIn(isAuthenticated);
-  //   } catch (error) {
-  //     console.error('Failed to check authentication:', error);
-  //     // Handle error appropriately
-  //   }
-  // }
+    console.log('--- checkLoginStatus END ---');
+    console.log('--- session storage checkLoginStatus:', sessionStorage.getItem('isLoggedIn'));
+  }
 
   async function getNextMeetingDay(date = new Date()) {
     const dateCopy = new Date(date.getTime());
@@ -164,11 +152,13 @@ function App() {
                       element={<WeeklyFormResults />}
                     />}
 
-                  <Route
-                    exact
-                    path="/login"
-                    element={<LoginPage />}
-                  />
+                  {!user.id &&
+                    <Route
+                      exact
+                      path="/login"
+                      element={<LoginPage />}
+                    />}
+
 
 
 
