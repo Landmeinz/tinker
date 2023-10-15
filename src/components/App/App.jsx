@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect, Component} from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from 'react-redux';
-import { store } from '../../redux/store';
+
 import {
   // BrowserRouter,
   HashRouter as Router,
@@ -15,8 +14,8 @@ import {
 
 // --- Components --- //
 import Crafts from "../_Pages/Crafts";
-import Products from "../_Pages/Products";
-import ProductDetails from "../_Pages/ProductDetails"
+// import Products from "../_Pages/Products";
+// import ProductDetails from "../_Pages/ProductDetails"
 import About from "../_Pages/About";
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
@@ -33,20 +32,50 @@ import { Box } from "@mui/material";
 import { theme, transApp, sxApp, sxAppContainer } from "../sxStyles";
 
 function App() {
-
   const dispatch = useDispatch();
-  const currentDate = useSelector((store) => store.currentDate);
-  const user = useSelector((store) => store.user);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_CURRENT_DATE' });
     dispatch({ type: 'FETCH_MESSAGES' });
     dispatch({ type: 'FETCH_USER' });
     dispatch({ type: 'FETCH_ALL_USERS' });
-    getNextMeetingDay(currentDate.current_date)
+    // getNextMeetingDay(currentDate.current_date)
+    console.log(`--- SESSION: ${sessionStorage.getItem('isLoggedIn')}`);
+    checkUserAuthentication();
   }, [dispatch]);
 
-  function getNextMeetingDay(date = new Date()) {
+  
+  const currentDate = useSelector((store) => store.currentDate);
+  const user = useSelector((store) => store.user);
+
+  async function checkUserAuthentication() {
+    // if (user == null && user.name == null) {
+    //   return false;
+    // }
+    // return true;
+    console.log('--- checkUserAuthentication');
+    
+    if (sessionStorage.getItem('isLoggedIn') == 'true') {
+      console.log('--- storage user true');
+      
+    }
+    else{
+      console.log('--- storage user false');
+      dispatch({ type: 'LOGOUT' })
+    }
+  }
+
+  // async function checkLoginStatus() {
+  //   try {
+  //     const isAuthenticated = await checkUserAuthentication();
+  //     setIsLoggedIn(isAuthenticated);
+  //   } catch (error) {
+  //     console.error('Failed to check authentication:', error);
+  //     // Handle error appropriately
+  //   }
+  // }
+
+  async function getNextMeetingDay(date = new Date()) {
     const dateCopy = new Date(date.getTime());
     const nextMeeting = new Date(
       dateCopy.setDate(
@@ -121,24 +150,27 @@ function App() {
                       exact
                       path="/hub"
                       element={<Hub />}
-                    />
-                  }
-                  <Route
-                    exact
-                    path="/weekly-form"
-                    element={<WeeklyForm />}
-                  />
-                  <Route
-                    exact
-                    path="/weekly-form/results"
-                    element={<WeeklyFormResults />}
-                  />
+                    />}
+                  {user.id &&
+                    <Route
+                      exact
+                      path="/weekly-form"
+                      element={<WeeklyForm />}
+                    />}
+                  {user.id &&
+                    <Route
+                      exact
+                      path="/weekly-form/results"
+                      element={<WeeklyFormResults />}
+                    />}
 
                   <Route
                     exact
                     path="/login"
                     element={<LoginPage />}
                   />
+
+
 
 
                   {/* --- LOGIN vs REGISTER --- */}

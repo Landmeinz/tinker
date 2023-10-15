@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
+import configObject from '../../redux/configureStore';
 
 // --- Components --- //
 import WeeklyForm from "./WeeklyForm";
@@ -41,6 +42,8 @@ function Hub() {
     const dispatch = useDispatch();
     const user = useSelector(store => store.user);
 
+
+
     function handleNav(path) {
         navigate(path);
         window.scrollTo(0, 0);
@@ -51,7 +54,7 @@ function Hub() {
     // const currentDate = useSelector((store) => store.currentDate);
     // const messageList = useSelector((store) => store.messageList);
 
-    function handleLogout(){
+    function handleLogout() {
         dispatch({ type: 'LOGOUT' })
         handleNav('/about');
     }
@@ -82,15 +85,15 @@ function Hub() {
                 </Helmet>
 
                 <Box sx={sxHeroTextContent}>
-                    <Box sx={{display: "flex", flexDirection: "row", justifyContent: "center", gap: 4}}>
+                    <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "center", gap: 4 }}>
                         <Typography
                             sx={sxHubText}
                             variant="h1"
-                            // onClick={() => handleNav("/weekly-form")}
+                        // onClick={() => handleNav("/weekly-form")}
                         >
                             {user.name}
                         </Typography>
-                        <Button onClick={() => handleLogout()} variant="contained" color="primary">Logout</Button>
+                        <Button onClick={async () => handleLogout()} variant="contained" color="primary">Logout</Button>
                     </Box>
 
                     <Typography

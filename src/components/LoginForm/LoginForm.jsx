@@ -38,24 +38,36 @@ function LoginForm() {
   // const history = useHistory();
 
 
-  const login = (event) => {
+  const login = async (event) => {
     event.preventDefault();
     console.log('--- hit login button ---');
-    
-    if (username && password) {
-      dispatch({
-        type: 'LOGIN',
-        payload: {
-          username: username,
-          password: password,
-        },
-      });
-      navigate('/hub');
-      window.scrollTo(0, 0);
-    } else {
-      dispatch({ type: 'LOGIN_INPUT_ERROR' });
+
+    if (!username || !password) {
+      return dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
+
+    dispatch({
+      type: 'LOGIN',
+      payload: {
+        username: username,
+        password: password,
+      }
+    })
+    // hack; need this so nav doesnt fire first //
+    await wait(1000);
+
+    setUsername('');
+    setPassword('');
+
+    navigate('/hub');
+    window.scrollTo(0, 0);
   }; // LoginForm
+
+  const wait = (ms) => {
+    return new Promise(resolve => {
+      setTimeout(resolve, ms);
+    });
+  };
 
   return (
     <form required onSubmit={login}>
