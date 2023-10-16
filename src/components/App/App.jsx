@@ -24,6 +24,7 @@ import Hub from "../_Pages/Hub";
 import WeeklyForm from "../_Pages/WeeklyForm";
 import WeeklyFormResults from "../_Pages/WeeklyFormResults";
 import LoginPage from "../_Pages/LoginPage";
+import RegisterPage from "../_Pages/RegisterPage";
 import Loading from "../Loading/Loading";
 import Communications from "../Communications/Communications";
 
@@ -146,6 +147,12 @@ function App() {
                       exact
                       path="/login"
                       element={<LoginPage />}
+                    />}
+                  {!user.id &&
+                    <Route
+                      exact
+                      path="/register-new-user"
+                      element={<RegisterPage />}
                     />}
                   {user.id &&
                     <Route

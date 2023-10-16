@@ -1,5 +1,5 @@
 export const addDetailsOne = {
-  title: `Tinker Group is a creative collective dedicated to helping members bring their ideas to life. A place for people to get feedback on what they’re working on, show off their skills, and share their knowledge and experiences with others.`,
+  title: `Welcome to Tinker Group — A Minneapolis based collective of designers, creators, and innovators. We unite in our passion to use our skills to craft purposeful designs and breathe life into those things that just feel like a distant idea.`,
 };
 
 export const addDetailsTwo = {

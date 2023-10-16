@@ -34,7 +34,7 @@ import {
 
 } from "../sxStyles";
 
-function LoginPage() {
+function RegisterPage() {
     // const history = useHistory();
     const [registerFormStatus, setRegisterFormStatus] = useState(false);
 
@@ -55,13 +55,22 @@ function LoginPage() {
     return (
         <Box sx={sxLoginPageContainer}>
 
-            <Box sx={sxLoginContent}>
+            {/* <Box sx={sxLoginContent}>
                 <Box sx={sxLoginTitle}>
                     <Typography sx={sxLoginText} variant="h1">
-                        Login
+                        Register
                     </Typography>
                 </Box>
                 <LoginForm />
+            </Box> */}
+
+            <Box sx={sxLoginContent}>
+                <Box sx={sxLoginTitle}>
+                    <Typography sx={sxLoginText} variant="h1">
+                        Register Tinkerer
+                    </Typography>
+                </Box>
+                <RegisterForm />
             </Box>
 
             {/* {!registerFormStatus ?
@@ -73,18 +82,11 @@ function LoginPage() {
             } */}
 
             {/* open the registration form when we click on the button above */}
-            {/* {registerFormStatus &&
-                <Box sx={sxLoginContent}>
-                    <Box sx={sxLoginTitle}>
-                        <Typography sx={sxLoginText} variant="h1">
-                            Register Tinkerer
-                        </Typography>
-                    </Box>
-                    <RegisterForm />
-                </Box>} */}
+
+
 
         </Box>
     );
 }
 
-export default LoginPage;
+export default RegisterPage;
