@@ -76,14 +76,17 @@ function LoginForm() {
       }
     })
 
-    // hack; need this so nav doesnt fire first //
-    // await wait(1000);
-
     setUsername('');
     setPassword('');
 
-    await wait(500);
-    navigate('/loading');
+    // hack; need this so nav doesnt fire first //
+    // await wait(1000);
+
+    await wait(100);
+    navigate('/hub');
+    await wait(100);
+    navigate('/hub');
+    await wait(100);
     navigate('/hub');
     window.scrollTo(0, 0);
 

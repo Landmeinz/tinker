@@ -44,7 +44,8 @@ function Hub() {
     const dispatch = useDispatch();
     const user = useSelector(store => store.user);
 
-
+    // const currentDate = useSelector((store) => store.currentDate);
+    // const messageList = useSelector((store) => store.messageList);
 
     function handleNav(path) {
         navigate(path);
@@ -52,9 +53,6 @@ function Hub() {
     } // handleNav
 
     const [open, setOpen] = useState(false);
-
-    // const currentDate = useSelector((store) => store.currentDate);
-    // const messageList = useSelector((store) => store.messageList);
 
     function handleLogout() {
         dispatch({ type: 'LOGOUT' })
