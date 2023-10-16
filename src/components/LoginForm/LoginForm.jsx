@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
@@ -33,9 +33,31 @@ function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector(store => store.errors);
+  const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const history = useHistory();
+
+  useEffect(() => {
+    checkLoginStatus();
+  }, [dispatch]);
+
+  function checkLoginStatus() {
+    console.log('--- checkLoginStatus');
+    console.log('--- session storage useEffect App.js:', sessionStorage.getItem('isLoggedIn'));
+
+    if (sessionStorage.getItem('isLoggedIn') == 'true') {
+      console.log('--- storage user true');
+      dispatch({ type: 'FETCH_USER' });
+    }
+    else {
+      console.log('--- storage user false');
+      dispatch({ type: 'LOGOUT' })
+    }
+
+    console.log('--- checkLoginStatus END ---');
+    console.log('--- session storage checkLoginStatus:', sessionStorage.getItem('isLoggedIn'));
+  }
 
 
   const login = async (event) => {
@@ -53,14 +75,18 @@ function LoginForm() {
         password: password,
       }
     })
+
     // hack; need this so nav doesnt fire first //
-    await wait(1000);
+    // await wait(1000);
 
     setUsername('');
     setPassword('');
 
+    await wait(500);
+    navigate('/loading');
     navigate('/hub');
     window.scrollTo(0, 0);
+
   }; // LoginForm
 
   const wait = (ms) => {

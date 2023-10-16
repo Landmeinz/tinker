@@ -24,6 +24,8 @@ import Hub from "../_Pages/Hub";
 import WeeklyForm from "../_Pages/WeeklyForm";
 import WeeklyFormResults from "../_Pages/WeeklyFormResults";
 import LoginPage from "../_Pages/LoginPage";
+import Loading from "../Loading/Loading";
+import Communications from "../Communications/Communications";
 
 // --- MUI --- //
 import { Box } from "@mui/material";
@@ -107,6 +109,11 @@ function App() {
                   <Route path='*' element={<Navigate to='/about' />} />
                   <Route
                     exact
+                    path="/loading"
+                    element={<Loading />}
+                  />
+                  <Route
+                    exact
                     path="/"
                     element={<Navigate replace to="/about" />}
                   />
@@ -120,6 +127,11 @@ function App() {
                     path="/crafts"
                     element={<Crafts />}
                   />
+                  <Route
+                    exact
+                    path="/contact"
+                    element={<Contact />}
+                  />
                   {/* <Route
                     path="/products"
                     element={<Products />}
@@ -128,11 +140,13 @@ function App() {
                     path="/product-details"
                     element={<ProductDetails />}
                   /> */}
-                  <Route
-                    exact
-                    path="/contact"
-                    element={<Contact />}
-                  />
+
+                  {!user.id &&
+                    <Route
+                      exact
+                      path="/login"
+                      element={<LoginPage />}
+                    />}
                   {user.id &&
                     <Route
                       exact
@@ -151,13 +165,14 @@ function App() {
                       path="/weekly-form/results"
                       element={<WeeklyFormResults />}
                     />}
-
-                  {!user.id &&
+                  {user.id &&
                     <Route
                       exact
-                      path="/login"
-                      element={<LoginPage />}
+                      path="/comms"
+                      element={<Communications />}
                     />}
+
+
 
 
 

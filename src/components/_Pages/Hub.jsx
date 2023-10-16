@@ -33,6 +33,8 @@ import {
     sxBreaksH4,
     sxContactTitle,
     sxHubText,
+    sxLogoutButton,
+    sxUserSection
 
     // sxBreaksH5,
 } from "../sxStyles";
@@ -85,15 +87,14 @@ function Hub() {
                 </Helmet>
 
                 <Box sx={sxHeroTextContent}>
-                    <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "center", gap: 4 }}>
+                    <Box sx={sxUserSection}>
                         <Typography
                             sx={sxHubText}
                             variant="h1"
-                        // onClick={() => handleNav("/weekly-form")}
                         >
-                            {user.name}
+                            Hello, {user.name}
                         </Typography>
-                        <Button onClick={async () => handleLogout()} variant="contained" color="primary">Logout</Button>
+                        <Button sx={sxLogoutButton} onClick={async () => handleLogout()} variant="contained" color="error">Logout</Button>
                     </Box>
 
                     <Typography
@@ -105,10 +106,12 @@ function Hub() {
                     </Typography>
                     <Typography
                         sx={sxHubText}
-                        variant="h1">
+                        variant="h1"
+                        onClick={() => handleNav("/comms")}
+                    >
                         Communications
                     </Typography>
-                    <Typography
+                    {/* <Typography
                         sx={sxHubText}
                         variant="h1">
                         Another Thing
@@ -117,7 +120,7 @@ function Hub() {
                         sx={sxHubText}
                         variant="h1">
                         Something Else
-                    </Typography>
+                    </Typography> */}
                 </Box>
 
 
