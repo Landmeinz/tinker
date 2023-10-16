@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect, Component } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from 'react-redux';
-import { store } from '../../redux/store';
+
 import {
   // BrowserRouter,
   HashRouter as Router,
@@ -15,8 +14,8 @@ import {
 
 // --- Components --- //
 import Crafts from "../_Pages/Crafts";
-import Products from "../_Pages/Products";
-import ProductDetails from "../_Pages/ProductDetails"
+// import Products from "../_Pages/Products";
+// import ProductDetails from "../_Pages/ProductDetails"
 import About from "../_Pages/About";
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
@@ -25,6 +24,8 @@ import Hub from "../_Pages/Hub";
 import WeeklyForm from "../_Pages/WeeklyForm";
 import WeeklyFormResults from "../_Pages/WeeklyFormResults";
 import LoginPage from "../_Pages/LoginPage";
+import Loading from "../Loading/Loading";
+import Communications from "../Communications/Communications";
 
 // --- MUI --- //
 import { Box } from "@mui/material";
@@ -33,19 +34,38 @@ import { Box } from "@mui/material";
 import { theme, transApp, sxApp, sxAppContainer } from "../sxStyles";
 
 function App() {
-
   const dispatch = useDispatch();
-  const currentDate = useSelector((store) => store.currentDate);
 
   useEffect(() => {
+    checkLoginStatus();
     dispatch({ type: 'FETCH_CURRENT_DATE' });
     dispatch({ type: 'FETCH_MESSAGES' });
-    dispatch({ type: 'FETCH_USER' });
     dispatch({ type: 'FETCH_ALL_USERS' });
-    getNextMeetingDay(currentDate.current_date)
+    // getNextMeetingDay(currentDate.current_date)
   }, [dispatch]);
 
-  function getNextMeetingDay(date = new Date()) {
+
+  const currentDate = useSelector((store) => store.currentDate);
+  const user = useSelector((store) => store.user);
+
+  function checkLoginStatus() {
+    console.log('--- checkLoginStatus');
+    console.log('--- session storage useEffect App.js:', sessionStorage.getItem('isLoggedIn'));
+
+    if (sessionStorage.getItem('isLoggedIn') == 'true') {
+      console.log('--- storage user true');
+      dispatch({ type: 'FETCH_USER' });
+    }
+    else {
+      console.log('--- storage user false');
+      dispatch({ type: 'LOGOUT' })
+    }
+
+    console.log('--- checkLoginStatus END ---');
+    console.log('--- session storage checkLoginStatus:', sessionStorage.getItem('isLoggedIn'));
+  }
+
+  async function getNextMeetingDay(date = new Date()) {
     const dateCopy = new Date(date.getTime());
     const nextMeeting = new Date(
       dateCopy.setDate(
@@ -86,14 +106,31 @@ function App() {
               >
                 <Nav />
                 <Routes>
-                  <Route path="/" element={<Navigate to="/about" />} />
+                  <Route path='*' element={<Navigate to='/about' />} />
                   <Route
+                    exact
+                    path="/loading"
+                    element={<Loading />}
+                  />
+                  <Route
+                    exact
+                    path="/"
+                    element={<Navigate replace to="/about" />}
+                  />
+                  <Route
+                    exact
                     path="/about"
                     element={<About />}
                   />
                   <Route
+                    exact
                     path="/crafts"
                     element={<Crafts />}
+                  />
+                  <Route
+                    exact
+                    path="/contact"
+                    element={<Contact />}
                   />
                   {/* <Route
                     path="/products"
@@ -103,28 +140,43 @@ function App() {
                     path="/product-details"
                     element={<ProductDetails />}
                   /> */}
-                  <Route
-                    path="/contact"
-                    element={<Contact />}
-                  />
-                  <Route
-                    path="/hub"
-                    element={<Hub />}
-                  />
-                  <Route
-                    path="/weekly-form"
-                    element={<WeeklyForm />}
-                  />
-                  <Route
-                    path="/weekly-form/results"
-                    element={<WeeklyFormResults />}
-                  />
-                  
-                  <Route
-                    path="/login"
-                    element={<LoginPage />}
-                  />
-                  
+
+                  {!user.id &&
+                    <Route
+                      exact
+                      path="/login"
+                      element={<LoginPage />}
+                    />}
+                  {user.id &&
+                    <Route
+                      exact
+                      path="/hub"
+                      element={<Hub />}
+                    />}
+                  {user.id &&
+                    <Route
+                      exact
+                      path="/weekly-form"
+                      element={<WeeklyForm />}
+                    />}
+                  {user.id &&
+                    <Route
+                      exact
+                      path="/weekly-form/results"
+                      element={<WeeklyFormResults />}
+                    />}
+                  {user.id &&
+                    <Route
+                      exact
+                      path="/comms"
+                      element={<Communications />}
+                    />}
+
+
+
+
+
+
 
                   {/* --- LOGIN vs REGISTER --- */}
                   {/* <Route

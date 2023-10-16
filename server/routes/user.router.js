@@ -26,7 +26,7 @@ router.get('/all', rejectUnauthenticated, (req, res) => {
     .then(result => {
       res.send(result.rows); // Contains all previous challenges
       // console.log('--- result', result.rows);
-      
+
     })
     .catch(err => {
       // console.log('ERROR in router.GET/user/all', err);
@@ -72,20 +72,42 @@ router.post('/register', (req, res) => {
 });
 
 
+
+router.post('/login', userStrategy.authenticate('local', { failureRedirect: '/login' }), (req, res) => {
+  // This callback function will only be called if authentication succeeds
+  res.status(200).send('You have successfully logged in!');
+});
+
+
 // Handles login form authenticate/login POST
 // userStrategy.authenticate('local') is middleware that we run on this route
 // this middleware will run our POST if successful
 // this middleware will send a 404 if not successful
-router.post('/login', userStrategy.authenticate('local'), (req, res) => {
-  console.log('--- hit /login in user.route.js ---');
-  res.sendStatus(200);
-});
+// router.post('/login', userStrategy.authenticate('local'), (req, res) => {
+//   console.log('--- hit /login in user.route.js ---');
+//   res.render('login');
+//   res.sendStatus(200);
+//   successRedirect: '/';
+//   failureRedirect: '/login';
+//   console.log('--- END /login ---');
+// });
+  // console.log('--- req:', req);
+  // res.render('login');
+  // res.json({
+  //   message: err.message,
+  //   error: err
+  // });
+
 
 
 // clear all server session information about this user
 router.post('/logout', (req, res) => {
-  console.log('--- hit /logout in user.route ---');
+  console.log('--- hit /logout in user.router.js ---');
   // Use passport's built-in method to log out the user
+  // req._destroy();
+  // req.destroy();
+  // req.logOut();
+  req.session = null;
   req.logout();
   res.sendStatus(200);
 });

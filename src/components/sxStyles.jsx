@@ -63,6 +63,7 @@ export const sxApp = {
 };
 
 export const sxAppContainer = {
+  minHeight: "100vh",
   height: "100%",
   pb: 20,
 };
@@ -152,6 +153,7 @@ export const sxNavContainer = {
   bgcolor: "info.light",
   boxShadow: 3,
   zIndex: 1000,
+  height: "3vh"
 };
 
 export const sxTinkerNavText = {
@@ -760,9 +762,9 @@ export const sxHubText = {
   color: "primary.light",
   fontWeight: "bold", // normal, bold, light
   textAlign: "center",
+  alignItems: "center",
   userSelect: "none",
   cursor: "pointer",
-
 
 
   [theme.breakpoints.down("xl")]: {
@@ -785,6 +787,31 @@ export const sxHubText = {
   },
 }
 
+export const sxLogoutButton = {
+  minWidth: "4rem",
+  minHeight: "4rem",
+  // borderRadius: "50%",
+  color: "info.light",
+
+  "&:hover": {
+    // color: "secondary.main",
+    transform: "scale(1.05)",
+    transition: ".2s",
+  },
+}
+
+export const sxUserSection = { 
+  // borderColor: "1px, solid, red",
+  // border: 1,
+  // borderColor: "info.light",
+  display: "flex", 
+  flexDirection: "row", 
+  justifyContent: "center", 
+  alignItems: "center",
+  gap: 6,
+
+}
+
 // ----- Hub Hub Hub ----- //
 // ----- Hub Hub Hub ----- //
 // ----- Hub Hub Hub ----- //
@@ -794,7 +821,7 @@ export const sxHubText = {
 // ----- Login ----- //
 
 export const sxLoginPageContainer = {
-  border: "1px solid green",
+  // border: "1px solid green",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -1271,7 +1298,7 @@ export const sxRegisterFormContainer = {
 }
 
 export const sxRegisterFormContent = {
-  border: "1px solid blue",
+  // border: "1px solid blue",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",

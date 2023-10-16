@@ -8,6 +8,7 @@ import { Typography, Box } from "@mui/material";
 import { sxFooterContainer } from "../sxStyles";
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <Box id="sxFooterContainer" sx={sxFooterContainer}>
       <Helmet>
@@ -16,7 +17,7 @@ function Footer() {
           content="Tinker Group 2022 located in Minneapolis, Minnesota MPLS, MN"
         />
       </Helmet>
-      <Typography variant="body2">Tinker Often 2022</Typography>
+      <Typography variant="body2">Tinker Often {currentYear}</Typography>
     </Box>
   );
 }

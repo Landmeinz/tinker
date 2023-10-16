@@ -5,6 +5,9 @@ import { configureStore } from '@reduxjs/toolkit';
 import _debounce from 'lodash/debounce';
 import { batchedSubscribe } from 'redux-batched-subscribe';
 
+// import { persistStore, persistReducer } from 'redux-persist';
+// import storage from 'redux-persist/lib/storage'; 
+
 import rootReducer from './reducers/_root.reducer';
 import rootSaga from './sagas/_root.saga';
 
@@ -20,12 +23,12 @@ const middlewareList = process.env.NODE_ENV === 'development' ?
 const debounceNotify = _debounce(notify => notify());
 
 const store = configureStore({
-  reducer: rootReducer,
-  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
-  middleware: (getDefaultMiddleware) => [...middlewareList],
-  devTools: process.env.NODE_ENV !== 'production',
-  enhancers: [batchedSubscribe(debounceNotify)]
-})
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({ thunk: false }).concat(middlewareList),
+    devTools: process.env.NODE_ENV !== 'production',
+    enhancers: [batchedSubscribe(debounceNotify)]
+});
 
 // tells the saga middleware to use the rootSaga
 // rootSaga contains all of our other sagas

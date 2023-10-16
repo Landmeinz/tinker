@@ -36,8 +36,7 @@ function About() {
   const navigate = useNavigate();
 
   const currentDate = useSelector((store) => store.currentDate);
-  console.log("--- About currentDate", currentDate.currentDate);
-
+  const user = useSelector((store) => store.user);
 
   function handleNav(path) {
     navigate(path);
@@ -78,7 +77,8 @@ function About() {
               We Tinker
             </Typography>
           </Box>
-          <Button
+          {/* {!user.id &&
+            <Button
             sx={sxNavLoginPage}
             size="large"
             variant="contained"
@@ -86,6 +86,8 @@ function About() {
           >
             Go To Login
           </Button>
+          } */}
+
           <CardAdditionalDetails title={addDetailsOne.title} />
           <CardAdditionalDetails title={addDetailsThree.title} />
           <CardDefineRight

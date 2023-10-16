@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
@@ -33,29 +33,70 @@ function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector(store => store.errors);
+  const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const history = useHistory();
 
+  useEffect(() => {
+    checkLoginStatus();
+  }, [dispatch]);
 
-  const login = (event) => {
+  function checkLoginStatus() {
+    console.log('--- checkLoginStatus');
+    console.log('--- session storage useEffect App.js:', sessionStorage.getItem('isLoggedIn'));
+
+    if (sessionStorage.getItem('isLoggedIn') == 'true') {
+      console.log('--- storage user true');
+      dispatch({ type: 'FETCH_USER' });
+    }
+    else {
+      console.log('--- storage user false');
+      dispatch({ type: 'LOGOUT' })
+    }
+
+    console.log('--- checkLoginStatus END ---');
+    console.log('--- session storage checkLoginStatus:', sessionStorage.getItem('isLoggedIn'));
+  }
+
+
+  const login = async (event) => {
     event.preventDefault();
     console.log('--- hit login button ---');
-    
-    if (username && password) {
-      dispatch({
-        type: 'LOGIN',
-        payload: {
-          username: username,
-          password: password,
-        },
-      });
-      navigate('/hub');
-      window.scrollTo(0, 0);
-    } else {
-      dispatch({ type: 'LOGIN_INPUT_ERROR' });
+
+    if (!username || !password) {
+      return dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
+
+    dispatch({
+      type: 'LOGIN',
+      payload: {
+        username: username,
+        password: password,
+      }
+    })
+
+    setUsername('');
+    setPassword('');
+
+    // hack; need this so nav doesnt fire first //
+    // await wait(1000);
+
+    await wait(100);
+    navigate('/hub');
+    await wait(100);
+    navigate('/hub');
+    await wait(100);
+    navigate('/hub');
+    window.scrollTo(0, 0);
+
   }; // LoginForm
+
+  const wait = (ms) => {
+    return new Promise(resolve => {
+      setTimeout(resolve, ms);
+    });
+  };
 
   return (
     <form required onSubmit={login}>
