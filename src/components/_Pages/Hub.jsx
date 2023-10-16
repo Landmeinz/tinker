@@ -35,7 +35,6 @@ import {
     sxHubText,
     sxLogoutButton,
     sxUserSection
-
     // sxBreaksH5,
 } from "../sxStyles";
 
