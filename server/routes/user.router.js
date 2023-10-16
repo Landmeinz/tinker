@@ -1,4 +1,3 @@
-const { RequestQuote } = require('@mui/icons-material');
 const express = require('express');
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 const encryptLib = require('../modules/encryption');
@@ -73,16 +72,32 @@ router.post('/register', (req, res) => {
 });
 
 
+
+router.post('/login', userStrategy.authenticate('local', { failureRedirect: '/login' }), (req, res) => {
+  // This callback function will only be called if authentication succeeds
+  res.status(200).send('You have successfully logged in!');
+});
+
+
 // Handles login form authenticate/login POST
 // userStrategy.authenticate('local') is middleware that we run on this route
 // this middleware will run our POST if successful
 // this middleware will send a 404 if not successful
-router.post('/login', userStrategy.authenticate('local'), (req, res) => {
-  console.log('--- hit /login in user.route.js ---');
-  console.log('--- req:', req);
-  res.render('login');
-  res.sendStatus(200);
-});
+// router.post('/login', userStrategy.authenticate('local'), (req, res) => {
+//   console.log('--- hit /login in user.route.js ---');
+//   res.render('login');
+//   res.sendStatus(200);
+//   successRedirect: '/';
+//   failureRedirect: '/login';
+//   console.log('--- END /login ---');
+// });
+  // console.log('--- req:', req);
+  // res.render('login');
+  // res.json({
+  //   message: err.message,
+  //   error: err
+  // });
+
 
 
 // clear all server session information about this user
