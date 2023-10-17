@@ -38,33 +38,39 @@ import {
 function RegisterForm() {
   const navigate = useNavigate();
 
+  const tinkerCode = "TinkerT!nkerTink3r"
   const [email, setEmail] = useState('');
   const [confirmEmail, setConfirmEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [tinkerRegisterCode, setTinkerRegisterCode] = useState('');
 
   const [isDisabled, setIsDisabled] = useState(true);
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isNameValid, setIsNameValid] = useState(false);
   const [isPasswordValid, setIsPasswordValid] = useState(false);
+  const [isTinkerCodeValid, setIsTinkerCodeValid] = useState(false);
+  
 
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (email !== confirmEmail) {
-      setIsEmailValid(false);
+      setIsDisabled(true);
     }
   }, [email, confirmEmail]);
 
   const registerUser = (event) => {
     event.preventDefault();
 
-    if (!isEmailValid || !isNameValid || !isPasswordValid) {
-      return alert("No pressure, but we need to make this happen, give it another try!")
+    if (!isEmailValid || !isNameValid || !isPasswordValid || !isTinkerCodeValid) {
+      return alert("No pressure, but we need to make this happen, give it another try!");
     }
-
+    if (tinkerRegisterCode !== tinkerCode) {
+      return alert("Something went wrong...");
+    }
     if (password === confirmPassword) {
       dispatch({
         type: 'REGISTER',
@@ -90,6 +96,7 @@ function RegisterForm() {
     const emailValue = e.target.value;
     return setEmail(emailValue);
   };
+
   const handleConfirmEmailChange = (e) => {
     const confirmEmailValue = e.target.value;
     setConfirmEmail(confirmEmailValue);
@@ -110,14 +117,25 @@ function RegisterForm() {
     const passwordValue = e.target.value;
     return setPassword(passwordValue)
   };
+
   const handleConfirmPasswordChange = (e) => {
     const confirmPasswordValue = e.target.value;
     setConfirmPassword(confirmPasswordValue);
     return setIsPasswordValid(password === confirmPasswordValue ? true : false);
   }
 
+  const handleTinkerCodeInput = (e) => {
+    const tinkerCodeValue = e.target.value;
+    setTinkerRegisterCode(tinkerCodeValue);
+    return setIsTinkerCodeValid(tinkerCode === tinkerCodeValue ? true : false);
+  }
+
   const isDisabledListener = () => {
-    return setIsDisabled(isEmailValid && isNameValid && isPasswordValid ? false : true);
+    return setIsDisabled(
+      isEmailValid && 
+      isNameValid && 
+      isPasswordValid && 
+      isTinkerCodeValid ? false : true);
   }
 
 
@@ -214,8 +232,20 @@ function RegisterForm() {
               required
               // label="Confirm Password"
               value={confirmPassword}
-              
+
               onChange={(event) => handleConfirmPasswordChange(event)}
+            />
+          </Box>
+
+          {/* TINKER CODE */}
+          <Box sx={sxUserNameContent}>
+            <Typography sx={sxLoginHeader} variant='h6'>Tinker Code</Typography>
+            <TextField sx={sxLoginInput}
+              id="tinkerCode"
+              type="text"
+              required
+              value={tinkerRegisterCode}
+              onChange={(event) => handleTinkerCodeInput(event)}
             />
           </Box>
 
@@ -225,7 +255,7 @@ function RegisterForm() {
           </Button>
         </Box>
       </Box>
-    </form >
+    </form>
   );
 }
 

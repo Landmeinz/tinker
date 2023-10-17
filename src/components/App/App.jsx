@@ -151,7 +151,7 @@ function App() {
                   {!user.id &&
                     <Route
                       exact
-                      path="/register-new-user"
+                      path="/register"
                       element={<RegisterPage />}
                     />}
                   {user.id &&
@@ -178,34 +178,6 @@ function App() {
                       path="/comms"
                       element={<Communications />}
                     />}
-
-
-
-
-
-
-
-                  {/* --- LOGIN vs REGISTER --- */}
-                  {/* <Route
-                    exact
-                    path="/login"
-                    element={<WeeklyFormResults />}
-                  >
-                    {user.id ?
-                      // If the user is already logged in, 
-                      // redirect to the /home page
-                      <Redirect to="/home" />
-                      :
-                      // Otherwise, show the login page
-                      <LoginPage />
-                    }
-                  </Route>
-
-                  If none of the other routes matched, we will show a 404.
-                  <Route>
-                    <br />
-                    <Typography variant="h1" sx={sxCenterText}>404</Typography>
-                  </Route> */}
 
                 </Routes>
               </motion.div>

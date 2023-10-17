@@ -36,34 +36,24 @@ import {
 
 function RegisterPage() {
     // const history = useHistory();
-    const [registerFormStatus, setRegisterFormStatus] = useState(false);
+    // const [registerFormStatus, setRegisterFormStatus] = useState(false);
 
-    function handleRegistrationReveal() {
-        console.log('--- registerFormStatus:', registerFormStatus);
+    // function handleRegistrationReveal() {
+    //     console.log('--- registerFormStatus:', registerFormStatus);
 
-        if (!registerFormStatus) {
-            console.log('--- registerFormStatus:', registerFormStatus);
-            setRegisterFormStatus(true);
-            window.scrollTo(0, 250);
-            console.log('---    window.scrollTo(0, 200) ---');
-            return
-        }
-        setRegisterFormStatus(false);
-        window.scrollTo(0, 0);
-    }
+    //     if (!registerFormStatus) {
+    //         console.log('--- registerFormStatus:', registerFormStatus);
+    //         setRegisterFormStatus(true);
+    //         window.scrollTo(0, 250);
+    //         console.log('---    window.scrollTo(0, 200) ---');
+    //         return
+    //     }
+    //     setRegisterFormStatus(false);
+    //     window.scrollTo(0, 0);
+    // }
 
     return (
         <Box sx={sxLoginPageContainer}>
-
-            {/* <Box sx={sxLoginContent}>
-                <Box sx={sxLoginTitle}>
-                    <Typography sx={sxLoginText} variant="h1">
-                        Register
-                    </Typography>
-                </Box>
-                <LoginForm />
-            </Box> */}
-
             <Box sx={sxLoginContent}>
                 <Box sx={sxLoginTitle}>
                     <Typography sx={sxLoginText} variant="h1">
@@ -72,19 +62,6 @@ function RegisterPage() {
                 </Box>
                 <RegisterForm />
             </Box>
-
-            {/* {!registerFormStatus ?
-                <Button sx={sxRegisterFormBtn} onClick={() => handleRegistrationReveal()}
-                    variant="contained">New? Register Account</Button>
-                :
-                <Button sx={sxRegisterFormBtn} onClick={() => handleRegistrationReveal()}
-                    variant="contained">Hide Registration</Button>
-            } */}
-
-            {/* open the registration form when we click on the button above */}
-
-
-
         </Box>
     );
 }
