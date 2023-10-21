@@ -1,13 +1,13 @@
 // Node Module that will connect to postgesql
-const Pool = require('pg-pool');
-
+const pg = require('pg');
+const url = require('url');
 let config = {};
 
 // ---- Heroku or Default Config ----- //
 if (process.env.DATABASE_URL) {
   // Heroku gives a url, not a connection object
   // https://github.com/brianc/node-pg-pool
-  const url = new URL(process.env.DATABASE_URL);
+  url = new URL(process.env.DATABASE_URL);
   const params = url;  
   const auth = params.auth.split(':');
   config = {
@@ -20,8 +20,7 @@ if (process.env.DATABASE_URL) {
     ssl: { rejectUnauthorized: false }, // unsure on the ssl
     max: 10, // max number of clients in the pool
     idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
-  };  
-  
+  };   
 } else {
   config = {
     host: 'localhost', // Server hosting the postgres database
@@ -31,10 +30,8 @@ if (process.env.DATABASE_URL) {
     idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
   };
 }
-
 // this creates the pool that will be shared by all other modules
-// const pool = new pg.Pool(config);
-const pool = new Pool(config);
+const pool = new pg.Pool(config);
 
 // Listener setup on the pool isn't required, 
 // but can be super handy for troubleshooting.
