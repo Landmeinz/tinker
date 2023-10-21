@@ -9,7 +9,8 @@ if (process.env.DATABASE_URL) {
   // https://github.com/brianc/node-pg-pool
   url = new URL(process.env.DATABASE_URL);
   const params = url;  
-  const auth = params.auth.split(':');
+  const auth = params.auth?.split(':');
+  console.log('--- auth ---', auth, '---');
   config = {
     user: auth[0],
     password: auth[1],
