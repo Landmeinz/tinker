@@ -101,15 +101,15 @@ router.post('/login', userStrategy.authenticate('local', { failureRedirect: '/lo
 
 
 // clear all server session information about this user
-router.post('/logout', (req, res) => {
-  console.log('--- hit /logout in user.router.js ---');
-  // Use passport's built-in method to log out the user
-  // req._destroy();
-  // req.destroy();
-  // req.logOut();
-  req.session = null;
-  req.logout();
-  res.sendStatus(200);
-});
+// router.post('/logout', (req, res) => {
+//   console.log('--- hit /logout in user.router.js ---');
+//   // Use passport's built-in method to log out the user
+//   // req._destroy();
+//   // req.destroy();
+//   // req.logOut();
+//   req.session = null;
+//   req.logout();
+//   res.sendStatus(200);
+// });
 
 module.exports = router;

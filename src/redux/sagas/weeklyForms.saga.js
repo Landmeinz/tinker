@@ -25,8 +25,8 @@ function* postWeeklyForm(action) {
         console.log('post try success');
         
     } catch (error) {
-        console.log('ERROR', error);
-        yield put({ type: 'ERROR postWeeklyForm SAGA' })
+        console.log('--- ERROR', error);
+        // yield put({ type: 'ERROR postWeeklyForm SAGA' })
     }
 }; // postWeeklyForm
 

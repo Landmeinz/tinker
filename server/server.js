@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
 const passport = require('./strategies/user.strategy');
 const app = express();
 
@@ -12,30 +11,27 @@ const messagesRouter = require('./routes/messages.router');
 const currentDateRouter = require('./routes/currentDate.router');
 const weeklyFormsRouter = require('./routes/weeklyForms.router');
 
+// Passport Session Configuration //
 const sessionMiddleware = require('./modules/sessionMiddleware');
 app.use(sessionMiddleware);
 
 // Body parser middleware //
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// Passport Session Configuration //
-app.use(sessionMiddleware);
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // start up passport sessions //
 app.use(passport.initialize());
 app.use(passport.session());
 
-// http://localhost:3000
-
-// fucking cors //
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+// fucking CORS //
+const corsOptions = {
+  origin: ['http://localhost:3000', 'https://www.tinker.group/'],
+  credentials: true,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"]
+};
+app.use(cors(corsOptions));
 app.options('*', cors());
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 
 // ----- Routes ----- //
 app.use('/api/user', userRouter);
@@ -43,17 +39,18 @@ app.use('/api/messages', messagesRouter);
 app.use('/api/date', currentDateRouter);
 app.use('/api/weeklyForms', weeklyFormsRouter);
 
-// App Set //
-app.set("port", process.env.PORT || 5050);
+// App Set PORT //
+app.set("PORT", process.env.PORT || 5050);
 
 // Express only serves static assets in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("build"));
 }
+else{
+  console.log(`--- env: ${process.env.NODE_ENV} ---`);
+}
 
 // ----- Listen ----- //
-// app.listen(app.get("port"), () => {
-//   console.log(`server connected at: http://localhost:${app.get("port")}/`); // eslint-disable-line no-console
-// });
-
-app.listen(app.get("port"), () => console.log(`Server is listening on port ${app.get("port")}...`));
+app.listen(app.get("PORT"), () => {
+  console.log(`--- server listening on port ${app.get("PORT")} ---`)
+});

@@ -41,7 +41,7 @@ function App() {
     checkLoginStatus();
     dispatch({ type: 'FETCH_CURRENT_DATE' });
     dispatch({ type: 'FETCH_MESSAGES' });
-    dispatch({ type: 'FETCH_ALL_USERS' });
+    // dispatch({ type: 'FETCH_ALL_USERS' });
     // getNextMeetingDay(currentDate.current_date)
   }, [dispatch]);
 

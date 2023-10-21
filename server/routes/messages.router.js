@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
   const newMessage = req.body;
 
   const sqlText = `
-    INSERT INTO messages
+    INSERT INTO "messages"
       (name, message, date)
       VALUES ($1, $2, $3)`;
 
@@ -45,7 +45,7 @@ router.post('/', (req, res) => {
 
     })
     .catch((error) => {
-      console.log(`POST Error  to database: ${sqlText}`, error);
+      console.log(`--- POST Error  to database: ${sqlText}`, error);
       res.sendStatus(500);
     });
 });
