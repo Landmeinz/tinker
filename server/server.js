@@ -29,9 +29,9 @@ app.use(passport.session());
 // http://localhost:3000
 
 // fucking cors //
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.options('*', cors());
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
@@ -52,6 +52,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // ----- Listen ----- //
-app.listen(app.get("port"), () => {
-  console.log(`server connected at: http://localhost:${app.get("port")}/`); // eslint-disable-line no-console
-});
+// app.listen(app.get("port"), () => {
+//   console.log(`server connected at: http://localhost:${app.get("port")}/`); // eslint-disable-line no-console
+// });
+
+app.listen(app.get("port"), () => console.log(`Server is listening on port ${app.get("port")}...`));
