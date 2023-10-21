@@ -3,10 +3,6 @@ const pg = require('pg');
 const url = require('url');
 let config = {};
 
-const url = require('url')
-
-
-
 // ---- Heroku or Default Config ----- //
 if (process.env.DATABASE_URL) {
   // Heroku gives a url, not a connection object
