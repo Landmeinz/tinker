@@ -8,7 +8,7 @@ function* fetchWeeklyForms() {
             headers: { 'Content-Type': 'application/json' },
             withCredentials: true,
           };
-        const response = yield axios.get('http://localhost:5050/api/weeklyForms', config)
+        const response = yield axios.get('/api/weeklyForms', config)
         yield put({ type: 'SET_WEEKLY_FORMS', payload: response.data })
     } catch (error) {
         console.log('ERROR fetchMessages Saga', error);
@@ -20,7 +20,7 @@ function* postWeeklyForm(action) {
     console.log('hit postWeeklyForm in saga.js');
 
     try {
-        yield axios.post('http://localhost:5050/api/weeklyForms', action.payload)
+        yield axios.post('/api/weeklyForms', action.payload)
         yield put({ type: 'FETCH_WEEKLY_FORMS' })
         console.log('post try success');
         
