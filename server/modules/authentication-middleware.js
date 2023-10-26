@@ -1,5 +1,5 @@
 const rejectUnauthenticated = (req, res, next) => {
-  console.log('--- req.isAuthenticated():', req.isAuthenticated());  
+  console.log('--- auth-middleware isAuthenticated:', req.isAuthenticated());  
   if (req.isAuthenticated()) {
     // They were authenticated! User may do the next thing
     // Note! They may not be Authorized to do all things

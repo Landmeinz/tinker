@@ -1,42 +1,32 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Helmet } from "react-helmet";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Helmet } from 'react-helmet';
+import { motion } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from "react-router-dom";
-import configObject from '../../redux/configureStore';
+import { useNavigate } from 'react-router-dom';
+
 
 // --- Components --- //
-import WeeklyForm from "./WeeklyForm";
+
 
 // --- MUI --- //
 import {
     Typography,
     Box,
     Button,
-    TextField,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
-} from "@mui/material";
+
+} from '@mui/material';
 
 // --- Sx Styles --- //
 import {
     trans,
     sxHeroTextContent,
     sxContactSectionOne,
-    sxContactText,
-    sxMessageBoardContainer,
-    sxMessageBoardHeader,
-    sxBreaksH4,
-    sxContactTitle,
     sxHubText,
     sxLogoutButton,
     sxUserSection
     // sxBreaksH5,
-} from "../sxStyles";
+} from '../sxStyles';
 
 function Hub() {
     const navigate = useNavigate();
@@ -45,17 +35,17 @@ function Hub() {
 
     // const currentDate = useSelector((store) => store.currentDate);
     // const messageList = useSelector((store) => store.messageList);
-
-    function handleNav(path) {
-        navigate(path);
-        window.scrollTo(0, 0);
-    } // handleNav
-
     const [open, setOpen] = useState(false);
 
-    function handleLogout() {
+    const handleNav = async (path) => {
+        navigate(path);
+        window.scrollTo(0, 0);
+    }
+
+    const handleLogout = async () => {
+        console.log('--- clicked on logout --- ');
         dispatch({ type: 'LOGOUT' })
-        handleNav('/about');
+        handleNav('/login');
     }
 
     return (
@@ -66,20 +56,20 @@ function Hub() {
             style={trans.style}
             transition={trans.time}
         >
-            <Box id="sxContactSectionOne" sx={sxContactSectionOne}>
+            <Box id='sxContactSectionOne' sx={sxContactSectionOne}>
                 <Helmet>
                     <title>Tinker Contact</title>
                     <meta
-                        name="description"
-                        content="Leave a note, write a poem, drop a message, contact, email tinker.group"
+                        name='description'
+                        content='Leave a note, write a poem, drop a message, contact, email tinker.group'
                     />
                     <meta
-                        name="keywords"
-                        content="tinker contact, message board, email"
+                        name='keywords'
+                        content='tinker contact, message board, email'
                     />
                     <meta
-                        name="author"
-                        content="tinker.group, Eric Meinzer, Chris Benner, Adam Donner"
+                        name='author'
+                        content='tinker.group, Eric Meinzer, Chris Benner, Adam Donner'
                     />
                 </Helmet>
 
@@ -87,42 +77,42 @@ function Hub() {
                     <Box sx={sxUserSection}>
                         <Typography
                             sx={sxHubText}
-                            variant="h1"
+                            variant='h1'
                         >
                             Hello, {user.name}
                         </Typography>
-                        <Button sx={sxLogoutButton} onClick={async () => handleLogout()} variant="contained" color="error">Logout</Button>
+                        <Button sx={sxLogoutButton} onClick={async () => handleLogout()} variant='contained' color='error'>Logout</Button>
                     </Box>
 
                     <Typography
                         sx={sxHubText}
-                        variant="h1"
-                        onClick={() => handleNav("/weekly-form")}
+                        variant='h1'
+                        onClick={async () => handleNav('/weekly-form')}
                     >
                         Tinker Log
                     </Typography>
                     <Typography
                         sx={sxHubText}
-                        variant="h1"
-                        onClick={() => handleNav("/comms")}
+                        variant='h1'
+                        onClick={async () => handleNav('/comms')}
                     >
                         Communications
                     </Typography>
                     {/* <Typography
                         sx={sxHubText}
-                        variant="h1">
+                        variant='h1'>
                         Another Thing
                     </Typography>
                     <Typography
                         sx={sxHubText}
-                        variant="h1">
+                        variant='h1'>
                         Something Else
                     </Typography> */}
                 </Box>
-
 
             </Box>
         </motion.div>
     );
 }
+
 export default Hub;

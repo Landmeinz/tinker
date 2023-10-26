@@ -1,13 +1,13 @@
 const userReducer = (state = {}, action) => {
   switch (action.type) {
     case 'SET_USER':
-      sessionStorage.setItem('isLoggedIn', 'true');
+      console.log('--- SET_USER user.reducer.js ---');
       return action.payload;
     case 'UNSET_USER':
-      sessionStorage.clear();
+      console.log('--- UNSET_USER user.reducer.js ---');
       return {};
     case 'LOGOUT':
-      sessionStorage.setItem('isLoggedIn', 'false');
+      console.log('--- LOGOUT user.reducer.js ---');
       return {};
     default:
       return state;

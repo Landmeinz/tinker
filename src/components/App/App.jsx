@@ -32,49 +32,24 @@ import Communications from "../Communications/Communications";
 import { Box } from "@mui/material";
 
 // --- Sx Styles --- //
-import { theme, transApp, sxApp, sxAppContainer } from "../sxStyles";
+import { 
+  theme, 
+  transApp, 
+  sxApp, 
+  sxAppContainer } from "../sxStyles";
 
 function App() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    checkLoginStatus();
-    dispatch({ type: 'FETCH_CURRENT_DATE' });
-    dispatch({ type: 'FETCH_MESSAGES' });
-    // dispatch({ type: 'FETCH_ALL_USERS' });
-    // getNextMeetingDay(currentDate.current_date)
-  }, [dispatch]);
-
-
-  const currentDate = useSelector((store) => store.currentDate);
   const user = useSelector((store) => store.user);
 
-  function checkLoginStatus() {
-    console.log('--- checkLoginStatus');
-    console.log('--- session storage useEffect App.js:', sessionStorage.getItem('isLoggedIn'));
-
-    if (sessionStorage.getItem('isLoggedIn') == 'true') {
-      console.log('--- storage user true');
-      dispatch({ type: 'FETCH_USER' });
-    }
-    else {
-      console.log('--- storage user false');
-      dispatch({ type: 'LOGOUT' })
-    }
-
-    console.log('--- checkLoginStatus END ---');
-    console.log('--- session storage checkLoginStatus:', sessionStorage.getItem('isLoggedIn'));
-  }
-
-  async function getNextMeetingDay(date = new Date()) {
-    const dateCopy = new Date(date.getTime());
-    const nextMeeting = new Date(
-      dateCopy.setDate(
-        dateCopy.getDate() + ((7 - dateCopy.getDay() + 2) % 7 || 7),
-      ),
-    );
-    return dispatch({ type: 'SET_NEXT_MEETING_DAY', payload: nextMeeting });;
-  }
+  useEffect(() => {
+    dispatch({ type: 'FETCH_USER' });
+    dispatch({ type: 'FETCH_CURRENT_DATE' });
+    dispatch({ type: 'FETCH_MESSAGES' });
+    dispatch({ type: 'SET_NEXT_MEETING_DAY' });
+    // dispatch({ type: 'FETCH_ALL_USERS' });
+  }, [dispatch]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -142,37 +117,37 @@ function App() {
                     element={<ProductDetails />}
                   /> */}
 
-                  {!user.id &&
+                  {!user?.id &&
                     <Route
                       exact
                       path="/login"
                       element={<LoginPage />}
                     />}
-                  {!user.id &&
+                  {!user?.id &&
                     <Route
                       exact
                       path="/register"
                       element={<RegisterPage />}
                     />}
-                  {user.id &&
+                  {user?.id &&
                     <Route
                       exact
                       path="/hub"
                       element={<Hub />}
                     />}
-                  {user.id &&
+                  {user?.id &&
                     <Route
                       exact
                       path="/weekly-form"
                       element={<WeeklyForm />}
                     />}
-                  {user.id &&
+                  {user?.id &&
                     <Route
                       exact
                       path="/weekly-form/results"
                       element={<WeeklyFormResults />}
                     />}
-                  {user.id &&
+                  {user?.id &&
                     <Route
                       exact
                       path="/comms"

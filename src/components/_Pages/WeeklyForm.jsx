@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Helmet } from "react-helmet";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Helmet } from 'react-helmet';
+import { motion } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 // --- Components --- //
 
@@ -21,7 +21,7 @@ import {
   Slider,
 
 
-} from "@mui/material";
+} from '@mui/material';
 
 // --- Sx Styles --- //
 import {
@@ -39,7 +39,7 @@ import {
 
 
   // sxBreaksH5,
-} from "../sxStyles";
+} from '../sxStyles';
 
 function WeeklyForm() {
   const navigate = useNavigate();
@@ -53,18 +53,18 @@ function WeeklyForm() {
   const nextMeetingInDays = nextMeetingInt - currentDate.day;
 
   let weeklyFormTemplate = {
-    name: "",
+    name: '',
     completeGoal: false,
     presentItems: false,
-    items: "",
-    ideas: "",
-    research: "",
-    tasksCompleted: "",
-    blockers: "",
-    learned: "",
-    nextGoals: "",
+    items: '',
+    ideas: '',
+    research: '',
+    tasksCompleted: '',
+    blockers: '',
+    learned: '',
+    nextGoals: '',
     difficultly: 25,
-    date: "NOW()",
+    date: 'NOW()',
   };
 
   const [weeklyForm, setWeeklyForm] = useState(weeklyFormTemplate);
@@ -77,7 +77,7 @@ function WeeklyForm() {
     });
   }; // handleNameChange
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     postWeeklyForm(weeklyForm);
     setWeeklyForm(weeklyFormTemplate);
@@ -85,13 +85,13 @@ function WeeklyForm() {
   }; // handleSubmit
 
   const postWeeklyForm = (weeklyForm) => {
-    dispatch({ type: "POST_WEEKLY_FORM", payload: weeklyForm });
+    dispatch({ type: 'POST_WEEKLY_FORM', payload: weeklyForm });
   }; // postWeeklyForm
 
-  function handleRadioButton(input) {
+  const handleRadioButton = async (input) => {
     setShow(input);
     console.log(input);
-  }; // handleRadioButton
+  }
 
   const marks = [
     {
@@ -102,10 +102,10 @@ function WeeklyForm() {
     },
   ];
 
-  function handleNav(path) {
+  const handleNav = async (path) => {
     navigate(path);
     window.scrollTo(0, 0);
-  } // handleNav
+  }
 
   return (
     <motion.div
@@ -119,9 +119,9 @@ function WeeklyForm() {
       <Box sx={sxWeeklyFormContainer}>
         <Button 
           sx={sxSubmitButton} 
-          type="button" 
-          size="large"
-          onClick={() => handleNav('/weekly-form/results')}
+          type='button' 
+          size='large'
+          onClick={async () => handleNav('/weekly-form/results')}
           >
           See The Results
         </Button>
@@ -131,62 +131,62 @@ function WeeklyForm() {
         <Typography sx={sxWeeklyFormDate} variant='h4'>Next Tinker Session in {nextMeetingInDays} days: {monthDayString}, {currentDate.year}</Typography>
       </Box>
 
-      <form className="formPanel" onSubmit={handleSubmit}>
-        <Box id="sxWeeklyFormContainer" sx={sxWeeklyFormContainer}>
+      <form className='formPanel' onSubmit={async () => handleSubmit()}>
+        <Box id='sxWeeklyFormContainer' sx={sxWeeklyFormContainer}>
           {/* <Typography sx={sxWeeklyFormDate} variant='h4'>{currentDate.current_date?.split('T')[0]}</Typography> */}
           <TextField
             sx={sxInputTextWeekly}
-            id="filled-static"
-            label="What Should We Call You? // Name"
+            id='filled-static'
+            label='What Should We Call You? // Name'
             required
-            variant="filled"
+            variant='filled'
             value={weeklyForm.name}
-            onChange={(event) => handleNameChange(event, "name")}
+            onChange={(event) => handleNameChange(event, 'name')}
           />
 
           <Box sx={sxFormSectionOne}>
             <Box>
-              <FormLabel id="demo-radio-buttons-group-label">Did you complete last week's goal?</FormLabel>
+              <FormLabel id='demo-radio-buttons-group-label'>Did you complete last week's goal?</FormLabel>
               <RadioGroup
-                aria-labelledby="demo-radio-buttons-group-label"
-                // defaultValue="no"
-                name="radio-buttons-group"
+                aria-labelledby='demo-radio-buttons-group-label'
+                // defaultValue='no'
+                name='radio-buttons-group'
               >
                 <FormControlLabel
-                  value="true"
+                  value='true'
                   control={<Radio />}
                   label="Yes, I'm the GOAT!"
-                  onChange={(event) => handleNameChange(event, "completeGoal")}
+                  onChange={(event) => handleNameChange(event, 'completeGoal')}
                 />
                 <FormControlLabel
-                  value="false"
+                  value='false'
                   control={<Radio />}
-                  label="Not yet, still grinding"
-                  onChange={(event) => handleNameChange(event, "completeGoal")}
+                  label='Not yet, still grinding'
+                  onChange={(event) => handleNameChange(event, 'completeGoal')}
                 />
               </RadioGroup>
             </Box>
 
             <Box>
-              <FormLabel id="demo-radio-buttons-group-label">Do you have specific items to share / present / or tinker with? </FormLabel>
+              <FormLabel id='demo-radio-buttons-group-label'>Do you have specific items to share / present / or tinker with? </FormLabel>
               <RadioGroup
-                aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue="female"
-                name="radio-buttons-group"
+                aria-labelledby='demo-radio-buttons-group-label'
+                defaultValue='female'
+                name='radio-buttons-group'
               >
                 <FormControlLabel
-                  onClick={() => handleRadioButton(true)}
-                  value="true"
+                  onClick={async () => handleRadioButton(true)}
+                  value='true'
                   control={<Radio />}
-                  label="Yesser!"
-                  onChange={(event) => handleNameChange(event, "presentItems")}
+                  label='Yesser!'
+                  onChange={(event) => handleNameChange(event, 'presentItems')}
                 />
                 <FormControlLabel
-                  onClick={() => handleRadioButton(false)}
-                  value="false"
+                  onClick={async () => handleRadioButton(false)}
+                  value='false'
                   control={<Radio />}
-                  label="Here for the discussion"
-                  onChange={(event) => handleNameChange(event, "presentItems")}
+                  label='Here for the discussion'
+                  onChange={(event) => handleNameChange(event, 'presentItems')}
                 />
               </RadioGroup>
             </Box>
@@ -203,14 +203,14 @@ function WeeklyForm() {
               >
                 <TextField
                   sx={sxInputTextWeekly}
-                  id="filled-multiline-static"
-                  label="Big ideas, list the items you want to share / present / or tinker with"
+                  id='filled-multiline-static'
+                  label='Big ideas, list the items you want to share / present / or tinker with'
                   multiline
                   required
                   rows={4}
-                  variant="filled"
+                  variant='filled'
                   value={weeklyForm.items}
-                  onChange={(event) => handleNameChange(event, "items")}
+                  onChange={(event) => handleNameChange(event, 'items')}
                 />
               </motion.div>
             </Box>
@@ -219,84 +219,84 @@ function WeeklyForm() {
 
           <TextField
             sx={sxInputTextWeekly}
-            id="filled-multiline-static"
-            label="Have any wild ideas this week?"
+            id='filled-multiline-static'
+            label='Have any wild ideas this week?'
             multiline
             rows={4}
-            variant="filled"
+            variant='filled'
             value={weeklyForm.ideas}
-            onChange={(event) => handleNameChange(event, "ideas")}
+            onChange={(event) => handleNameChange(event, 'ideas')}
           />
 
           <TextField
             sx={sxInputTextWeekly}
-            id="filled-multiline-static"
-            label="Did you do any research this week? // What did you discover or uncover?"
+            id='filled-multiline-static'
+            label='Did you do any research this week? // What did you discover or uncover?'
             multiline
             rows={4}
-            variant="filled"
+            variant='filled'
             value={weeklyForm.research}
-            onChange={(event) => handleNameChange(event, "research")}
+            onChange={(event) => handleNameChange(event, 'research')}
           />
 
           <TextField
             sx={sxInputTextWeekly}
-            id="filled-multiline-static"
-            label="List any noteworthy tasks completed in the past week."
+            id='filled-multiline-static'
+            label='List any noteworthy tasks completed in the past week.'
             multiline
             required
             rows={4}
-            variant="filled"
+            variant='filled'
             value={weeklyForm.tasksCompleted}
-            onChange={(event) => handleNameChange(event, "tasksCompleted")}
+            onChange={(event) => handleNameChange(event, 'tasksCompleted')}
           />
 
           <TextField
             sx={sxInputTextWeekly}
-            id="filled-multiline-static"
+            id='filled-multiline-static'
             label="What's still puzzling you? // Any blockers in the way?"
             multiline
             rows={4}
-            variant="filled"
+            variant='filled'
             value={weeklyForm.blockers}
-            onChange={(event) => handleNameChange(event, "blockers")}
+            onChange={(event) => handleNameChange(event, 'blockers')}
           />
 
           <TextField
             sx={sxInputTextWeekly}
-            id="filled-multiline-static"
-            label="Most interesting thing you learned this past week."
+            id='filled-multiline-static'
+            label='Most interesting thing you learned this past week.'
             multiline
             rows={4}
-            variant="filled"
+            variant='filled'
             value={weeklyForm.learned}
-            onChange={(event) => handleNameChange(event, "learned")}
+            onChange={(event) => handleNameChange(event, 'learned')}
           />
 
           <TextField
             sx={sxInputTextWeekly}
-            id="filled-multiline-static"
+            id='filled-multiline-static'
             label="List any items or goals you're working towards for next week."
             multiline
             required
             rows={4}
-            variant="filled"
+            variant='filled'
             value={weeklyForm.nextGoals}
-            onChange={(event) => handleNameChange(event, "nextGoals")}
+            onChange={(event) => handleNameChange(event, 'nextGoals')}
           />
 
           <Box sx={sxWeeklySliderContent}>
-            <FormLabel id="slider">Difficultly & Complexity // Rank Your Goals For Next Week</FormLabel>
+            <FormLabel id='slider'>Difficultly & Complexity // Rank Your Goals For Next Week</FormLabel>
             <Box>
               <Slider
                 sx={sxWeeklySlider}
-                aria-label="Custom marks"
+                aria-label='Custom marks'
                 defaultValue={25}
                 step={1}
-                valueLabelDisplay="auto"
+                valueLabelDisplay='auto'
                 marks={marks}
                 value={weeklyForm.difficultly}
-                onChange={(event) => handleNameChange(event, "difficultly")}
+                onChange={(event) => handleNameChange(event, 'difficultly')}
               />
               <Box sx={sxSliderTextContent}>
                 <Typography sx={sxSliderText} variant='body1'>Simple</Typography>
@@ -305,7 +305,7 @@ function WeeklyForm() {
             </Box>
           </Box>
 
-          <Button sx={sxSubmitButton} type="submit" size="large">
+          <Button sx={sxSubmitButton} type='submit' size='large'>
             Submit
           </Button>
 
