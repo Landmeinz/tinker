@@ -19,6 +19,7 @@ function* loginUser(action) {
     // allow the server session to recognize the user
     console.log('--- login.saga.js payload', action.payload);
     
+    console.log('--- login.saga.js ATTEMPT post /api/user/login ---');
     yield axios.post('/api/user/login', action.payload, config);
     console.log('--- post /api/user/login ---');
 

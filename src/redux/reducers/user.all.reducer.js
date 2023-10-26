@@ -8,6 +8,8 @@ const allUsersReducer = (state = {}, action) => {
     //   return {};
     // override case // logs out individual user also
     case 'LOGOUT':
+      console.log('--- logout user.all.reducer.js ---');
+      
       return {};
     default:
       return state;

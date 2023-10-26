@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from 'react-router-dom';
 
 // --- MUI --- //
 import {
@@ -14,7 +14,7 @@ import {
   InputLabel,
   FormControl,
 
-} from "@mui/material";
+} from '@mui/material';
 
 // --- Sx Styles --- //
 import {
@@ -27,76 +27,44 @@ import {
   sxUserNameContent,
 
   // sxBreaksH5,
-} from "../sxStyles";
+} from '../sxStyles';
 
 function LoginForm() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector(store => store.errors);
-  const user = useSelector((store) => store.user);
+  // const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // const history = useHistory();
-
-  useEffect(() => {
-    checkLoginStatus();
-  }, [dispatch]);
-
-  function checkLoginStatus() {
-    console.log('--- checkLoginStatus');
-    console.log('--- session storage useEffect App.js:', sessionStorage.getItem('isLoggedIn'));
-
-    if (sessionStorage.getItem('isLoggedIn') == 'true') {
-      console.log('--- storage user true');
-      dispatch({ type: 'FETCH_USER' });
-    }
-    else {
-      console.log('--- storage user false');
-      dispatch({ type: 'LOGOUT' })
-    }
-
-    console.log('--- checkLoginStatus END ---');
-    console.log('--- session storage checkLoginStatus:', sessionStorage.getItem('isLoggedIn'));
-  }
-
 
   const login = async (event) => {
     event.preventDefault();
     console.log('--- hit login button ---');
 
-    if (!username || !password) {
+    if (!email || !password) {
       return dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
 
     dispatch({
       type: 'LOGIN',
       payload: {
-        username: username,
+        email: email,
         password: password,
       }
     })
 
-    setUsername('');
+    setEmail('');
     setPassword('');
 
-    // hack; need this so nav doesnt fire first //
-    // await wait(1000);
-
-    await wait(100);
-    navigate('/hub');
-    await wait(100);
-    navigate('/hub');
-    await wait(100);
-    navigate('/hub');
     window.scrollTo(0, 0);
-
   }; // LoginForm
 
-  const wait = (ms) => {
-    return new Promise(resolve => {
-      setTimeout(resolve, ms);
-    });
-  };
+  // const wait = (ms) => {
+  //   return new Promise(resolve => {
+  //     setTimeout(resolve, ms);
+  //   });
+  // };
 
   return (
     <form required onSubmit={login}>
@@ -105,7 +73,7 @@ function LoginForm() {
           {/* <Typography sx={{ mb: 3, textAlign: 'center', }} variant='h4'>Login</Typography> */}
 
           {errors.loginMessage && (
-            <h3 className="alert" role="alert">
+            <h3 className='alert' role='alert'>
               {errors.loginMessage}
             </h3>
           )}
@@ -113,22 +81,22 @@ function LoginForm() {
           <Box sx={sxUserNameContent}>
             <Typography sx={sxLoginHeader} variant='h5'>Tinker Email</Typography>
             <TextField sx={sxLoginInput}
-              type="email"
-              id="loginEmail"
+              type='email'
+              id='loginEmail'
               required
-              autoComplete="new-password"
-              value={username}
-              onChange={(event) => setUsername(event.target.value)}
+              autoComplete='new-password'
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
             />
           </Box>
 
           <Box sx={sxUserNameContent}>
             <Typography sx={sxLoginHeader} variant='h5'>Password</Typography>
             <TextField sx={sxLoginInput}
-              type="password"
-              id="loginPassword"
+              type='password'
+              id='loginPassword'
               required
-              autoComplete="new-password"
+              autoComplete='new-password'
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
@@ -136,7 +104,7 @@ function LoginForm() {
 
         </Box>
 
-        <Button sx={sxLoginButton} type="submit" size="large" variant="contained">Login</Button>
+        <Button sx={sxLoginButton} type='submit' size='large' variant='contained'>Login</Button>
       </Box>
 
     </form>

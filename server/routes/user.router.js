@@ -3,7 +3,6 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 const encryptLib = require('../modules/encryption');
 const pool = require('../modules/pool');
 const userStrategy = require('../strategies/user.strategy');
-
 const router = express.Router();
 
 // Handles Ajax request for user information if user is authenticated
@@ -72,44 +71,17 @@ router.post('/register', (req, res) => {
 });
 
 
-
-router.post('/login', userStrategy.authenticate('local', { failureRedirect: '/login' }), (req, res) => {
-  // This callback function will only be called if authentication succeeds
-  res.status(200).send('You have successfully logged in!');
+router.post('/login', userStrategy.authenticate('local'), (req, res) => {
+  console.log('--- LOGIN user.router ---');
+  res.send("Login Successful");
 });
 
-
-// Handles login form authenticate/login POST
-// userStrategy.authenticate('local') is middleware that we run on this route
-// this middleware will run our POST if successful
-// this middleware will send a 404 if not successful
-// router.post('/login', userStrategy.authenticate('local'), (req, res) => {
-//   console.log('--- hit /login in user.route.js ---');
-//   res.render('login');
-//   res.sendStatus(200);
-//   successRedirect: '/';
-//   failureRedirect: '/login';
-//   console.log('--- END /login ---');
-// });
-  // console.log('--- req:', req);
-  // res.render('login');
-  // res.json({
-  //   message: err.message,
-  //   error: err
-  // });
-
-
-
-// clear all server session information about this user
-// router.post('/logout', (req, res) => {
-//   console.log('--- hit /logout in user.router.js ---');
-//   // Use passport's built-in method to log out the user
-//   // req._destroy();
-//   // req.destroy();
-//   // req.logOut();
-//   req.session = null;
-//   req.logout();
-//   res.sendStatus(200);
-// });
+router.post('/logout', (req, res) => {
+  console.log('--- LOGOUT user.router ---');
+  req.logout();
+  req.session === null;
+  // res.clearCookie('connect.sid');
+  res.send("Logout Successful");
+});
 
 module.exports = router;
