@@ -17,7 +17,7 @@ function Footer() {
           content="Tinker Group 2022 located in Minneapolis, Minnesota MPLS, MN"
         />
       </Helmet>
-      <Typography variant="body2">Tinker Often {currentYear}</Typography>
+      <Typography variant="body2">Tinker Often, Tinker More {currentYear}</Typography>
     </Box>
   );
 }
