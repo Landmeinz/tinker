@@ -39,6 +39,7 @@ import {
   sxAppContainer } from "../sxStyles";
 
 function App() {
+  
   const dispatch = useDispatch();
 
   const user = useSelector((store) => store.user);
